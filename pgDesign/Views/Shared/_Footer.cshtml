@@ -1,0 +1,57 @@
+﻿<!--- Partial View for footer -->
+
+<footer id="main-footer" class="fixed-bottom">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-4 text-center">
+                <h4>Kontaktuppgifter</h4>
+                <hr />
+                <ul>
+                    <li>Besöksadress <br>123455, Sverige</li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h4>Rubrik</h4>
+                <hr />
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="list-unstyled">
+                            <li>
+                                @Html.ActionLink("Hitta hit", @*"FindUs", "Home",*@ null, new { @class = "nav-link", title = "Hitta hit" })
+                            </li>
+                            <li>
+                                @Html.ActionLink("Öppettider och priser", @*"Prices", "Home",*@ null, new { @class = "nav-link", title = "Öppettider och priser" })
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="list-unstyled">
+                            <li>
+                                @Html.ActionLink("Om oss", @*"About", "Home",*@ null, new { @class = "nav-link", title = "Om oss" })
+                            </li>
+                            <li>
+                                <a class="nav-link" title="asdf" target="_blank" href="http://www.facebook.com">Länk</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-md-4 social-media-links text-center text-white">
+                <h4>Följ oss</h4>
+                <hr />
+                <a id="facebook" href="https://www.facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook-square fa-2x" aria-hidden="true"></i></a>
+                <a id="instagram" href="https://www.instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram fa-2x" aria-hidden="true"></i></a>
+                <a id="twitter" href="https://twitter.com/" target="_blank" title="Twitter"><i class="fab fa-twitter-square fa-2x" aria-hidden="true"></i></a>
+            </div>
+
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <p>©@DateTime.Now.Year - PG Design</p>
+        </div>
+    </div>
+</footer>
+
