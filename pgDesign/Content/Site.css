@@ -1,15 +1,27 @@
 ﻿body
 {
-    padding-top: 50px;
+    padding-top: 200px;
     padding-bottom: 20px;
     background-color: #ffffff ;
 }
 /*Navbar*/
 .navbar 
 {
-    margin-top: 2%;
-    margin-bottom: 4%;
+    margin-top: 1%;
+    height: 10%;
+    
 }
+.navbar-nav {
+    width: 100%;
+
+   font-size: 24px;
+   
+    
+    
+}
+  
+
+
 footer 
 {
     background: #0e0e0e;
