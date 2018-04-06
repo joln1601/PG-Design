@@ -5,16 +5,27 @@
 /*Navbar*/
 .navbar {
     background-image: linear-gradient(139deg, #000 30%, #db0a18 115%);
-    height: 10%;
-    text-align: center;
+    padding: 1.2em 2em;
+    opacity: 0.95;
 }
-.navbar-expand{
-}
+
 .navbar-nav {
     font-size: 24px;
-    text-align: center;
+   margin-right: 70px;
+   
   
 }
+.navbar-brand {
+    border-right: 1px solid #FFF;
+    padding-right: 25px;
+    border-radius: 5px;
+}
+.nav-item {
+    padding-right: 2em;
+}
+
+    
+
 
 footer {
     background: #0e0e0e;

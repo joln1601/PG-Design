@@ -4199,6 +4199,7 @@ tbody.collapse.show {
 
     .navbar-brand:hover, .navbar-brand:focus {
         text-decoration: none;
+      
     }
 
 .navbar-nav {
@@ -4646,6 +4647,7 @@ tbody.collapse.show {
 
     .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus {
         color: #fff;
+        
     }
 
     .navbar-dark .navbar-nav .nav-link.disabled {
@@ -4657,6 +4659,7 @@ tbody.collapse.show {
     .navbar-dark .navbar-nav .nav-link.show,
     .navbar-dark .navbar-nav .nav-link.active {
         color: #fff;
+        text-decoration: underline;
     }
 
 .navbar-dark .navbar-toggler {
