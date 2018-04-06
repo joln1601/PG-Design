@@ -1,33 +1,27 @@
-﻿body
-{
-    padding-top: 200px;
-    padding-bottom: 20px;
-    background-color: #ffffff ;
+﻿body {
+    padding-top: 150px;
+    background-color: #f2f2f2;
 }
 /*Navbar*/
-.navbar 
-{
-    margin-top: 1%;
+.navbar {
+    background-image: linear-gradient(139deg, #000 30%, #db0a18 115%);
     height: 10%;
-    
+    text-align: center;
+}
+.navbar-expand{
 }
 .navbar-nav {
-    width: 100%;
-
-   font-size: 24px;
-   
-    
-    
-}
+    font-size: 24px;
+    text-align: center;
   
+}
 
-
-footer 
-{
+footer {
     background: #0e0e0e;
     padding-top: 30px;
     color: #FFF;
     margin-top: 100px;
+    margin-bottom: 0px;
 }
 footer h4, footer .fab, footer a 
 {
@@ -48,4 +42,10 @@ footer a:hover
 {
     color: rgb(19,180,224);
     color: rgba(19,180,224,1);
+}
+#content {
+    background-color: #FFF;
+}
+#Copyright-Text{
+    margin-bottom: 0px !important;
 }
