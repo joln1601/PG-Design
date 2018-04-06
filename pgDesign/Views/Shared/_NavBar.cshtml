@@ -1,24 +1,36 @@
-﻿<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top col-md-8 col-md-offset-5 container-fluid" >
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+﻿
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top col-lg-8 col-md-offset-5 container-fluid">
+    <a class="navbar-brand" href="#">PG Design</a>
+    
 
     <div class="collapse navbar-collapse" id="navbarColor01">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+       
+           
+
+        <ul class="navbar-nav">
+            <li class="nav-item mx-auto">
+                <a class="nav-link" href="@Url.Action("Index", "Home")">Home </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
+            <li class="nav-item mx-auto">
+                <a title="Mina tidigare jobb" class="nav-link" href="@Url.Action("Index", "Gallery")">Galleri</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item mx-auto">
                 <a class="nav-link" href="#">Pricing</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item mx-auto">
                 <a class="nav-link" href="#">About</a>
             </li>
         </ul>
-       
+            
+     
+
     </div>
 </nav>
+<!-- Script to change active status for navbar items -->
+<script>
+    $(document).ready(function () {
+        $('.nav-link li.active').removeClass('active');
+        $('a[href="' + location.pathname + '"]').closest('.nav-item').addClass('active');
+    });
+</script>
