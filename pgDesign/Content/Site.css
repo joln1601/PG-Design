@@ -46,8 +46,6 @@
     width: 50px;
 }
 
-
-
 footer {
     background: #2a2a2a;
     padding-top: 30px;
@@ -76,6 +74,9 @@ footer a:hover
     color: rgb(19,180,224);
     color: rgba(19,180,224,1);
 }
+footer p{
+    font-size: 17px;
+}
 #content {
     background-color: #FFF;
 }
@@ -87,12 +88,16 @@ footer a:hover
     margin-bottom: -500px;
     margin-top: -500px;
     padding-top: 100px;
-   
-    
+}
+@media(min-width: 1905px){
+#carouselExampleIndicators img{
+    width: 100%;
 }
 
-
-
-footer p{
-    font-size: 17px;
+    
+.carousel-item {
+        margin-bottom: -700px;
+        margin-top: -700px;
+        padding-top: 100px;
+        }
 }
