@@ -4223,6 +4223,7 @@ tbody.collapse.show {
     .navbar-nav .dropdown-menu {
         position: static;
         float: none;
+        
     }
 
 .navbar-text {
@@ -4240,6 +4241,7 @@ tbody.collapse.show {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
+    
 }
 
 .navbar-toggler {

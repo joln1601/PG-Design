@@ -1,9 +1,14 @@
-﻿<!DOCTYPE html>
+﻿@* Layout for index page *@
+@{
+    ViewBag.Title = "_IndexLayout";
+}
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
+ 
 
     <title>@ViewBag.Title</title>
     <!--Script Bundles-->
@@ -18,6 +23,7 @@
 </head>
 <body>
     @Html.Partial("_NavBar")
+    @Html.Partial("_Carousel")
     <div id="content" class="container body-content">
         @RenderBody()
     </div>
