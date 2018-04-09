@@ -41,10 +41,11 @@ footer h4, footer .fab, footer a
 
 footer ul 
 {
-    padding: 0;
+    padding-left: 0px;
+    text-align: left;
 }
 
-footer a 
+footer a
 {
     font-size: 17px;
 }
@@ -59,4 +60,7 @@ footer a:hover
 }
 #Copyright-Text{
     margin-bottom: 0px !important;
+}
+footer p{
+    font-size: 17px;
 }
