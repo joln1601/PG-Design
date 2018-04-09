@@ -5,13 +5,16 @@
 /*Navbar*/
 .navbar {
     background-image: linear-gradient(139deg, #000 30%, #db0a18 115%);
-    padding: 1.2em 2em;
+ 
+    
+    padding: 1.0em 2em;
     opacity: 0.95;
 }
 
 .navbar-nav {
-    font-size: 24px;
+    font-size: 16px;
    margin-right: 70px;
+   
    
   
 }
@@ -23,7 +26,10 @@
 .nav-item {
     padding-right: 2em;
 }
-
+#Homecar {
+    height: 30px;
+    width: 50px;
+}
     
 
 
