@@ -34,11 +34,11 @@
     height: 30px;
     width: 50px;
 }
-    
+
 
 
 footer {
-    background: #0e0e0e;
+    background: #2a2a2a;
     padding-top: 30px;
     color: #FFF;
     margin-top: 100px;
@@ -51,10 +51,11 @@ footer h4, footer .fab, footer a
 
 footer ul 
 {
-    padding: 0;
+    padding-left: 0px;
+    text-align: left;
 }
 
-footer a 
+footer a
 {
     font-size: 17px;
 }
@@ -80,3 +81,7 @@ footer a:hover
 }
 
 
+}
+footer p{
+    font-size: 17px;
+}
