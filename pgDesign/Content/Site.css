@@ -26,6 +26,10 @@
 .nav-item {
     padding-right: 2em;
 }
+.jumbotron {
+    background-color: #F4F4F4; 
+    box-shadow: 0 0 0.5rem rgba(83,78,76,.6)
+}
 #Homecar {
     height: 30px;
     width: 50px;
@@ -66,3 +70,13 @@ footer a:hover
 #Copyright-Text{
     margin-bottom: 0px !important;
 }
+
+#containercarousel {
+    
+    width: 100% !important;
+    left: 0;
+    height: 10px;
+    
+}
+
+
