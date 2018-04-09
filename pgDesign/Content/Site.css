@@ -1,6 +1,6 @@
 ﻿body {
     padding-top: 65.75px;
-    background-color: #f2f2f2;
+    background-color: #FFF;
 }
 /*Navbar*/
 .navbar {
@@ -39,7 +39,9 @@
 }
 .jumbotron {
     background-color: #F4F4F4; 
-    box-shadow: 0 0 0.5rem rgba(83,78,76,.6)
+    box-shadow: 0 0 0.5rem rgba(83,78,76,.6);
+    margin-top: 2%;
+    
 }
 #Homecar {
     height: 30px;
@@ -50,7 +52,6 @@ footer {
     background: #2a2a2a;
     padding-top: 30px;
     color: #FFF;
-    margin-top: 100px;
     margin-bottom: 0px;
 }
 footer h4, footer .fab, footer a 
@@ -83,7 +84,9 @@ footer p{
 #Copyright-Text{
     margin-bottom: 0px !important;
 }
-
+.cars{
+    margin-right: 140px;
+}
 .carousel-item {
     margin-bottom: -500px;
     margin-top: -500px;

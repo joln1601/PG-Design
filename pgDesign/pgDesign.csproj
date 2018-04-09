@@ -211,9 +211,14 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\BlackCar.png" />
+    <Content Include="Images\Buss.png" />
     <Content Include="Images\car.png" />
     <Content Include="Images\landscape.jpg" />
     <Content Include="Images\facobookLogo.png.png" />
+    <Content Include="Images\redCar.png" />
+    <Content Include="Images\Tractor.png" />
+    <Content Include="Images\truck.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
