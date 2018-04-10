@@ -87,20 +87,23 @@ footer p{
 .cars{
     margin-right: 140px;
 }
-.carousel-item {
-    margin-bottom: -500px;
-    margin-top: -500px;
+/* koden under kan ta bort slidern för mindre skärmar*/
+.carousel-item {        
+    margin-bottom: -400px;
+    margin-top: -400px;
     padding-top: 100px;
+    height: 1800px;
 }
-@media(min-width: 1905px){
+@media(min-width: 1921px){
 #carouselExampleIndicators img{
     width: 100%;
+ 
 }
 
     
 .carousel-item {
-        margin-bottom: -700px;
-        margin-top: -700px;
+        margin-bottom: -600px;
+        margin-top: -600px;
         padding-top: 100px;
         }
 }
