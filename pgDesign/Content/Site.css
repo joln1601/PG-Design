@@ -18,14 +18,11 @@
    
   
 }
-.navbar-brand {
-    border-right: 1px solid #FFF;
-    padding-right: 25px;
-    border-radius: 5px;
-}
+
 .nav-item {
     padding-right: 2em;
 }
+
 
 @media(max-width: 992px) {
 

@@ -217,12 +217,12 @@
     <Content Include="Images\CarsOnRow.png" />
     <Content Include="Images\landscape.jpg" />
     <Content Include="Images\facobookLogo.png.png" />
+    <Content Include="Images\PgDesign\pgDesignLoggo.png" />
     <Content Include="Images\PgDesign\DSC_0052.jpg" />
     <Content Include="Images\PgDesign\DSC_0061.jpg" />
     <Content Include="Images\PgDesign\DSC_0116.jpg" />
     <Content Include="Images\PgDesign\Första sida tidningen.jpg" />
     <Content Include="Images\PgDesign\MindreRödlastbil.jpg" />
-    <Content Include="Images\PgDesign\PGD Loggo jpg.jpg" />
     <Content Include="Images\PgDesign\Sidan 8 tidningen.jpg" />
     <Content Include="Images\PgDesign\ute 3 %28kopia%29.jpg" />
     <Content Include="Images\redCar.png" />
