@@ -1,12 +1,11 @@
 ﻿body {
-    padding-top: 65.75px;
+    padding-top: 66.95px;
     background-color: #FFF;
 }
 /*Navbar*/
 .navbar {
     background-image: linear-gradient(139deg, #000 30%, #db0a18 115%);
- height: 65.75px;
-    
+    height: 66.95px;
     padding: 1.0em 2em;
     opacity: 0.95;
 }
@@ -18,21 +17,36 @@
    
   
 }
-
+.navbar-brand {
+    padding-right: 25px;
+    border-radius: 5px;
+}
 .nav-item {
     padding-right: 2em;
 }
 
+#Loggo {
+    margin-top: -17.6px;
+    margin-bottom: -17.5px;
+}
 
+/*För mobila enheter*/
 @media(max-width: 992px) {
 
     .navbar {
-        height: 69px;
+        height: 66.95px;
     }
     .navbar-expand-lg {
         height: auto;
+        
     }
-
+    .navbar-collapse{
+        padding-top: 15px;
+    }
+    .nav-link{
+        padding-right: 0px;
+        width: 70px;
+    }
 }
 .jumbotron {
     background-color: #F4F4F4; 
@@ -45,6 +59,7 @@
     width: 50px;
 }
 
+/*Footer*/
 footer {
     background: #2a2a2a;
     padding-top: 30px;
@@ -84,8 +99,7 @@ footer p{
 .cars{
     margin-right: 140px;
 }
-/* koden under kan ta bort slidern för mindre skärmar*/
-.carousel-item {        
+/*.carousel-item {        
     margin-bottom: -400px;
     margin-top: -400px;
     padding-top: 100px;
@@ -103,7 +117,7 @@ footer p{
         margin-top: -600px;
         padding-top: 100px;
         }
-}
+}*/
 .polaroid-images a {
     background-color: #FFF;
     display: inline;
