@@ -92,16 +92,16 @@ footer p{
     margin-bottom: -400px;
     margin-top: -400px;
     padding-top: 100px;
-    height: 1800px;
+    height: 1200px;
 }
 @media(min-width: 1921px){
-#carouselExampleIndicators img{
-    width: 100%;
- 
-}
+    #carouselExampleIndicators img {
+        width: 100%;
+    }
 
     
 .carousel-item {
+        height: 1800px;
         margin-bottom: -600px;
         margin-top: -600px;
         padding-top: 100px;
