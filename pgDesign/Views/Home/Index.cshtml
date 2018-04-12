@@ -4,22 +4,22 @@
 }
 
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 
 <div class="polaroid-images row">
     <a href="">
-            <img class="first_div" height="200" src="~/Images/PgDesign/ute 3 (kopia).jpg" alt="Cave" title="Cave" />
-            <p class="second_div">Lorem ipsum dolor sit amet, consectetur adipiscing elit.consectetur adipiscing elit.Lorem ipsum dolor sit ametconsectetur adipiscing elit.Lorem ipsum dolor sit amet</p>
+            <img id="first_div" height="200" src="~/Images/PgDesign/ute 3 (kopia).jpg" alt="Cave" title="Cave" />
+            <p id="second_div" >Lorem ipsum dolor sit amet, consectetur adipiscing elit.consectetur adipiscing elit.Lorem ipsum dolor sit ametconsectetur adipiscing elit.Lorem ipsum dolor sit amet</p>
     </a>
     <a href="">
-        <img class="first_divv" height="200" src="~/Images/PgDesign/Första sida tidningen.jpg" alt="Islands Forest" title="asdf" />
-        <p class="second_divv">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <img id="first_div2" height="200" src="~/Images/PgDesign/Första sida tidningen.jpg" alt="Islands Forest" title="asdf" />
+        <p id="second_div2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </a>
 
     <a href="">
-    <img class="first_div" height="200" src="~/Images/PgDesign/DSC_0061.jpg" alt="Islands Forest" title="asdf" />
-    <p class="second_div">Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p></a>
+    <img id="first_div3" height="200" src="~/Images/PgDesign/DSC_0061.jpg" alt="Islands Forest" title="asdf" />
+    <p id="second_div3">Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p></a>
 </div>
 
 
@@ -36,23 +36,25 @@
     </div>
 </div>
 
+
 <script>
-    $(document).ready(function asdf () {
-        $(".second_div").css({
-            'width': ($(".first_div").width())
+    $(document).ready(function() {
+        $("#second_div").css({
+            'width': ($("#first_div").width())
+        });
+        $("#second_div2").css({
+            'width': ($("#first_div2").width())
+        });
+        $("#second_div3").css({
+            'width': ($("#first_div3").width())
         });
     });
-</script>
-<script>
-    $(document).ready(function asdf() {
-        $(".second_divv").css({
-            'width': ($(".first_divv").width())
-        });
-    });
+
 </script>
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
 
 
 
