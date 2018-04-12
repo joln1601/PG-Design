@@ -1,9 +1,9 @@
 ﻿body {
     padding-top: 66.95px;
     /*background-color: #FFF;*/
-    background-image: url(../Images/garage.jpg);
+    background-image: url(../Images/texture-wood-7280.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100% 100%;
 }
 /*Navbar*/
 .navbar {
@@ -51,12 +51,14 @@
         width: 70px;
     }
 }
-.jumbotron {
-    background-color: #000; 
-    box-shadow: 0 0 0.5rem rgba(83,78,76,.6);
+
+#content {
+    padding: 2% 2% 2% 2%;
     margin-top: 2%;
-  
-    
+    margin-bottom: 2%;
+    box-shadow: 0 0 0.5rem rgba(83,78,76,.6);
+    background: rgb(244, 244, 244);
+    background: rgba(244, 244, 244, 0.9);
 }
 #Homecar {
     height: 30px;
@@ -65,7 +67,7 @@
 
 /*Footer*/
 footer {
-    background: #000;
+    background: #2a2a2a;
     padding-top: 30px;
     color: #FFF;
     margin-bottom: 0px;
@@ -94,39 +96,23 @@ footer a:hover
 footer p{
     font-size: 17px;
 }
-#content {
-    background-color: #FFF;
-}
 #Copyright-Text{
     margin-bottom: 0px !important;
 }
 .cars{
     margin-right: 140px;
 }
-/*.carousel-item {        
-    margin-bottom: -400px;
-    margin-top: -400px;
-    padding-top: 100px;
-    height: 1200px;
-}
-@media(min-width: 1921px){
-    #carouselExampleIndicators img {
-        width: 100%;
-    }
 
-    
-.carousel-item {
-        height: 1800px;
-        margin-bottom: -600px;
-        margin-top: -600px;
-        padding-top: 100px;
-        }
-}*/
+/* Images on front page*/
+.polaroid-images{
+    padding-left: 2%;
+}
+
 .polaroid-images a {
     background-color: #FFF;
     display: inline;
     float: left;
-    margin: 0px 30px 30px;
+    margin: 0px 30px 30px 30px;
     padding: 10px 10px 25px;
     text-align: center;
     text-decoration: none;
@@ -139,6 +125,7 @@ footer p{
     z-index: 0;
     position: relative;
 }
+
     .polaroid-images a:after {
         color: #333;
         font-size: 20px;
@@ -169,4 +156,28 @@ footer p{
         -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, .7);
         -moz-box-shadow: 0 10px 20px rgba(0,0,0,.7);
         box-shadow: 0 10px 20px rgba(0,0,0,.7);
+    }
+    .polaroid-images p {
+        margin-bottom: 0px;
+    }
+.preview {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    float: left;
+    margin-right: 30px;
+    margin-bottom: 30px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+}
+
+    .preview img {
+        display: block;
+    }
+
+    .preview p {
+        margin: 0;
+        padding: 15px 5px;
+        color: #333;
+        width: 100%;
     }

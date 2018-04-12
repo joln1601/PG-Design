@@ -226,6 +226,7 @@
     <Content Include="Images\PgDesign\Sidan 8 tidningen.jpg" />
     <Content Include="Images\PgDesign\ute 3 %28kopia%29.jpg" />
     <Content Include="Images\redCar.png" />
+    <Content Include="Images\texture-wood-7280.jpg" />
     <Content Include="Images\Tractor.png" />
     <Content Include="Images\truck.png" />
     <Content Include="Scripts\bootstrap.js" />
