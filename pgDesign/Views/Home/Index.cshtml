@@ -5,12 +5,13 @@
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <div class="polaroid-images row">
     <a href="">
-            <img id="first_div" height="200" src="~/Images/PgDesign/ute 3 (kopia).jpg" alt="Cave" title="Cave" />
-            <p id="second_div" >Lorem ipsum dolor sit amet, consectetur adipiscing elit.consectetur adipiscing elit.Lorem ipsum dolor sit ametconsectetur adipiscing elit.Lorem ipsum dolor sit amet</p>
+        <img id="first_div" data-toggle="modal" data-target="#myModal" height="200" src="~/Images/PgDesign/ute 3 (kopia).jpg" alt="Cave" title="Cave" />
+        <p id="second_div">Lorem ipsum dolor sit amet, consectetur adipiscing elit.consectetur adipiscing elit.Lorem ipsum dolor sit ametconsectetur adipiscing elit.Lorem ipsum dolor sit amet</p>
     </a>
     <a href="">
         <img id="first_div2" height="200" src="~/Images/PgDesign/Första sida tidningen.jpg" alt="Islands Forest" title="asdf" />
@@ -18,8 +19,26 @@
     </a>
 
     <a href="">
-    <img id="first_div3" height="200" src="~/Images/PgDesign/DSC_0061.jpg" alt="Islands Forest" title="asdf" />
-    <p id="second_div3">Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p></a>
+        <img id="first_div3" height="200" src="~/Images/PgDesign/DSC_0061.jpg" alt="Islands Forest" title="asdf" />
+        <p id="second_div3">Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </a>
+</div>
+
+<h2>Modal Example</h2>
+<!-- Trigger the modal with a button -->
+
+<!-- Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+          <img class="img-responsive w-100 h-100" src="~/Images/PgDesign/ute 3 (kopia).jpg" alt="Cave"/>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 
@@ -37,8 +56,10 @@
 </div>
 
 
+
+
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         $("#second_div").css({
             'width': ($("#first_div").width())
         });
@@ -49,12 +70,4 @@
             'width': ($("#first_div3").width())
         });
     });
-
 </script>
-
-
-
-
-
-
-
