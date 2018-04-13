@@ -4,6 +4,7 @@
     background-image: url(../Images/backg2.jpg);
     background-repeat: no-repeat;
     background-size: 100% 100%;
+    color: #000;
 }
 /*Navbar*/
 .navbar {
@@ -14,8 +15,8 @@
 }
 
 .navbar-nav {
-    font-size: 16px;
-   margin-right: 70px;
+    font-size: 18px;
+   margin-right: 90px;
    
    
   
@@ -26,6 +27,9 @@
 }
 .nav-item {
     padding-right: 2em;
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: #cecece
 }
 
 #Loggo {
@@ -134,21 +138,21 @@ footer p{
         top: 15px;
     }
     .polaroid-images a:nth-child(2n) {
-        -webkit-transform: rotate(0deg);
+        /*-webkit-transform: rotate(0deg);
         -moz-transform: rotate(0deg);
-        transform: rotate(0deg);
+        transform: rotate(0deg);*/
     }
 
     .polaroid-images a:nth-child(3n) {
-        -webkit-transform: rotate(0deg);
+        /*-webkit-transform: rotate(0deg);
         -moz-transform: rotate(0deg);
-        transform: rotate(0deg);
+        transform: rotate(0deg);*/
     }
 
     .polaroid-images a:hover {
-        -webkit-transform: rotate(0deg);
+        /*-webkit-transform: rotate(0deg);
         -moz-transform: rotate(0deg);
-        transform: rotate(0deg);
+        transform: rotate(0deg);*/
         -webkit-transform: scale(1.1);
         -moz-transform: scale(1.1);
         transform: scale(1.1);
@@ -183,3 +187,7 @@ footer p{
         color: #333;
         width: 100%;
     }
+hr {
+    border-color: inherit
+}
+
