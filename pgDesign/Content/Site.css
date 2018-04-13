@@ -1,9 +1,9 @@
 ﻿body {
     padding-top: 66.95px;
     /*background-color: #FFF;*/
-    background-image: url(../Images/backg2.jpg);
+    background-image: url(../Images/PgDesign/pgGarage.jpg);
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: cover;
     color: #000;
 }
 /*Navbar*/
@@ -15,7 +15,7 @@
 }
 
 .navbar-nav {
-    font-size: 18px;
+   font-size: 18px;
    margin-right: 90px;
    
    
@@ -62,7 +62,7 @@
     margin-bottom: 2%;
     box-shadow: 0 0 0.5rem rgba(83,78,76,.6);
     background: rgb(244, 244, 244);
-    background: rgba(244, 244, 244, 0.9);
+    background: rgba(244, 244, 244, 0.85);
 }
 #Homecar {
     height: 30px;

@@ -17,11 +17,14 @@
 
 </head>
 <body>
+    @*<div class="head-img justify-content-center">
+        <img src="~/Images/PgDesign/pgGarage.jpg" class="w-100" />
+    </div>*@
     @Html.Partial("_NavBar")
     <div id="content" class="container body-content">
         @RenderBody()
     </div>
-    
+
     <!-- Bottom footer -->
     @Html.Partial("_Footer")
 </body>
