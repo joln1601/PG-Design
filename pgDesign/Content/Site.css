@@ -1,7 +1,7 @@
 ﻿body {
     padding-top: 66.95px;
     /*background-color: #FFF;*/
-    background-image: url(../Images/texture-wood-7280.jpg);
+    background-image: url(../Images/backg2.jpg);
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
@@ -112,7 +112,7 @@ footer p{
     background-color: #FFF;
     display: inline;
     float: left;
-    margin: 0px 30px 30px 30px;
+    margin: 10px 30px 30px 30px;
     padding: 10px 10px 25px;
     text-align: center;
     text-decoration: none;
@@ -134,15 +134,15 @@ footer p{
         top: 15px;
     }
     .polaroid-images a:nth-child(2n) {
-        -webkit-transform: rotate(4deg);
-        -moz-transform: rotate(4deg);
-        transform: rotate(4deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        transform: rotate(0deg);
     }
 
     .polaroid-images a:nth-child(3n) {
-        -webkit-transform: rotate(-2deg);
-        -moz-transform: rotate(-2deg);
-        transform: rotate(-2deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        transform: rotate(0deg);
     }
 
     .polaroid-images a:hover {
@@ -159,6 +159,8 @@ footer p{
     }
     .polaroid-images p {
         margin-bottom: 0px;
+        color: black;
+        padding-top: 5px;
     }
 .preview {
     position: relative;

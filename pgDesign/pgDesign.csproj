@@ -210,10 +210,15 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\backg.jpg" />
+    <Content Include="Images\backg2.jpg" />
     <Content Include="Images\BlackCar.png" />
     <Content Include="Images\Buss.png" />
     <Content Include="Images\car.png" />
     <Content Include="Images\CarsOnRow.png" />
+    <Content Include="Images\desk.jpg" />
+    <Content Include="Images\desk2.jpg" />
+    <Content Include="Images\desk3.jpg" />
     <Content Include="Images\garage.jpg" />
     <Content Include="Images\landscape.jpg" />
     <Content Include="Images\facobookLogo.png.png" />
