@@ -10,16 +10,16 @@
 
 <div class="polaroid-images row">
     <a href="">
-        <img onclick="showimg(this.id, this.src)" id="first_div" data-toggle="modal" data-target="#myModal" height="200" src="~/Images/PgDesign/ute 3 (kopia).jpg" alt="Cave" title="Cave" />
+        <img onload="setWidth()" onclick="showimg(this.id, this.src)" id="first_div" data-toggle="modal" data-target="#myModal" height="200" src="~/Images/PgDesign/ute 3 (kopia).jpg" alt="Cave" title="Cave" />
         <p id="second_div">Lorem ipsum dolor sit amet, consectetur adipiscing elit.consectetur adipiscing elit.Lorem ipsum dolor sit ametconsectetur adipiscing elit.Lorem ipsum dolor sit amet</p>
     </a>
     <a href="">
-        <img onclick="showimg(this.id, this.src)" id="first_div2" data-toggle="modal" data-target="#myModal" height="200" src="~/Images/PgDesign/Första sida tidningen.jpg" alt="Islands Forest" title="asdf" />
+        <img onload="setWidth()" onclick="showimg(this.id, this.src)" id="first_div2" data-toggle="modal" data-target="#myModal" height="200" src="~/Images/PgDesign/Första sida tidningen.jpg" alt="Islands Forest" title="asdf" />
         <p id="second_div2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </a>
 
     <a href="">
-        <img onclick="showimg(this.id, this.src)" id="first_div3" data-toggle="modal" data-target="#myModal" height="200" src="~/Images/PgDesign/DSC_0061.jpg" alt="Islands Forest" title="asdf" />
+        <img onload="setWidth()" onclick="showimg(this.id, this.src)" id="first_div3" data-toggle="modal" data-target="#myModal" height="200" src="~/Images/PgDesign/DSC_0061.jpg" alt="Islands Forest" title="asdf" />
         <p id="second_div3">Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </a>
 </div>
@@ -65,9 +65,7 @@
 
 
 <script>
-    var delayInMilliseconds = 250;
-    setTimeout(function () {
-    $(document).ready(function () {
+    $(document).ready(function setWidth () {
         $("#second_div").css({
             'width': ($("#first_div").width())
         });
@@ -78,5 +76,4 @@
             'width': ($("#first_div3").width())
         });
     });
-    }, delayInMilliseconds);
 </script>
