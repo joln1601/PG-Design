@@ -4,9 +4,7 @@
 }
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 
 <div class="polaroid-images row">
     <a href="">
@@ -39,44 +37,15 @@
 
 <!-- Modal -->
 <div class="modal" id="myModal">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-body">
-          <img id="myImg" class="modal-content"/>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Stäng</button>
-      </div>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <img id="myImg" class="modal-content" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Stäng</button>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
-<script>
-    function showimg(id, src) {
-        var modal = document.getElementById('myModal');
-
-        var img = document.getElementById(id)
-        var modalImg = document.getElementById("myImg")
-            modalImg.src = src;
-    }
-        //img.onclick = function () {
-        //}
-</script>
-
-
-<script>
-    var delayInMilliseconds = 250;
-    setTimeout(function () {
-    $(document).ready(function () {
-        $("#second_div").css({
-            'width': ($("#first_div").width())
-        });
-        $("#second_div2").css({
-            'width': ($("#first_div2").width())
-        });
-        $("#second_div3").css({
-            'width': ($("#first_div3").width())
-        });
-    });
-    }, delayInMilliseconds);
-</script>
