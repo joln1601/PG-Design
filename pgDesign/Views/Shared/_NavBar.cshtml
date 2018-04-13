@@ -29,10 +29,3 @@
    
 </nav>
 
-<!-- Script to change active status for navbar items -->
-<script>
-    $(document).ready(function () {
-        $('.nav-link li.active').removeClass('active');
-        $('a[href="' + location.pathname + '"]').closest('.nav-item').addClass('active');
-    });
-</script>

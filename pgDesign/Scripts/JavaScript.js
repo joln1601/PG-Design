@@ -23,3 +23,8 @@ setTimeout(function () {
     });
 }, delayInMilliseconds);
 
+//Script För att ändra aktiv nav-bar item
+        $(document).ready(function () {
+            $('.nav-link li.active').removeClass('active');
+        $('a[href="' + location.pathname + '"]').closest('.nav-item').addClass('active');
+    });
