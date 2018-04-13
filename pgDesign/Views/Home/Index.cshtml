@@ -10,37 +10,19 @@
 
 <div class="polaroid-images row">
     <a href="">
-        <img id="first_div" data-toggle="modal" data-target="#myModal" height="200" src="~/Images/PgDesign/ute 3 (kopia).jpg" alt="Cave" title="Cave" />
+        <img onclick="showimg(this.id, this.src)" id="first_div" data-toggle="modal" data-target="#myModal" height="200" src="~/Images/PgDesign/ute 3 (kopia).jpg" alt="Cave" title="Cave" />
         <p id="second_div">Lorem ipsum dolor sit amet, consectetur adipiscing elit.consectetur adipiscing elit.Lorem ipsum dolor sit ametconsectetur adipiscing elit.Lorem ipsum dolor sit amet</p>
     </a>
     <a href="">
-        <img id="first_div2" height="200" src="~/Images/PgDesign/Första sida tidningen.jpg" alt="Islands Forest" title="asdf" />
+        <img onclick="showimg(this.id, this.src)" id="first_div2" data-toggle="modal" data-target="#myModal" height="200" src="~/Images/PgDesign/Första sida tidningen.jpg" alt="Islands Forest" title="asdf" />
         <p id="second_div2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </a>
 
     <a href="">
-        <img id="first_div3" height="200" src="~/Images/PgDesign/DSC_0061.jpg" alt="Islands Forest" title="asdf" />
+        <img onclick="showimg(this.id, this.src)" id="first_div3" data-toggle="modal" data-target="#myModal" height="200" src="~/Images/PgDesign/DSC_0061.jpg" alt="Islands Forest" title="asdf" />
         <p id="second_div3">Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </a>
 </div>
-
-
-
-
-<!-- Modal -->
-<div class="modal" id="myModal">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-body">
-          <img class="img-responsive w-100 h-100" src="~/Images/PgDesign/ute 3 (kopia).jpg" alt="Cave"/>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Stäng</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 
 <div class="row">
     <div class="col-md-6">
@@ -54,6 +36,53 @@
         <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel enim velit. Pellentesque sollicitudin tellus risus, nec laoreet sem auctor id. Aliquam vel hendrerit arcu. Fusce et dignissim turpis, sit amet ultricies metus. Etiam vitae nisl dolor. Curabitur ultrices ac libero non placerat. Etiam dictum mauris quis velit pellentesque maximus. In in sem sit amet libero tincidunt volutpat quis a ipsum. Maecenas facilisis nec lacus vitae venenatis. In condimentum maximus velit, nec malesuada leo euismod lobortis. Aenean efficitur nisl eget quam faucibus, sed sodales leo pretium. Integer condimentum vehicula ex, quis pretium purus. Aliquam sit amet nunc arcu. Fusce tincidunt risus vitae nulla viverra, eu mollis odio tristique</p>
     </div>
 </div>
+
+<!-- Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+          <img id="myImg" class="modal-content"/>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Stäng</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    function showimg(id, src) {
+        var modal = document.getElementById('myModal');
+
+        var img = document.getElementById(id)
+        var modalImg = document.getElementById("myImg")
+            modalImg.src = src;
+    }
+        //img.onclick = function () {
+        //}
+</script>
+
+<script>
+    // Get the modal
+    
+
+    // Get the image and insert it inside the modal - use its "alt" text as a caption
+    var img = document.getElementById('myImg');
+    var modalImg = document.getElementById("img01");
+    var captionText = document.getElementById("caption");
+   
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+</script>
+
+
 
 
 
