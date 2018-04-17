@@ -191,3 +191,8 @@ hr {
     border-color: inherit
 }
 
+/* Modal */
+.modal-content{
+    height: auto;
+    width: 100%;
+}
