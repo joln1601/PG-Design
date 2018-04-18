@@ -6,6 +6,10 @@
     background-size: cover;
     color: #000;
 }
+.headline {
+    color: #808080;
+}
+
 /*Navbar*/
 .navbar {
     background-image: linear-gradient(139deg, #000 30%, #db0a18 115%);
@@ -196,3 +200,28 @@ hr {
     height: auto;
     width: 100%;
 }
+
+/*Contact us*/
+.profile-body {
+    background-color: #FFF;
+    padding: 1% 2% 2% 2%;
+}
+.profile-pic{
+    border-radius: 50%;
+}
+.profile-card{
+    border: solid 1px black;
+}
+/*.profile-inline{
+    display: inline-flex;
+}
+#contact-list {
+    float: right;
+}
+.list-headline{
+    
+}
+.profile-contact-list{
+    margin-left: 5%;
+    padding-right: 0px;
+}*/

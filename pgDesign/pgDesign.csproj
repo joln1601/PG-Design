@@ -224,6 +224,9 @@
     <Content Include="Images\BlackCar.png" />
     <Content Include="Images\Buss.png" />
     <Content Include="Images\car.png" />
+    <Content Include="Images\Contact\mail.png" />
+    <Content Include="Images\Contact\phone.png" />
+    <Content Include="Images\Contact\profil.jpg" />
     <Content Include="Images\Logos\facobookLogo.png" />
     <Content Include="Images\Logos\pgDesignLoggo.png" />
     <Content Include="Images\PgDesign\DSC_0052.jpg" />
