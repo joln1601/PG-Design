@@ -3,8 +3,10 @@
     /*background-color: #FFF;*/
     background-image: url(../Images/PgDesign/pgGarage.jpg);
     background-repeat: no-repeat;
+    background-attachment: fixed;
     background-size: cover;
     color: #000;
+    height: 100%;
 }
 /*Navbar*/
 .navbar {
@@ -59,11 +61,11 @@
 #content {
     padding: 2% 2% 2% 2%;
     margin-top: 2%;
-    margin-bottom: 2%;
+    margin-bottom: 3%;
     box-shadow: 0 0 0.5rem rgba(83,78,76,.6);
     background: rgb(244, 244, 244);
     background: rgba(244, 244, 244, 0.85);
-    border: 0.5px solid black;
+    border: 0.1px solid black;
 }
 #Homecar {
     height: 30px;
@@ -197,3 +199,7 @@ hr {
     height: auto;
     width: 100%;
 }
+
+
+/* STAR WARS REFERENS*/
+
