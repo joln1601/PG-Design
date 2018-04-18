@@ -1,4 +1,5 @@
 ﻿//Script för att skicka rätt bild till modal
+
 function showimg(id, src) {
     var modal = document.getElementById('myModal');
 
@@ -29,14 +30,17 @@ setTimeout(function () {
         $('a[href="' + location.pathname + '"]').closest('.nav-item').addClass('active');
     });
 
-        $('#hide').click(function ()
-        {
-            $('#content').hide();
-            $('#hide').hide();
-            $('#show').show();
-        });
-       $ ('#show').click(function () {
-            $('#content').show();
-            $('#show').hide();
-            $('#hide').show();
-        });
+        function myFunction() {
+            
+            $('#hide').click(function () {
+                $('#Mailcontent').hide();
+                $('#hide').hide();
+                $('#show').show();
+            });
+
+            $('#show').click(function () {
+                $('#Mailcontent').show();
+                $('#show').hide();
+                $('#hide').show();
+            });
+        }

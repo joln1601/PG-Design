@@ -213,6 +213,12 @@ hr {
 .profile-card{
     border: solid 1px black;
 }
+#show{
+    display: none;
+}
+#Mailcontent{
+    display: none;
+}
 /*.profile-inline{
     display: inline-flex;
 }
