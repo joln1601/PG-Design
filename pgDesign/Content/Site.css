@@ -6,6 +6,10 @@
     background-size: cover;
     color: #000;
 }
+.headline {
+    color: #808080;
+}
+
 /*Navbar*/
 .navbar {
     background-image: linear-gradient(139deg, #000 30%, #db0a18 115%);
@@ -59,10 +63,11 @@
 #content {
     padding: 2% 2% 2% 2%;
     margin-top: 2%;
-    margin-bottom: 2%;
+    margin-bottom: 3%;
     box-shadow: 0 0 0.5rem rgba(83,78,76,.6);
     background: rgb(244, 244, 244);
     background: rgba(244, 244, 244, 0.85);
+    border: 0.5px solid black;
 }
 #Homecar {
     height: 30px;
@@ -196,3 +201,34 @@ hr {
     height: auto;
     width: 100%;
 }
+
+/*Contact us*/
+.profile-body {
+    background-color: #FFF;
+    padding: 1% 2% 2% 2%;
+}
+.profile-pic{
+    border-radius: 50%;
+}
+.profile-card{
+    border: solid 1px black;
+}
+#show{
+    display: none;
+}
+#Mailcontent{
+    display: none;
+}
+/*.profile-inline{
+    display: inline-flex;
+}
+#contact-list {
+    float: right;
+}
+.list-headline{
+    
+}
+.profile-contact-list{
+    margin-left: 5%;
+    padding-right: 0px;
+}*/

@@ -3,7 +3,15 @@
     //Layout = "~/Views/Home/_IndexLayout.cshtml";
 }
 
-
+<div id="fb-root"></div>
+<script>
+(function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/sv_SE/sdk.js#xfbml=1&version=v2.12';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
 
 
 <div class="polaroid-images row">
@@ -31,7 +39,8 @@
     <div class="col-md-6">
         <h2 class="text-center" style="color:#808080">Nyheter</h2>
         <hr />
-        <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel enim velit. Pellentesque sollicitudin tellus risus, nec laoreet sem auctor id. Aliquam vel hendrerit arcu. Fusce et dignissim turpis, sit amet ultricies metus. Etiam vitae nisl dolor. Curabitur ultrices ac libero non placerat. Etiam dictum mauris quis velit pellentesque maximus. In in sem sit amet libero tincidunt volutpat quis a ipsum. Maecenas facilisis nec lacus vitae venenatis. In condimentum maximus velit, nec malesuada leo euismod lobortis. Aenean efficitur nisl eget quam faucibus, sed sodales leo pretium. Integer condimentum vehicula ex, quis pretium purus. Aliquam sit amet nunc arcu. Fusce tincidunt risus vitae nulla viverra, eu mollis odio tristique</p>
+        @*<p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel enim velit. Pellentesque sollicitudin tellus risus, nec laoreet sem auctor id. Aliquam vel hendrerit arcu. Fusce et dignissim turpis, sit amet ultricies metus. Etiam vitae nisl dolor. Curabitur ultrices ac libero non placerat. Etiam dictum mauris quis velit pellentesque maximus. In in sem sit amet libero tincidunt volutpat quis a ipsum. Maecenas facilisis nec lacus vitae venenatis. In condimentum maximus velit, nec malesuada leo euismod lobortis. Aenean efficitur nisl eget quam faucibus, sed sodales leo pretium. Integer condimentum vehicula ex, quis pretium purus. Aliquam sit amet nunc arcu. Fusce tincidunt risus vitae nulla viverra, eu mollis odio tristique</p>*@
+        <div class="fb-page ml-4" data-href="https://www.facebook.com/PG-Design-AB-968888989852243/" data-tabs="timeline" data-width="450" data-height="350" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/PG-Design-AB-968888989852243/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/PG-Design-AB-968888989852243/">PG Design AB</a></blockquote></div>
     </div>
 </div>
 

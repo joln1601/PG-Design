@@ -1,6 +1,17 @@
 ﻿<!--- Partial View for footer -->
 
 <footer id="main-footer">
+    <div id="fb-root"></div>
+    <script>
+(function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/sv_SE/sdk.js#xfbml=1&version=v2.12';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
     <div class="container">
         <div class="row">
             <div class="col-md-4">
@@ -19,25 +30,14 @@
                             <li>
                                 @Html.ActionLink("Hitta hit", "FindUs", "Home", null, new { @class = "nav-link", title = "Hitta hit" })
                             </li>
-                           
+
                             <li>
                                 @Html.ActionLink("Om oss", "About", "Home", null, new { @class = "nav-link", title = "Om oss" })
                             </li>
-                            @*<li>
-                                <a class="nav-link" title="asdf" target="_blank" href="http://www.facebook.com">Länk</a>
-                            </li>*@
+
                         </ul>
                     </div>
-                    @*<div class="col-md-6">
-                        <ul class="list-unstyled">
-                            <li>*@
-                                @*@Html.ActionLink("Om oss",*@ @*"About", "Home",*@ @*null, new { @class = "nav-link", title = "Om oss" })*@
-                            @*</li>
-                            <li>
-                                <a class="nav-link" title="asdf" target="_blank" href="http://www.facebook.com">Länk</a>
-                            </li>
-                        </ul>
-                    </div>*@
+
                 </div>
 
 
@@ -45,7 +45,14 @@
             <div class="col-md-4 social-media-links text-white">
                 <h4>Följ oss</h4>
                 <hr />
-                <a id="facebook" href="https://www.facebook.com/PG-Design-AB-968888989852243/" target="_blank" title="Facebook"><i class="fab fa-facebook-square fa-2x" aria-hidden="true"</i><img src="~/Images/Logos/facobookLogo.png" title="facebooklogo" /></a>
+                <div class="col-md-12">
+
+                    @*<a id="facebook" href="https://www.facebook.com/PG-Design-AB-968888989852243/" target="_blank" title="Facebook"><i class="fab fa-facebook-square fa-2x" aria-hidden="true"</i><img src="~/Images/Logos/facobookLogo.png" title="facebooklogo" /></a>*@
+                    <div class="fb-like text-white" data-href="https://www.facebook.com/PG-Design-AB-968888989852243/" data-width="240" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-colorscheme="dark" data-share="true"></div>
+                </div>
+                
+
+                
             </div>
 
         </div>
