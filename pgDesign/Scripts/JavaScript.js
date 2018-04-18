@@ -28,3 +28,15 @@ setTimeout(function () {
             $('.nav-link li.active').removeClass('active');
         $('a[href="' + location.pathname + '"]').closest('.nav-item').addClass('active');
     });
+
+        $('#hide').click(function ()
+        {
+            $('#content').hide();
+            $('#hide').hide();
+            $('#show').show();
+        });
+       $ ('#show').click(function () {
+            $('#content').show();
+            $('#show').hide();
+            $('#hide').show();
+        });
