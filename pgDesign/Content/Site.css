@@ -63,6 +63,7 @@
     box-shadow: 0 0 0.5rem rgba(83,78,76,.6);
     background: rgb(244, 244, 244);
     background: rgba(244, 244, 244, 0.85);
+    border: 0.5px solid black;
 }
 #Homecar {
     height: 30px;
