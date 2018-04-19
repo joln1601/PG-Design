@@ -4,6 +4,7 @@
     background-image: url(../Images/PgDesign/pgGarage.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
     color: #000;
 }
 .headline {
@@ -204,7 +205,6 @@ hr {
 
 /*Contact us*/
 .profile-body {
-    background-color: #FFF;
     padding: 1% 2% 2% 2%;
 }
 .profile-pic{
@@ -213,22 +213,3 @@ hr {
 .profile-card{
     border: solid 1px black;
 }
-#show{
-    display: none;
-}
-#Mailcontent{
-    display: none;
-}
-/*.profile-inline{
-    display: inline-flex;
-}
-#contact-list {
-    float: right;
-}
-.list-headline{
-    
-}
-.profile-contact-list{
-    margin-left: 5%;
-    padding-right: 0px;
-}*/
