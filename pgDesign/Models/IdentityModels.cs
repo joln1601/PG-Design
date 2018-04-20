@@ -20,6 +20,11 @@ namespace pgDesign.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+       public DbSet<Siteinformation> Siteinformation { get; set; }
+        public DbSet<Category> Category { get; set; }
+        public DbSet<Gallery> Gallery { get; set; }
+        public DbSet<Picture> Picture { get; set; }
+        public DbSet<PictureAttachment> PictureAttachment { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
