@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using pgDesign.ViewModels;
 
 namespace pgDesign.dbEngine
 {
@@ -24,6 +25,23 @@ namespace pgDesign.dbEngine
             return text;
         }
       
+        #endregion
+
+        #region ContactPage
+        public IEnumerable<ContactInfo> GetUsers()
+        {
+            var users = _DbOperation.ContactInfo.ToList();
+
+            return users;
+            //foreach (var u in users)
+            //{
+            //    Cvm.Fname = u.Fname;
+            //    Cvm.Lname = u.LName;
+            //    Cvm.Phone = u.Phone;
+            //    Cvm.Email = u.Email;
+            //}
+
+        }
         #endregion
     }
 }

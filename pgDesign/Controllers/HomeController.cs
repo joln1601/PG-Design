@@ -38,9 +38,8 @@ namespace pgDesign.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            Cvm.Users = db.GetUsers();
+            return View(Cvm);
         }
         public ActionResult FindUs()
         {
