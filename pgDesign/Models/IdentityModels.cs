@@ -25,6 +25,7 @@ namespace pgDesign.Models
         public DbSet<Gallery> Gallery { get; set; }
         public DbSet<Picture> Picture { get; set; }
         public DbSet<PictureAttachment> PictureAttachment { get; set; }
+        public DbSet<ContactInfo> ContactInfo { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

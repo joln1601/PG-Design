@@ -1,14 +1,16 @@
-﻿@{
+﻿@model pgDesign.ViewModels.ContactVM
+@{
     ViewBag.Title = "Contact";
 }
 <h2 class="headline text-center">Kontakta oss</h2>
 <hr class="headline col-md-10" />
 
 <div class="profile-body">
-    <div class="profile-content col-md-12">
-        <div class="row">
-            <div class="col-md-5">
-                <h4 class="mt-2 text-center">FlamingoChief</h4>
+    <div class="profile-content col-md-12 row">
+@foreach (var item in Model.Users)
+{
+            <div class="col-md-6">
+                <h4 class="mt-2 text-center">@item.Fname&nbsp;@item.LName</h4>
                 <div class="card">
                     <div class="card-body">
                         <div class="card-header">
@@ -24,10 +26,10 @@
                         <div class="card-group">
                             <ul class="list-unstyled pl-3" id="contact-list">
                                 <li class="row mr-2 mt-3">
-                                    <a href=""><img src="~/Images/Contact/mail.png" class="mr-3" /></a> <h6 class="list-headline">E-post dygnet runt!</h6>
+                                    <a href=""><img src="~/Images/Contact/mail.png" class="mr-3" /></a> <h6 class="list-headline">E-post dygnet runt! <br /> @item.Email</h6>
                                 </li>
                                 <li class="row mt-3">
-                                    <a href=""><img src="~/Images/Contact/phone.png" class="mr-3" /></a><h6 class="list-headline"> Telefon vardagar 8:00-16:00<br /> <a href="">01-123-123</a></h6>
+                                    <a href=""><img src="~/Images/Contact/phone.png" class="mr-3" /></a><h6 class="list-headline"> Telefon vardagar 8:00-16:00<br /> <a href="">@item.Phone</a></h6>
                                 </li>
                                 <li class="row mt-3">
                                     <a href="@Url.Action("FindUs", "Home")"><img src="~/Images/Contact/navPin.png" class="mr-3" /></a><h6 class="list-headline"> <a href="@Url.Action("FindUs", "Home")">Bjärtrå 110, 872 96</a><br /> <a href="@Url.Action("Index", "Home")"> Öppettider</a></h6>
@@ -37,7 +39,9 @@
                     </div>
                 </div>
             </div>
-
+}
+    </div>
+</div>
             <div class="Mail-body ml-5 col-md-6">
                 <h4 class="mt-2 text-center mb-3">Kontakta PG-Design</h4>
                 <div class="Mail-content">
@@ -59,6 +63,3 @@
 
                 </div>
             </div>
-        </div>
-    </div>
-</div>
