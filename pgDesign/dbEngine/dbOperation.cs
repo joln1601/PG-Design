@@ -17,12 +17,13 @@ namespace pgDesign.dbEngine
 
 
         #region Siteinformation
-        public Siteinformation AboutText()
+        public Siteinformation SiteinfoText(int id)
         {
             
-            var text = _DbOperation.Siteinformation.Where(c => c.Id == 1).Single();
+            var text = _DbOperation.Siteinformation.Where(c => c.Id == id).Single();
             return text;
         }
+      
         #endregion
     }
 }

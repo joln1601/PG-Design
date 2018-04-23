@@ -11,18 +11,21 @@ namespace pgDesign.Controllers
     public class HomeController : Controller
     {
         private dbOperation db;
-        private IndexViewModel vm;
+        private StartUpViewModel vm;
         public HomeController()
         {
             db = new dbOperation();
-            vm = new IndexViewModel();
+            vm = new StartUpViewModel();
         }
         
         public ActionResult Index()
         {
-
-           var Siteinfo = db.AboutText();
-            vm.AboutText = Siteinfo.Content;
+            // Om oss text
+           var SiteInfoAboutText = db.SiteinfoText(1);
+            vm.AboutText = SiteInfoAboutText.Content;
+            // Avikande öppettider
+            var SiteInfoOpen = db.SiteinfoText(2);
+            vm.OpenTimes = SiteInfoOpen.Content;
             return View(vm);
         }
 

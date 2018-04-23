@@ -5,8 +5,9 @@ using System.Web;
 
 namespace pgDesign.ViewModels
 {
-    public class IndexViewModel
+    public class StartUpViewModel
     {
         public string AboutText { get; set; }
+        public string OpenTimes { get; set; }
     }
 }
