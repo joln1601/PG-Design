@@ -12,10 +12,12 @@ namespace pgDesign.Controllers
     {
         private dbOperation db;
         private StartUpViewModel vm;
+        private ContactVM Cvm;
         public HomeController()
         {
             db = new dbOperation();
             vm = new StartUpViewModel();
+            Cvm = new ContactVM();
         }
         
         public ActionResult Index()
