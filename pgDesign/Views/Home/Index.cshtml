@@ -1,4 +1,5 @@
-﻿@{
+﻿@model pgDesign.ViewModels.IndexViewModel
+@{
     ViewBag.Title = "Home Page";
     //Layout = "~/Views/Home/_IndexLayout.cshtml";
 }
@@ -16,7 +17,7 @@
         <br />
         <div id="OmOssDiv" class="p-3">
 
-        <p class="text-center" id="OmOssText">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel enim velit. Pellentesque sollicitudin tellus risus, nec laoreet sem auctor id. Aliquam vel hendrerit arcu. Fusce et dignissim turpis, sit amet ultricies metus. Etiam vitae nisl dolor. Curabitur ultrices ac libero non placerat. Etiam dictum mauris quis velit pellentesque maximus. In in sem sit amet libero tincidunt volutpat quis a ipsum. Maecenas facilisis nec lacus vitae venenatis. In condimentum maximus velit, nec malesuada leo euismod lobortis. Aenean efficitur nisl eget quam faucibus, sed sodales leo pretium. Integer condimentum vehicula ex, quis pretium purus. Aliquam sit amet nunc arcu. Fusce tincidunt risus vitae nulla viverra, eu mollis odio tristique</p>
+        <p class="text-center" id="OmOssText">@Model.AboutText</p>
         </div>
 
     </div>
@@ -59,6 +60,11 @@
                 <tr>
                     <th scope="row">Söndag</th>
                     <td style="color: #ff0000">Stängt</td>
+                </tr>
+                <tr class="table-secondary">
+                    <th scope="row" class="text-center pl-4">Klicka här för att se eventuella avvikelser</th>
+                    <td  class="text-center"></td>
+
                 </tr>
             </tbody>
         </table>
