@@ -33,15 +33,16 @@ namespace pgDesign.dbEngine
             var users = _DbOperation.ContactInfo.ToList();
 
             return users;
-            //foreach (var u in users)
-            //{
-            //    Cvm.Fname = u.Fname;
-            //    Cvm.Lname = u.LName;
-            //    Cvm.Phone = u.Phone;
-            //    Cvm.Email = u.Email;
-            //}
-
         }
+
+        public Picture GetProfilePic(int id)
+        {
+                var pic = _DbOperation.Picture.Where(x => x.Id == id).Single();
+
+                return pic;
+        }
+
+        
         #endregion
     }
 }

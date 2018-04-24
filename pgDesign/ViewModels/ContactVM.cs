@@ -13,6 +13,7 @@ namespace pgDesign.ViewModels
         public string Phone { get; set; }
         public string Fname { get; set; }
         public string Lname { get; set; }
+        public string ImageAddress { get; set; }
         public IEnumerable<ContactInfo> Users { get; set; }
     }
 }
