@@ -269,6 +269,7 @@
     <Content Include="Images\Contact\navPin.png" />
     <Content Include="Images\Contact\phone.png" />
     <Content Include="Images\Contact\profil.jpg" />
+    <Content Include="Images\Contact\ProfilBild.jpg" />
     <Content Include="Images\Logos\facobookLogo.png" />
     <Content Include="Images\Logos\pgDesign-logga.png" />
     <Content Include="Images\Logos\PgDesignLoggo.png" />
