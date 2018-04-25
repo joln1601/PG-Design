@@ -202,12 +202,52 @@
     <Compile Include="Migrations\201804171138196_pgDesignInitial.Designer.cs">
       <DependentUpon>201804171138196_pgDesignInitial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804200850565_Siteinfo.cs" />
+    <Compile Include="Migrations\201804200850565_Siteinfo.Designer.cs">
+      <DependentUpon>201804200850565_Siteinfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804201057506_ModelsPictureSiteinformationCategoryGalleryPictureAttachment.cs" />
+    <Compile Include="Migrations\201804201057506_ModelsPictureSiteinformationCategoryGalleryPictureAttachment.Designer.cs">
+      <DependentUpon>201804201057506_ModelsPictureSiteinformationCategoryGalleryPictureAttachment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804201103304_ModelsPictureSiteinformationCategoryGalleryPictureAttachmentNew.cs" />
+    <Compile Include="Migrations\201804201103304_ModelsPictureSiteinformationCategoryGalleryPictureAttachmentNew.Designer.cs">
+      <DependentUpon>201804201103304_ModelsPictureSiteinformationCategoryGalleryPictureAttachmentNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804231041592_ContactInfo.cs" />
+    <Compile Include="Migrations\201804231041592_ContactInfo.Designer.cs">
+      <DependentUpon>201804231041592_ContactInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804241101287_FK-Picture.cs" />
+    <Compile Include="Migrations\201804241101287_FK-Picture.Designer.cs">
+      <DependentUpon>201804241101287_FK-Picture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804241213133_Foreign-Keys.cs" />
+    <Compile Include="Migrations\201804241213133_Foreign-Keys.Designer.cs">
+      <DependentUpon>201804241213133_Foreign-Keys.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804241258068_addedList.cs" />
+    <Compile Include="Migrations\201804241258068_addedList.Designer.cs">
+      <DependentUpon>201804241258068_addedList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804241309368_addedForeignkeysToPictureAttachment.cs" />
+    <Compile Include="Migrations\201804241309368_addedForeignkeysToPictureAttachment.Designer.cs">
+      <DependentUpon>201804241309368_addedForeignkeysToPictureAttachment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\ContactInfo.cs" />
+    <Compile Include="Models\Gallery.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Picture.cs" />
+    <Compile Include="Models\PictureAttachment.cs" />
+    <Compile Include="Models\Siteinformation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\StartUpViewModel.cs" />
+    <Compile Include="ViewModels\ContactVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-def.css" />
@@ -226,15 +266,18 @@
     <Content Include="Images\Buss.png" />
     <Content Include="Images\car.png" />
     <Content Include="Images\Contact\mail.png" />
+    <Content Include="Images\Contact\navPin.png" />
     <Content Include="Images\Contact\phone.png" />
     <Content Include="Images\Contact\profil.jpg" />
     <Content Include="Images\Logos\facobookLogo.png" />
-    <Content Include="Images\Logos\pgDesignLoggo.png" />
+    <Content Include="Images\Logos\pgDesign-logga.png" />
+    <Content Include="Images\Logos\PgDesignLoggo.png" />
     <Content Include="Images\PgDesign\DSC_0052.jpg" />
     <Content Include="Images\PgDesign\DSC_0061.jpg" />
     <Content Include="Images\PgDesign\DSC_0116.jpg" />
     <Content Include="Images\PgDesign\Första sida tidningen.jpg" />
     <Content Include="Images\PgDesign\MindreRödlastbil.jpg" />
+    <Content Include="Images\PgDesign\PGDesignFörstasidan.jpg" />
     <Content Include="Images\PgDesign\pgGarage.jpg" />
     <Content Include="Images\PgDesign\Sidan 8 tidningen.jpg" />
     <Content Include="Images\PgDesign\ute 3 %28kopia%29.jpg" />
@@ -356,6 +399,30 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201804171138196_pgDesignInitial.resx">
       <DependentUpon>201804171138196_pgDesignInitial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804200850565_Siteinfo.resx">
+      <DependentUpon>201804200850565_Siteinfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804201057506_ModelsPictureSiteinformationCategoryGalleryPictureAttachment.resx">
+      <DependentUpon>201804201057506_ModelsPictureSiteinformationCategoryGalleryPictureAttachment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804201103304_ModelsPictureSiteinformationCategoryGalleryPictureAttachmentNew.resx">
+      <DependentUpon>201804201103304_ModelsPictureSiteinformationCategoryGalleryPictureAttachmentNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804231041592_ContactInfo.resx">
+      <DependentUpon>201804231041592_ContactInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804241101287_FK-Picture.resx">
+      <DependentUpon>201804241101287_FK-Picture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804241213133_Foreign-Keys.resx">
+      <DependentUpon>201804241213133_Foreign-Keys.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804241258068_addedList.resx">
+      <DependentUpon>201804241258068_addedList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804241309368_addedForeignkeysToPictureAttachment.resx">
+      <DependentUpon>201804241309368_addedForeignkeysToPictureAttachment.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -1,19 +1,20 @@
-﻿@{
+﻿@model pgDesign.ViewModels.ContactVM
+@{
     ViewBag.Title = "Contact";
 }
 <h2 class="headline text-center">Kontakta oss</h2>
-<hr class="headline" />
-<h4 class="headline text-center">Kontakta oss gärna via mejl eller telefon</h4>
+<hr class="headline col-md-10" />
 
 <div class="profile-body">
-    <div class="profile-content col-md-12">
-        <div class="row">
+    <div class="profile-content col-md-12 row">
+@foreach (var item in Model.Users)
+{
             <div class="col-md-5">
-                <h4 class="mt-2 text-center">FlamingoChief</h4>
-                <div class="card">
+                <h4 class="mt-2 text-center">@item.Fname&nbsp;@item.LName</h4>
+                <div class="card bg-transparent">
                     <div class="card-body">
                         <div class="card-header">
-                            <img class="profile-pic w-100" src="~/Images/Contact/profil.jpg" />
+                            <img class="profile-pic w-100" src="@item.Picture.ImageAddress" />
                         </div>
                         <div class="card-text pb-0">
                             <p class="mt-3">
@@ -21,45 +22,60 @@
                                 Vestibulum vel enim velit. Pellentesque
                             </p>
                         </div>
-                        <hr class="headline" />
+                        <hr class="headline col-md-10" />
                         <div class="card-group">
                             <ul class="list-unstyled pl-3" id="contact-list">
                                 <li class="row mr-2 mt-3">
-                                    <a href=""><img src="~/Images/Contact/mail.png" class="mr-3" /></a> <h6 class="list-headline">E-post dygnet runt!</h6>
+                                    <a href="" data-target="#myModal" data-toggle="modal"><img src="~/Images/Contact/mail.png" class="mr-3" /></a> <h6 class="list-headline">E-post dygnet runt! <br /> @item.Email</h6>
                                 </li>
                                 <li class="row mt-3">
-                                    <a href=""><img src="~/Images/Contact/phone.png" class="mr-3" /></a><h6 class="list-headline"> Telefon vardagar 8:00-16:00<br /> <a href="">01-123-123</a></h6>
+                                    <a href=""><img src="~/Images/Contact/phone.png" class="mr-3" /></a><h6 class="list-headline"> Telefon vardagar 8:00-16:00<br /> <a href="">@item.Phone</a></h6>
+                                </li>
+                                <li class="row mt-3">
+                                    <a href="@Url.Action("FindUs", "Home")"><img src="~/Images/Contact/navPin.png" class="mr-3" /></a><h6 class="list-headline"> <a href="@Url.Action("FindUs", "Home")">Bjärtrå 110, 872 96</a><br /> <a href="@Url.Action("Index", "Home")"> Öppettider</a></h6>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div>
-        <input onclick="myFunction()" type="button" id="hide" value="Hide" />
-        <input onclick="myFunction()" type="button" id="show" value="Show" />
-    </div>
-    <div id="Mailcontent">
-        <h1>sdasdsa</h1>
-        <h1>sdasdsa</h1>
-        <h1>sdasdsa</h1>
+}
     </div>
 </div>
 
 
 
+<div class="modal" id="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Avvikande Öppettider</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="Mail-body col-md-12">
+                    <h4 class="mt-2 text-center mb-3">Kontakta PG-Design</h4>
+                    <div class="Mail-content">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
+                        <div class="form-group mt-3">
+                            <label for="exampleTextarea">Meddelande</label>
+                            <textarea class="form-control" id="exampleTextarea" rows="3" style="margin-top: 0px; margin-bottom: 0px; height: 95px;"></textarea>
+                        </div>
 
+                        <button type="button" class="btn btn-primary float-right">Skicka</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
 
-@*<address>
-        One Microsoft Way<br />
-        Redmond, WA 98052-6399<br />
-        <abbr title="Phone">P:</abbr>
-        425.555.0100
-    </address>
-
-    <address>
-        <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-        <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-    </address>*@
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Stäng</button>
+            </div>
+        </div>
+    </div>
+</div>
