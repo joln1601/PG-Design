@@ -226,6 +226,14 @@
     <Compile Include="Migrations\201804241213133_Foreign-Keys.Designer.cs">
       <DependentUpon>201804241213133_Foreign-Keys.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804241258068_addedList.cs" />
+    <Compile Include="Migrations\201804241258068_addedList.Designer.cs">
+      <DependentUpon>201804241258068_addedList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804241309368_addedForeignkeysToPictureAttachment.cs" />
+    <Compile Include="Migrations\201804241309368_addedForeignkeysToPictureAttachment.Designer.cs">
+      <DependentUpon>201804241309368_addedForeignkeysToPictureAttachment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -409,6 +417,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804241213133_Foreign-Keys.resx">
       <DependentUpon>201804241213133_Foreign-Keys.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804241258068_addedList.resx">
+      <DependentUpon>201804241258068_addedList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804241309368_addedForeignkeysToPictureAttachment.resx">
+      <DependentUpon>201804241309368_addedForeignkeysToPictureAttachment.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

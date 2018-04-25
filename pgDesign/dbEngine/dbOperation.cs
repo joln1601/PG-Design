@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using pgDesign.ViewModels;
+using System.Data.Entity;
 
 namespace pgDesign.dbEngine
 {
@@ -42,7 +43,24 @@ namespace pgDesign.dbEngine
                 return pic;
         }
 
-        
+        public IEnumerable<PictureAttachment> GetCarouselPic()
+        {
+            int carouselId = 1;
+
+            var pics = _DbOperation.PictureAttachment.Where(x => x.Gallery.Category.Id == carouselId).ToList();
+
+            foreach (var item in pics)
+            {
+                GetPicturesToList(item);
+            }
+            return pics;
+        }
+
+        private void GetPicturesToList(PictureAttachment item)
+        {
+            var pictures = _DbOperation.Picture.Where(x => x.Id == item.Picture_id).ToList();
+        }
+
         #endregion
     }
 }
