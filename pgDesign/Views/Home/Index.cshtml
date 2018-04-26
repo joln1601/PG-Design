@@ -45,71 +45,28 @@
 <div class="row">
 
     @*<div class="col-md-12">
-        <h3 class="text-center" style="color:#000">PG Design</h3>
-        <hr class="col-md-8 text-center" />
-    </div>*@
+            <h3 class="text-center" style="color:#000">PG Design</h3>
+            <hr class="col-md-8 text-center" />
+        </div>*@
     <div class="col-md-6">
         <h2 class="text-center" style="color:#000">PG Design</h2>
-        <hr style="color:#000"/>
+        <hr style="color:#000" />
         <br />
         <div id="OmOssDiv" class="p-3">
 
-        <p class="text-center" id="OmOssText">@Model.AboutText</p>
+            <p class="text-center" id="OmOssText">@Model.AboutText</p>
         </div>
 
     </div>
     <div class="col-md-6">
-        <h2 class="text-center" style="color:#000">Öppettider</h2>
-        <hr style="color:#000"/>
+        <h2 class="text-center" style="color:#000">Nyheter</h2>
+        <hr style="color:#000" />
         <br />
-        <div id="OpenDiv" class="p-3">
-
-        <table class="table table-hover">
-
-            <tbody>
-
-                <tr>
-                    <th scope="row">Måndag</th>
-                    <td>08:00 - 16:00</td>
-
-                </tr>
-
-                <tr class="table-secondary">
-                    <th scope="row">Tisdag</th>
-                    <td>08:00 - 16:00</td>
-                </tr>
-                <tr>
-                    <th scope="row">Onsdag</th>
-                    <td>08:00 - 16:00</td>
-                </tr>
-                <tr class="table-secondary">
-                    <th scope="row">Torsdag</th>
-                    <td>08:00 - 16:00</td>
-                </tr>
-                <tr>
-                    <th scope="row">Fredag</th>
-                    <td>08:00 - 16:00</td>
-                </tr>
-                <tr class="table-secondary">
-                    <th scope="row">Lördag</th>
-                    <td style="color: #ff0000">Stängt</td>
-                </tr>
-                <tr>
-                    <th scope="row">Söndag</th>
-                    <td style="color: #ff0000">Stängt</td>
-                </tr>
-                <tr class="table-secondary">
-                    <th scope="row" class="text-center pl-4" data-toggle="modal" data-target="#myModal">Klicka här för att se eventuella avvikelser</th>
-                    <td  class="text-center"></td>
-
-                </tr>
-            </tbody>
-        </table>
+        <div class="fb-page" data-href="https://www.facebook.com/PG-Design-AB-968888989852243/" data-tabs="timeline" data-width="500" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/PG-Design-AB-968888989852243/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/PG-Design-AB-968888989852243/">PG Design AB</a></blockquote></div>
     </div>
-        </div>
-
 
 </div>
+
 
 
 
@@ -117,18 +74,64 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Avvikande Öppettider</h5>
+                <h5 class="modal-title">Öppettider</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <p>@Model.OpenTimes</p>
+                <table class="table table-hover">
+
+                    <tbody>
+
+                        <tr>
+                            <th scope="row">Måndag</th>
+                            <td>08:00 - 16:00</td>
+
+                        </tr>
+
+                        <tr class="table-secondary">
+                            <th scope="row">Tisdag</th>
+                            <td>08:00 - 16:00</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Onsdag</th>
+                            <td>08:00 - 16:00</td>
+                        </tr>
+                        <tr class="table-secondary">
+                            <th scope="row">Torsdag</th>
+                            <td>08:00 - 16:00</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Fredag</th>
+                            <td>08:00 - 16:00</td>
+                        </tr>
+                        <tr class="table-secondary">
+                            <th scope="row">Lördag</th>
+                            <td style="color: #ff0000">Stängt</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Söndag</th>
+                            <td style="color: #ff0000">Stängt</td>
+                        </tr>
+                     
+                    </tbody>
+                </table>
             </div>
             <div class="modal-footer">
-               
+
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Stäng</button>
             </div>
         </div>
     </div>
 </div>
+
+<div id="fb-root"></div>
+<script>
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/sv_SE/sdk.js#xfbml=1&version=v2.12';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
