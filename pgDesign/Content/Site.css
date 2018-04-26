@@ -1,7 +1,7 @@
 ﻿body {
     padding-top: 66.95px;
     /*background-color: #FFF;*/
-    background-image: url(../Images/PgDesign/pgGarage.jpg);
+    background-image: linear-gradient(139deg, #000 30%, #db0a18 115%);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -12,26 +12,71 @@
 }
 
 /*Navbar*/
-.navbar {
-    background-image: linear-gradient(139deg, #000 30%, #db0a18 115%);
-    height: 66.95px;
-    padding: 1.0em 2em;
-    opacity: 0.95;
+.sidenav {
+    height: 100%;
+    width: 10%;
+    padding: 0em 0em;
+    background-color: rgba(255,0,0,0.0) !important;
+    
+    
 }
 
-.navbar-nav {
+
+/*.navbar-nav {
    font-size: 18px;
    margin-right: 90px;
    
    
   
+}*/
+#navbarul {
+    list-style: none;
+    padding-left: 0px;
+}
+/*nav-item {
+    padding-right: 2em;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+}*/
+/*.navbar-dark .navbar-nav .nav-link {
+    color: #cecece
+}*/
+.sidenav {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
 }
 
-.nav-item {
-    padding-right: 2em;
+    .sidenav a {
+        padding: 6px 6px 6px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+    }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+.main {
+    margin-left: 200px; /* Same as the width of the sidenav */
 }
-.navbar-dark .navbar-nav .nav-link {
-    color: #cecece
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+        .sidenav a {
+            font-size: 18px;
+        }
 }
 
 #Loggo {
@@ -67,6 +112,9 @@
     background: rgb(244, 244, 244);
     background: rgba(244, 244, 244, 0.85);
     border: 0.5px solid black;
+    
+    
+   
 }
 #Homecar {
     height: 30px;
