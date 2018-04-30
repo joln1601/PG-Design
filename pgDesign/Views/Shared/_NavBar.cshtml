@@ -1,32 +1,124 @@
-﻿<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<div class="sidenav w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left pr-0" style="width:200px;" id="mySidebar">
-    <ul id="navbarul">
-        <li>
+﻿<div class="nav-side-menu">
+    <div class="brand">
             <a class="navbar-brand" href="@Url.Action("Index", "Home")"><img id="Loggo" style="height: 160px" src="~/Images/Logos/PgDesignLoggo.png" /></a>
-        </li>
-        <li class="nav-item">
-            <a title="Startsida" class="nav-link" href="@Url.Action("Index", "Home")"> Startsida</a>
-        </li>
-        <li class="nav-item">
-            <a title="Mina tidigare jobb" class="nav-link" href="@Url.Action("Index", "Gallery")"> Galleri</a>
-        </li>
-        <li class="nav-item">
-            <a title="Mina tidigare jobb" class="nav-link" href="@Url.Action("Contact", "Home")"> Kontakta oss</a>
-        </li>
-        <li class="nav-item">
-            <a title="Mina tidigare jobb" class="nav-link" href="@Url.Action("Index", "Referenser")"> Referenser</a>
-        </li>
-    </ul>
-    <button class="w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()">Close &times;</button>
-
+    </div>
+    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+    <div class="menu-list">
+        <ul id="menu-content" class="menu-content collapse out">
+            <li class="nav-item">
+                <a title="Startsida" class="nav-link" href="@Url.Action("Index", "Home")"> Startsida</a>
+            </li>
+            <li class="nav-item">
+                <a title="Mina tidigare jobb" class="nav-link" href="@Url.Action("Index", "Gallery")"> Galleri</a>
+            </li>
+            <li class="nav-item">
+                <a title="Mina tidigare jobb" class="nav-link" href="@Url.Action("Contact", "Home")"> Kontakta oss</a>
+            </li>
+            <li class="nav-item">
+                <a title="Mina tidigare jobb" class="nav-link" href="@Url.Action("Index", "Referenser")"> Referenser</a>
+            </li>
+        </ul>
+    </div>
 </div>
 
-<div class="w3-main" style="margin-left:200px">
-    <button class="w3-button w3-teal w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
-</div>
+
+
+@*<aside class="col-12 col-md-2 p-0 bg-dark">
+        <nav id="nav1" class="navbar navbar-expand navbar-dark bg-dark flex-md-column flex-row align-items-start py-2">
+            <div class="collapse navbar-collapse">
+                <ul class="flex-md-column flex-row navbar-nav w-100 justify-content-between">
+                    <li class="nav-item">
+                        <a title="Startsida" class="nav-link" href="@Url.Action("Index", "Home")"> Startsida</a>
+                    </li>
+                    <li class="nav-item">
+                        <a title="Mina tidigare jobb" class="nav-link" href="@Url.Action("Index", "Gallery")"> Galleri</a>
+                    </li>
+                    <li class="nav-item">
+                        <a title="Mina tidigare jobb" class="nav-link" href="@Url.Action("Contact", "Home")"> Kontakta oss</a>
+                    </li>
+                    <li class="nav-item">
+                        <a title="Mina tidigare jobb" class="nav-link" href="@Url.Action("Index", "Referenser")"> Referenser</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </aside>*@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <div class="sidenav w3-sidebar w3-bar-block w3-collapse w3-card w3-animate-left pr-0" style="width:200px;" id="mySidebar">
+        <ul id="navbarul">
+            <li>
+                <a class="navbar-brand" href="@Url.Action("Index", "Home")"><img id="Loggo" style="height: 160px" src="~/Images/Logos/PgDesignLoggo.png" /></a>
+            </li>
+            <li class="nav-item">
+                <a title="Startsida" class="nav-link" href="@Url.Action("Index", "Home")"> Startsida</a>
+            </li>
+            <li class="nav-item">
+                <a title="Mina tidigare jobb" class="nav-link" href="@Url.Action("Index", "Gallery")"> Galleri</a>
+            </li>
+            <li class="nav-item">
+                <a title="Mina tidigare jobb" class="nav-link" href="@Url.Action("Contact", "Home")"> Kontakta oss</a>
+            </li>
+            <li class="nav-item">
+                <a title="Mina tidigare jobb" class="nav-link" href="@Url.Action("Index", "Referenser")"> Referenser</a>
+            </li>
+            <li>
+               <button class="nav-item w3-bar-item w3-button w3-large w3-hide-large" onclick="w3_close()">Close &times;</button>
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="w3-main" style="margin-left:200px">
+        <button class="w3-button w3-teal w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</button>
+    </div>*@
+
+
+@*<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="">
+        <div class="navbar-header ">
+
+
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul id="navbarul">
+                <li>
+                    <a class="navbar-brand" href="@Url.Action("Index", "Home")"><img id="Loggo" style="height: 160px" src="~/Images/Logos/PgDesignLoggo.png" /></a>
+                </li>
+                <li class="nav-item">
+                    <a title="Startsida" class="nav-link" href="@Url.Action("Index", "Home")"> Startsida</a>
+                </li>
+                <li class="nav-item">
+                    <a title="Mina tidigare jobb" class="nav-link" href="@Url.Action("Index", "Gallery")"> Galleri</a>
+                </li>
+                <li class="nav-item">
+                    <a title="Mina tidigare jobb" class="nav-link" href="@Url.Action("Contact", "Home")"> Kontakta oss</a>
+                </li>
+                <li class="nav-item">
+                    <a title="Mina tidigare jobb" class="nav-link" href="@Url.Action("Index", "Referenser")"> Referenser</a>
+                </li>
+            </ul>
+
+        </div>
+
+    </nav>*@
 
 
 
@@ -88,34 +180,5 @@
     </div>*@
 
 
-@*<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
-    <div class="navbar-header ">
 
-
-    </div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul id="navbarul">
-            <li>
-                @*<a class="navbar-brand" href="@Url.Action("Index", "Home")"><img id="Loggo" style="height: 160px" src="~/Images/Logos/PgDesignLoggo.png"/></a>
-            </li>
-            <li class="nav-item">
-                <a title="Startsida" class="nav-link" href="@Url.Action("Index", "Home")"> Startsida</a>
-            </li>
-            <li class="nav-item">
-                <a title="Mina tidigare jobb" class="nav-link" href="@Url.Action("Index", "Gallery")"> Galleri</a>
-            </li>
-            <li class="nav-item">
-                <a title="Mina tidigare jobb" class="nav-link" href="@Url.Action("Contact", "Home")"> Kontakta oss</a>
-            </li>
-            <li class="nav-item">
-                <a title="Mina tidigare jobb" class="nav-link" href="@Url.Action("Index", "Referenser")"> Referenser</a>
-            </li>
-        </ul>
-
-    </div>
-
-    </nav>*@
 
