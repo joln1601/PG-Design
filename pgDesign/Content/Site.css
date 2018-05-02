@@ -264,7 +264,28 @@ footer p{
 .profile-card{
     border: solid 1px black;
 }
-
+.card-header {
+    background-color: #999999;
+}
+.card-body {
+    background-color: #FFF;
+}
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.links ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+   
+}
+.links ul li {
+    display: inline;
+    margin: 2%;
+    padding: 0;
+    }
 /*Startsida Om oss*/
 #OmOssDiv {
   
