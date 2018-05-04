@@ -11,5 +11,6 @@ namespace pgDesign.ViewModels
         public string AboutText { get; set; }
         public string OpenTimes { get; set; }
         public IEnumerable<PictureAttachment> CarouselPics { get; set; }
+        public List<BlobList> Bloblist { get; set; }
     }
 }
