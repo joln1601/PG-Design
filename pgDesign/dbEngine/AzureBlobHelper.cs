@@ -14,6 +14,7 @@ namespace pgDesign.dbEngine
 {
     public class AzureBlobHelper
     {
+        #region Constructorer
         CloudStorageAccount storageAAccountConnection
         {
             get
@@ -35,6 +36,7 @@ namespace pgDesign.dbEngine
                 return _blobClient.GetContainerReference("sampl");
             }
         }
+        #endregion
         public AzureBlobHelper()
         {
             _blobcontainer.CreateIfNotExists();
@@ -48,34 +50,70 @@ namespace pgDesign.dbEngine
                                                                                                   // Create or overwrite the blob with contents from a local file.  
             _blockblob.UploadFromStream(_responseRequest.GetResponseStream());
         }
-        public List<BlobList> GetListOfData(postedFileModel filemodel)
+
+        #region Hämtning av blobbar
+        public List<string> GetListOfData(postedFileModel filemodel, string containerName)
         {
-            List<BlobList> _blobList = new List<BlobList>();
-            if (filemodel != null)
+            List<string> list = new List<string>();
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+                CloudConfigurationManager.GetSetting("StorageConnectionString"));
+            // Create the blob client.
+            CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+
+            // Retrieve reference to a previously created container.
+            CloudBlobContainer container = blobClient.GetContainerReference(containerName);
+
+            // Loop over items within the container and output the length and URI.
+            foreach (IListBlobItem item in container.ListBlobs(null, false))
             {
-                CloudBlockBlob _blobpage = (CloudBlockBlob)_blobcontainer.ListBlobs(filemodel.filename, false).FirstOrDefault();
-                _blobList.Add(new BlobList()
+                if (item.GetType() == typeof(CloudBlockBlob))
                 {
-                    URI = _blobpage.Uri.ToString(),
-                    length = _blobpage.Properties.Length
-                });
-            }
-            else
-            {
-                foreach (IListBlobItem item in _blobcontainer.ListBlobs(null, false))
+                    CloudBlockBlob blob = (CloudBlockBlob)item;
+                    list.Add(blob.Uri.ToString());
+                }
+                else if (item.GetType() == typeof(CloudPageBlob))
                 {
-                    if (item.GetType() == typeof(CloudBlockBlob))
-                    {
-                        CloudBlockBlob _blobpage = (CloudBlockBlob)item;
-                        _blobList.Add(new BlobList()
-                        {
-                            URI = _blobpage.Uri.AbsoluteUri.ToString(),
-                            length = _blobpage.Properties.Length
-                        });
-                    }
+                    CloudPageBlob pageBlob = (CloudPageBlob)item;
+                    list.Add(pageBlob.Uri.ToString());
+                }
+                else if (item.GetType() == typeof(CloudBlobDirectory))
+                {
+                    CloudBlobDirectory directory = (CloudBlobDirectory)item;
+                    list.Add(directory.Uri.ToString());
                 }
             }
-            return _blobList;
+            return list;
+
+            #region Gammal metod för hämtning av blobar
+            //List<BlobList> _blobList = new List<BlobList>();
+            //if (filemodel != null)
+            //{
+            //    CloudBlockBlob _blobpage = (CloudBlockBlob)_blobcontainer.ListBlobs(filemodel.filename, false).FirstOrDefault();
+            //    _blobList.Add(new BlobList()
+            //    {
+            //        URI = _blobpage.Uri.ToString(),
+            //        length = _blobpage.Properties.Length
+            //    });
+
+            //}
+            //else
+            //{
+            //    foreach (IListBlobItem item in _blobcontainer.ListBlobs(null, false))
+            //    {
+            //        if (item.GetType() == typeof(CloudBlockBlob))
+            //        {
+            //            CloudBlockBlob _blobpage = (CloudBlockBlob)item;
+            //            _blobList.Add(new BlobList()
+            //            {
+            //                URI = _blobpage.Uri.AbsoluteUri.ToString(),
+            //                length = _blobpage.Properties.Length
+            //            });
+            //        }
+            //    }
+            //}
+            //return _blobList;
+            #endregion
+            #endregion
         }
     }
 
