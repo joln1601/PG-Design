@@ -171,6 +171,9 @@
     #content{
         margin: auto !important;
     }
+    #contentgallery {
+        margin: auto !important;
+    }
 }
 
 @media (min-width: 767px) {
@@ -182,11 +185,18 @@
         width: calc(100% - 300px);
         float: right;
     }
+    #contentgallery {
+        width: calc(100% - 300px);
+        float: right;
+    }
 }
 
 /*------------*/
 @media(max-width: 1750px){
     #content{
+        margin-left: 312px;
+    }
+    #contentgallery {
         margin-left: 312px;
     }
 }
@@ -205,6 +215,12 @@
     
     
    
+}
+#contentgallery {
+    padding: 2% 2% 2% 2%;
+    margin-top: 2%;
+    margin-bottom: 5%;
+    box-shadow: none;
 }
 #Homecar {
     height: 30px;
@@ -324,14 +340,14 @@ hr {
     text-align: center;
     padding: 10px 0;
     height: auto;
-    box-shadow: 5px 10px 8px #888888;
+    
 }
 
 #gallery-wrapper {
     padding: 0px;
     margin: 0px;
     background: #222222;
-    box-shadow: 5px 10px 8px #888888;
+   
 }
 
     #gallery-wrapper a {
@@ -379,6 +395,12 @@ hr {
         #gallery-sidebar .list-group-item:hover {
             color: #FFF;
             border-left: 2px solid #FFF;
+            
+
+        }
+        #gallery-sidebar .list-group-item:hover #hejsan {
+            background-color: #FFF;
+            color: #FFF;
         }
 
         #gallery-sidebar .list-group-item.active {
@@ -458,15 +480,19 @@ hr {
         transform: rotate(90deg);
     }
 
+  .img-thumbnail {
+      margin-bottom: 20px;
+  }
+
+  .getSrc:hover {
+      transform: scale(1.01);
+  }
 
 
 
 
 
-
-
-
-
+  
 
 
 
