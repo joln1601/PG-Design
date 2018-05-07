@@ -1,25 +1,61 @@
-﻿<div class="nav-side-menu">
-    <div class="brand">
+﻿@if (User.Identity.IsAuthenticated)
+{
+    <div class="nav-side-menu">
+        <div class="brand">
             <a class="navbar-brand" href="@Url.Action("Index", "Home")"><img id="Loggo" style="height: 160px" src="~/Images/Logos/PgDesignLoggo.png" /></a>
+        </div>
+        <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+        <div class="menu-list">
+            <ul id="menu-content" class="menu-content collapse out">
+                <li class="nav-item">
+                    <a title="Startsida" class="nav-link" href="@Url.Action("Index", "Home")"> Admin startsida</a>
+                </li>
+                <li class="nav-item">
+                    <a title="Mina tidigare jobb" class="nav-link" href="@Url.Action("Index", "Gallery")"> Admin Galleri</a>
+                </li>
+                <li class="nav-item">
+                    <a title="Mina tidigare jobb" class="nav-link" href="@Url.Action("Contact", "Home")"> Admin Kontakta oss</a>
+                </li>
+                <li class="nav-item">
+                    <a title="Mina tidigare jobb" class="nav-link" href="@Url.Action("Index", "Referenser")"> Admin Referenser</a>
+                </li>
+                <li class="nav-item">
+                        <a title="Logga ut" class="nav-link" href="@Url.Action("LogOff", "Account")"> Logga ut</a>
+                </li>
+            </ul>
+        </div>
     </div>
-    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
-    <div class="menu-list">
-        <ul id="menu-content" class="menu-content collapse out">
-            <li class="nav-item">
-                <a title="Startsida" class="nav-link" href="@Url.Action("Index", "Home")"> Startsida</a>
-            </li>
-            <li class="nav-item">
-                <a title="Mina tidigare jobb" class="nav-link" href="@Url.Action("Index", "Gallery")"> Galleri</a>
-            </li>
-            <li class="nav-item">
-                <a title="Mina tidigare jobb" class="nav-link" href="@Url.Action("Contact", "Home")"> Kontakta oss</a>
-            </li>
-            <li class="nav-item">
-                <a title="Mina tidigare jobb" class="nav-link" href="@Url.Action("Index", "Referenser")"> Referenser</a>
-            </li>
-        </ul>
+}
+else
+{
+
+    <div class="nav-side-menu">
+        <div class="brand">
+            <a class="navbar-brand" href="@Url.Action("Index", "Home")"><img id="Loggo" style="height: 160px" src="~/Images/Logos/PgDesignLoggo.png" /></a>
+        </div>
+        <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+        <div class="menu-list">
+            <ul id="menu-content" class="menu-content collapse out">
+                <li class="nav-item">
+                    <a title="Startsida" class="nav-link" href="@Url.Action("Index", "Home")"> Startsida</a>
+                </li>
+                <li class="nav-item">
+                    <a title="Mina tidigare jobb" class="nav-link" href="@Url.Action("Index", "Gallery")"> Galleri</a>
+                </li>
+                <li class="nav-item">
+                    <a title="Mina tidigare jobb" class="nav-link" href="@Url.Action("Contact", "Home")"> Kontakta oss</a>
+                </li>
+                <li class="nav-item">
+                    <a title="Mina tidigare jobb" class="nav-link" href="@Url.Action("Index", "Referenser")"> Referenser</a>
+                </li>
+                <li class="nav-item">
+                    <a title="Mina tidigare jobb" class="nav-link" href="@Url.Action("Login", "Account")"> Logga in</a>
+                </li>
+            </ul>
+        </div>
     </div>
-</div>
+
+}
 
 
 
