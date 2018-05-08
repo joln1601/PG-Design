@@ -7,9 +7,17 @@
     background-attachment: fixed;
     color: #000;
 }
+#content{
+    min-height: 700px;
+}
+#contentgallery{
+    min-height: 700px;
+}
 #wrapper{
     display: flex;
     align-items: stretch;
+    margin-right: 0px;
+    margin-left: 0px;
 }
 /*Navbar*/
 #menu-content li{
