@@ -2,8 +2,8 @@
 @{
     ViewBag.Title = "Hitta hit";
 }
-<h2>@ViewBag.Title.</h2>
-<hr />
+<h1 class="text-center mb-4" style="border-bottom: 1px solid #000">@ViewBag.Title</h1>
+
 <div class="row">
     <div class="col-md-6">
     <iframe class="w-100" 
@@ -18,7 +18,7 @@
         <p class="mt-2">Skriv in ditt postnummer och tryck "Hitta hit" för att få en vägbeskrivning till PG Design</p>
         <div>
             <form action="http://maps.google.com/maps" method="get" target="_blank">
-                <input type="text" class="w-50 form-control" name="saddr" />
+                <input type="text" class="w-50 form-control center" name="saddr" />
                 <input type="hidden" name="daddr" value="Strinne 110 Bjärtrå, 87296 Kramfors" />
                 <br />
                 <input type="submit" class="btn btn-primary align-self-center mt-2" value="Hitta hit" />
