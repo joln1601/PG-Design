@@ -78,36 +78,6 @@ namespace pgDesign.dbEngine
                 }
             }
             return list;
-
-            #region Gammal metod för hämtning av blobar
-            //List<BlobList> _blobList = new List<BlobList>();
-            //if (filemodel != null)
-            //{
-            //    CloudBlockBlob _blobpage = (CloudBlockBlob)_blobcontainer.ListBlobs(filemodel.filename, false).FirstOrDefault();
-            //    _blobList.Add(new BlobList()
-            //    {
-            //        URI = _blobpage.Uri.ToString(),
-            //        length = _blobpage.Properties.Length
-            //    });
-
-            //}
-            //else
-            //{
-            //    foreach (IListBlobItem item in _blobcontainer.ListBlobs(null, false))
-            //    {
-            //        if (item.GetType() == typeof(CloudBlockBlob))
-            //        {
-            //            CloudBlockBlob _blobpage = (CloudBlockBlob)item;
-            //            _blobList.Add(new BlobList()
-            //            {
-            //                URI = _blobpage.Uri.AbsoluteUri.ToString(),
-            //                length = _blobpage.Properties.Length
-            //            });
-            //        }
-            //    }
-            //}
-            //return _blobList;
-            #endregion
             #endregion
         }
     }

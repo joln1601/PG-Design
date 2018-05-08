@@ -28,13 +28,30 @@ namespace pgDesign.Controllers
         }
         public ActionResult Platjobb()
         {
-            return View();
+            string platjob = "platjobb";
+            gvm.PlatjobBlobList = AB.GetListOfData(pfm, platjob);
+
+            return View(gvm);
         }
         public ActionResult Lackering()
         {
-            string ContainerName = "lackering";
+            string lack = "lackering";
+            gvm.LackeringBlobList = AB.GetListOfData(pfm, lack);
 
-            gvm.LackeringBlobList = AB.GetListOfData(pfm, ContainerName);
+            return View(gvm);
+        }
+        public ActionResult Ombyggnad()
+        {
+            string ombyggnad = "ombyggnad";
+            gvm.OmbyggnadBlobList = AB.GetListOfData(pfm, ombyggnad);
+
+            return View(gvm);
+        }
+        public ActionResult Ovrigt()
+        {
+            string ovrigt = "ovrigt";
+            gvm.OvrigtBlobList = AB.GetListOfData(pfm, ovrigt);
+
             return View(gvm);
         }
     }
