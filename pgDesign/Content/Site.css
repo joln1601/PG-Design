@@ -1,8 +1,8 @@
 ﻿body {
     /*background-color: #FFF;*/
-    background-image: linear-gradient(139deg, #000 30%, #db0a18 115%);
-    /*background-image: url(../Images/PgDesign/pgGarage.jpg);*/
-    background-repeat: no-repeat;
+    /*background-image: linear-gradient(139deg, #000 30%, #db0a18 115%);*/
+    background-image: url(../Images/backgroundimage.jpg);
+    /*background-repeat: no-repeat;*/
     background-size: cover;
     background-attachment: fixed;
     color: #000;
@@ -35,6 +35,8 @@
         display: block;
         text-align: center;
         font-size: 14px;
+      
+        
     }
 
     .nav-side-menu .toggle-btn {
@@ -167,6 +169,7 @@
         font-size: 22px;
         padding-left: 20px;
         line-height: 50px !important;
+       
     }
     #content{
         margin: auto !important;
@@ -488,7 +491,10 @@ hr {
       transform: scale(1.01);
   }
 
-
+  th, td {
+      border-top: none !important;
+     
+  }
 
 
 

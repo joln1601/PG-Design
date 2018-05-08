@@ -277,6 +277,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Images\backg.jpg" />
     <Content Include="Images\backg2.jpg" />
+    <Content Include="Images\backgroundimage.jpg" />
     <Content Include="Images\BlackCar.png" />
     <Content Include="Images\Buss.png" />
     <Content Include="Images\car.png" />

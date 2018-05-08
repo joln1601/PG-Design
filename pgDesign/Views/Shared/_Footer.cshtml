@@ -70,11 +70,12 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Öppettider</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <h5 class="center">Öppettider</h5>
+                @*<button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
-                </button>
+                </button>*@
             </div>
+            
             <div class="modal-body">
                 <table class="table table-hover">
 
@@ -86,7 +87,7 @@
 
                         </tr>
 
-                        <tr class="table-secondary">
+                        <tr >
                             <th scope="row">Lördag</th>
                             <td style="color: #ff0000">Stängt</td>
                         </tr>
@@ -94,17 +95,19 @@
                             <th scope="row">Söndag</th>
                             <td style="color: #ff0000">Stängt</td>
                         </tr>
-                        <tr>
-                            <th scope="row">Avvikande öppettider</th>
-                            <td>Vi har stängt alla röda dagar</td>
-                        </tr>
+                       
 
                     </tbody>
                 </table>
+                
+                            <h5 class="text-center">Avvikande öppettider</h5>
+                <hr />
+                            
+                            <p class="text-center" style="color: #ff0000">Vi har stängt alla röda dagar</p>
             </div>
             <div class="modal-footer">
 
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Stäng</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Stäng</button>
             </div>
         </div>
     </div>

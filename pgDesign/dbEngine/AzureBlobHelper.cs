@@ -14,7 +14,7 @@ namespace pgDesign.dbEngine
 {
     public class AzureBlobHelper
     {
-        private CloudBlobContainer _blobcontainer;
+        
         #region Constructorer
         CloudStorageAccount storageAAccountConnection
         {
@@ -38,7 +38,7 @@ namespace pgDesign.dbEngine
         //}
         public void SaveDataToAzureBlob(postedFileModel filemodel)
         {
-            Stream _streamContent;
+            CloudBlobContainer _blobcontainer = new CloudBlobContainer(null);
             HttpWebRequest _requestPage = (HttpWebRequest)WebRequest.Create(filemodel.filePath);
             HttpWebResponse _responseRequest = (HttpWebResponse)_requestPage.GetResponse();
             CloudBlockBlob _blockblob = _blobcontainer.GetBlockBlobReference(filemodel.filename); //Createing a Blob  
@@ -79,35 +79,7 @@ namespace pgDesign.dbEngine
             }
             return list;
 
-            #region Gammal metod för hämtning av blobar
-            //List<BlobList> _blobList = new List<BlobList>();
-            //if (filemodel != null)
-            //{
-            //    CloudBlockBlob _blobpage = (CloudBlockBlob)_blobcontainer.ListBlobs(filemodel.filename, false).FirstOrDefault();
-            //    _blobList.Add(new BlobList()
-            //    {
-            //        URI = _blobpage.Uri.ToString(),
-            //        length = _blobpage.Properties.Length
-            //    });
-
-            //}
-            //else
-            //{
-            //    foreach (IListBlobItem item in _blobcontainer.ListBlobs(null, false))
-            //    {
-            //        if (item.GetType() == typeof(CloudBlockBlob))
-            //        {
-            //            CloudBlockBlob _blobpage = (CloudBlockBlob)item;
-            //            _blobList.Add(new BlobList()
-            //            {
-            //                URI = _blobpage.Uri.AbsoluteUri.ToString(),
-            //                length = _blobpage.Properties.Length
-            //            });
-            //        }
-            //    }
-            //}
-            //return _blobList;
-            #endregion
+           
             #endregion
         }
     }
