@@ -14,6 +14,7 @@ namespace pgDesign.dbEngine
 {
     public class AzureBlobHelper
     {
+        private CloudBlobContainer _blobcontainer;
         #region Constructorer
         CloudStorageAccount storageAAccountConnection
         {
@@ -29,18 +30,12 @@ namespace pgDesign.dbEngine
                 return storageAAccountConnection.CreateCloudBlobClient();
             }
         }
-        CloudBlobContainer _blobcontainer
-        {
-            get
-            {
-                return _blobClient.GetContainerReference("sampl");
-            }
-        }
+
         #endregion
-        public AzureBlobHelper()
-        {
-            _blobcontainer.CreateIfNotExists();
-        }
+        //public AzureBlobHelper()
+        //{
+        //    _blobcontainer.CreateIfNotExists();
+        //}
         public void SaveDataToAzureBlob(postedFileModel filemodel)
         {
             Stream _streamContent;
