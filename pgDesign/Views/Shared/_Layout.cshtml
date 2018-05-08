@@ -8,6 +8,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="~/Scripts/JavaScript.js"></script>
 
+
+
     <title>@ViewBag.Title</title>
     <!--Script Bundles-->
     @Styles.Render("~/Content/css")
@@ -23,12 +25,18 @@
     @*<div class="head-img justify-content-center">
         <img src="~/Images/PgDesign/pgGarage.jpg" class="w-100" />
     </div>*@
-    @Html.Partial("_NavBar")
-    <div id="content" class="container">
-        @RenderBody()
-    </div>
+   
+        <div id="wrapper" class="row h-100">
+            @Html.Partial("_NavBar")
+            <div id="content" class="container align-self-center">
+                @RenderBody()
+            </div>
+        </div>
+   
 
-    <!-- Bottom footer -->
     @Html.Partial("_Footer")
+    
+  
+    <!-- Bottom footer -->
 </body>
 </html>

@@ -2,80 +2,71 @@
 @{
     ViewBag.Title = "Contact";
 }
-<h2 class="headline text-center">Kontakta oss</h2>
-<hr class="headline col-md-10" />
-
 <div class="profile-body">
-    <div class="profile-content col-md-12 row">
-@foreach (var item in Model.Users)
-{
-            <div class="col-md-5">
-                <h4 class="mt-2 text-center">@item.Fname&nbsp;@item.LName</h4>
-                <div class="card bg-transparent">
-                    <div class="card-body">
-                        <div class="card-header">
-                            <img class="profile-pic w-100" src="~/Images/Contact/ProfilBild.jpg" />
-                        </div>
-                        <div class="card-text pb-0">
-                            <p class="mt-3">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Vestibulum vel enim velit. Pellentesque
-                            </p>
-                        </div>
-                        <hr class="headline col-md-10" />
-                        <div class="card-group">
-                            <ul class="list-unstyled pl-3" id="contact-list">
-                                <li class="row mr-2 mt-3">
-                                    <a href="" data-target="#myModal" data-toggle="modal"><img src="~/Images/Contact/mail.png" class="mr-3" /></a> <h6 class="list-headline">E-post dygnet runt! <br /> @item.Email</h6>
-                                </li>
-                                <li class="row mt-3">
-                                    <a href=""><img src="~/Images/Contact/phone.png" class="mr-3" /></a><h6 class="list-headline"> Telefon vardagar 8:00-16:00<br /> <a href="">@item.Phone</a></h6>
-                                </li>
-                                <li class="row mt-3">
-                                    <a href="@Url.Action("FindUs", "Home")"><img src="~/Images/Contact/navPin.png" class="mr-3" /></a><h6 class="list-headline"> <a href="@Url.Action("FindUs", "Home")">Bjärtrå 110, 872 96</a><br /> <a href="@Url.Action("Index", "Home")"> Öppettider</a></h6>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+    <h1 class="text-center mb-4">Kontakta PG-design</h1>
+    @foreach (var item in Model.Users)
+    {
+        <div class="justify-content-center mt-5 mb-3">
+            <div>
+                <img src="@item.Picture.ImageAddress" class="profile-pic center" style="max-width: 300px;" />
             </div>
-}
-    </div>
+            <h1 class="text-center mt-3 mb-3">Per-Gunnar Lockner</h1>
+            <p class="w-50 center mt-3">
+                orem ipsum dolor sit amet, consectetur adipiscing elit.
+                Vestibulum vel enim velit. Pellentesque Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Vestibulum vel enim velit. Pellentesque
+            </p>
+            <div class="links justify-content-center mt-5">
+                <hr class="col-md-4"/>
+                <ul class="icon-list text-center">
+                    <li>
+                        <img title="E-post" src="~/Images/Contact/mail.png" style="width: 50px;" />
+                    </li>
+                    <li>
+                        <img title="Mobil" src="~/Images/Contact/phone.png" style="width: 50px;" />
+                    </li>
+                    <li>
+                        <img title="Hitta oss" src="~/Images/Contact/navPin.png" style="width: 30px;" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+    }
 </div>
 
 
 
-<div class="modal" id="myModal">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Avvikande Öppettider</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="Mail-body col-md-12">
-                    <h4 class="mt-2 text-center mb-3">Kontakta PG-Design</h4>
-                    <div class="Mail-content">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                        </div>
-                        <div class="form-group mt-3">
-                            <label for="exampleTextarea">Meddelande</label>
-                            <textarea class="form-control" id="exampleTextarea" rows="3" style="margin-top: 0px; margin-bottom: 0px; height: 95px;"></textarea>
-                        </div>
+    <div class="modal" id="myModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Avvikande Öppettider</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="Mail-body col-md-12">
+                        <h4 class="mt-2 text-center mb-3">Kontakta PG-Design</h4>
+                        <div class="Mail-content">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email address</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="exampleTextarea">Meddelande</label>
+                                <textarea class="form-control" id="exampleTextarea" rows="3" style="margin-top: 0px; margin-bottom: 0px; height: 95px;"></textarea>
+                            </div>
 
-                        <button type="button" class="btn btn-primary float-right">Skicka</button>
+                            <button type="button" class="btn btn-primary float-right">Skicka</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer">
+                <div class="modal-footer">
 
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Stäng</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Stäng</button>
+                </div>
             </div>
         </div>
     </div>
-</div>

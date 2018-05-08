@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using pgDesign.dbEngine;
 using pgDesign.ViewModels;
+using pgDesign.Models;
 
 namespace pgDesign.Controllers
 {
@@ -13,11 +14,15 @@ namespace pgDesign.Controllers
         private dbOperation db;
         private StartUpViewModel vm;
         private ContactVM Cvm;
+        private AzureBlobHelper AB;
+        private postedFileModel pfm;
         public HomeController()
         {
             db = new dbOperation();
             vm = new StartUpViewModel();
             Cvm = new ContactVM();
+            AB = new AzureBlobHelper();
+            pfm = new postedFileModel();
         }
         
         public ActionResult Index()
@@ -32,6 +37,10 @@ namespace pgDesign.Controllers
             // Avikande öppettider
             var SiteInfoOpen = db.SiteinfoText(2);
             vm.OpenTimes = SiteInfoOpen.Content;
+
+            string ContainerName = "carouselpictures";
+
+            vm.Bloblist = AB.GetListOfData(pfm, ContainerName);
 
             return View(vm);
         }
