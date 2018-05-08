@@ -229,7 +229,9 @@
     height: 30px;
     width: 50px;
 }
-
+.hoverimg:hover{
+    cursor: pointer;
+}
 /*Footer*/
 footer {
     background: #2a2a2a;

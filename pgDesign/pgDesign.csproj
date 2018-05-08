@@ -412,6 +412,8 @@
     <Content Include="Views\Gallery\_GalleryLayout.cshtml" />
     <Content Include="Views\Gallery\Platjobb.cshtml" />
     <Content Include="Views\Gallery\Lackering.cshtml" />
+    <Content Include="Views\Gallery\Ombyggnad.cshtml" />
+    <Content Include="Views\Gallery\Ovrigt.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
