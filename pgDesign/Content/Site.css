@@ -151,12 +151,11 @@
             }
 
         .nav-side-menu li:hover {
-            border-left: 3px solid #d19b3d;
+            border-left: 4px solid #ff0000;
             background-color: #4f5b69;
             -webkit-transition: all 1s ease;
             -moz-transition: all 1s ease;
             -o-transition: all 1s ease;
-            
             transition: all 1s ease;
         }
 
