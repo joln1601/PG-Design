@@ -10,14 +10,25 @@
             <div>
                 <img src="@item.Picture.ImageAddress" class="profile-pic center" style="max-width: 300px;" />
             </div>
-            <h1 class="text-center mt-3 mb-3">Per-Gunnar Lockner</h1>
+            <h1 class="text-center mt-3 mb-3">@item.Fname @item.LName</h1>
             <p class="w-50 center mt-3">
-                orem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum vel enim velit. Pellentesque Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum vel enim velit. Pellentesque
+                @item.Biography
             </p>
+
+            <ul class="w-50 center mt-3">
+                <li>
+                    <a href="#">@item.Email</a>
+                </li>
+                <li>
+                    <a href="#">@item.Phone</a>
+                </li>
+                <li>
+                    <a href="#">Hitta hit</a>
+                </li>
+            </ul>
+
             <div class="links justify-content-center mt-5">
-                <hr class="col-md-4"/>
+                <hr class="col-md-6"/>
                 <ul class="icon-list text-center">
                     <li>
                         <img title="E-post" src="~/Images/Contact/mail.png" style="width: 50px;" />

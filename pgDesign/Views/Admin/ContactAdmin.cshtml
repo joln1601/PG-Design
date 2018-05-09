@@ -4,45 +4,72 @@
 }
 
 
-        @for (var i = 0; i < Model.Users.Count(); i++)
-
-        {
 <div id="KontaktInfoDiv">
+    @for (var i = 0; i < Model.Users.Count(); i++)
 
-    <table class="mb-3">
-        <tr class="pb-5">
+    {
+
+    <table class="mb-3 contactTable">
+        @*<tr class="pb-5">
             <th class="mb-2">Förnamn</th>
             <th>Efternamn</th>
             <th>Email</th>
             <th>Telefonnummer</th>
+        </tr>*@
+        @using (Html.BeginForm("SetContactAdmin", "Admin"))
+
+    {
+        @Html.HiddenFor(m => Model.Users.ElementAt(i).Id)
+        <tr>
+            <td>
+                <div id="Fname" class="mr-5">
+                    @Html.Label("Förnamn")
+                    @Html.TextBoxFor(m => Model.Users.ElementAt(i).Fname, new { @style = "margin-right:20px;", @class = "form-control" })
+                </div>
+            </td>
+            <td>
+                <div id="Lname">
+                    @Html.Label("Efternamn")
+                    @Html.TextBoxFor(m => Model.Users.ElementAt(i).LName, new { @style = "margin-right:20px;", @class = "form-control" })
+                </div>
+            </td>
         </tr>
-            @using (Html.BeginForm("SetContactAdmin", "Admin"))
+        <tr>
 
-            {
-                @Html.HiddenFor(m => Model.Users.ElementAt(i).Id)
-                <tr>
-                    <td>
-                        @Html.TextBoxFor(m => Model.Users.ElementAt(i).Fname, new { @style = "margin-right:20px;" })
-                    </td>
-                    <td>
-                        @Html.TextBoxFor(m => Model.Users.ElementAt(i).LName, new { @style = "margin-right:20px;" })
-                    </td>
-                    <td>
-                        @Html.TextBoxFor(m => Model.Users.ElementAt(i).Email, new { @style = "margin-right:20px;" })
-                    </td>
-                    <td>
-                        @Html.TextBoxFor(m => Model.Users.ElementAt(i).Phone, new { @style = "margin-right:20px;" })
-                    </td>
-                    <td class="col-12">
-
-                    <input type="submit" value="Spara" class="form-control btn-primary w-100 float-right" />
-                    </td>
-                </tr>
-            }
+            <td>
+                <div id="Email" class="mr-5 mt-3">
+                    @Html.Label("E-post")
+                    @Html.TextBoxFor(m => Model.Users.ElementAt(i).Email, new { @style = "margin-right:20px;", @class = "form-control" })
+                </div>
+            </td>
+            <td>
+                <div id="phone" class="mt-3">
+                    @Html.Label("Telefon")
+                    @Html.TextBoxFor(m => Model.Users.ElementAt(i).Phone, new { @style = "margin-right:20px;", @class = "form-control" })
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="mt-3 mb-3">
+                    @Html.Label("Biografi")
+                    @Html.TextAreaFor(m => Model.Users.ElementAt(i).Biography, new { @style = "margin-right:20px; width: 300%;", @rows = "6", @class = "form-control" })
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Spara" class="form-control btn-primary" style="width: 100px;" />
+            </td>
+        </tr>
+}
     </table>
+        <br />
+    }
+    <div>
+        <input type="button" value="Ny kontakt" class="btn-primary form-control float-right" style="width: 150px;" />
+    </div>
 </div>
-            <br />
-        }
 
 
 

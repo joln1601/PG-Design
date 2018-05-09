@@ -82,6 +82,7 @@ namespace pgDesign.dbEngine
             contactinfo.LName = ci.LName;
             contactinfo.Phone = ci.Phone;
             contactinfo.Email = ci.Email;
+            contactinfo.Biography = ci.Biography;
 
             _DbOperation.SaveChanges();
         }
