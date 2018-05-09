@@ -62,5 +62,18 @@ namespace pgDesign.dbEngine
         }
 
         #endregion
+
+        #region Admin
+
+        public void SetAboutText(StartUpViewModel sv)
+        {
+            var text = _DbOperation.Siteinformation.Single(t => t.Id == sv.Id);
+
+            text.Content = sv.AboutText;
+
+            _DbOperation.SaveChanges();
+        }
+
+        #endregion
     }
 }

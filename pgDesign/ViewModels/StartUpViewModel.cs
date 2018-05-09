@@ -8,6 +8,7 @@ namespace pgDesign.ViewModels
 {
     public class StartUpViewModel
     {
+        public int Id { get; set; }
         public string AboutText { get; set; }
         public string OpenTimes { get; set; }
         public IEnumerable<PictureAttachment> CarouselPics { get; set; }

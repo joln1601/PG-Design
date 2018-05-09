@@ -33,7 +33,7 @@ namespace pgDesign.Controllers
             // Om oss text
             var SiteInfoAboutText = db.SiteinfoText(1);
             vm.AboutText = SiteInfoAboutText.Content;
-            
+            vm.Id = SiteInfoAboutText.Id;     
             // Avikande öppettider
             var SiteInfoOpen = db.SiteinfoText(2);
             vm.OpenTimes = SiteInfoOpen.Content;
