@@ -51,13 +51,36 @@ namespace pgDesign.Controllers
         }
         public ActionResult ContactAdmin()
         {
-            return View();
+            Cvm.Users = db.GetUsers();
+
+         
+
+            return View(Cvm);
+            
         }
+        [HttpPost]
+        public ActionResult SetContactAdmin(ContactInfo ci)
+        {
+            try
+            {
+                
+            db.SetContactInfo(ci);
+            TempData["Message"] = "<br />Uppgifterna har nu blivit sparade.";
+            }
+            catch (Exception ex)
+            {
+                TempData["Message"] = "<br /> Det har uppstått ett fel <br /> <br />" + ex;
+               
+            }
+            return RedirectToAction("ContactAdmin");
+        }
+
         [HttpPost]
         public ActionResult AboutText(StartUpViewModel sv)
         {
             db.SetAboutText(sv);
             return RedirectToAction("Index");
         }
+
     }
 }

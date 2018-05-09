@@ -68,8 +68,20 @@ namespace pgDesign.dbEngine
         public void SetAboutText(StartUpViewModel sv)
         {
             var text = _DbOperation.Siteinformation.Single(t => t.Id == sv.Id);
-
+            
             text.Content = sv.AboutText;
+            
+
+            _DbOperation.SaveChanges();
+        }
+        public void SetContactInfo(ContactInfo ci)
+        {
+            var contactinfo = _DbOperation.ContactInfo.Single(t => t.Id == ci.Id);
+
+            contactinfo.Fname = ci.Fname;
+            contactinfo.LName = ci.LName;
+            contactinfo.Phone = ci.Phone;
+            contactinfo.Email = ci.Email;
 
             _DbOperation.SaveChanges();
         }

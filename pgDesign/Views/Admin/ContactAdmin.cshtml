@@ -1,7 +1,57 @@
-﻿
+﻿@model pgDesign.ViewModels.ContactVM
 @{
     ViewBag.Title = "ContactAdmin";
 }
 
-<h2>ContactAdmin</h2>
+
+        @for (var i = 0; i < Model.Users.Count(); i++)
+
+        {
+<div id="KontaktInfoDiv">
+
+    <table class="mb-3">
+        <tr class="pb-5">
+            <th class="mb-2">Förnamn</th>
+            <th>Efternamn</th>
+            <th>Email</th>
+            <th>Telefonnummer</th>
+        </tr>
+            @using (Html.BeginForm("SetContactAdmin", "Admin"))
+
+            {
+                @Html.HiddenFor(m => Model.Users.ElementAt(i).Id)
+                <tr>
+                    <td>
+                        @Html.TextBoxFor(m => Model.Users.ElementAt(i).Fname, new { @style = "margin-right:20px;" })
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => Model.Users.ElementAt(i).LName, new { @style = "margin-right:20px;" })
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => Model.Users.ElementAt(i).Email, new { @style = "margin-right:20px;" })
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => Model.Users.ElementAt(i).Phone, new { @style = "margin-right:20px;" })
+                    </td>
+                    <td class="col-12">
+
+                    <input type="submit" value="Spara" class="form-control btn-primary w-100 float-right" />
+                    </td>
+                </tr>
+            }
+    </table>
+</div>
+            <br />
+        }
+
+
+
+
+@if (TempData["Message"] != null)
+{
+    <div class="col-md-12" style="color: red;">
+
+    @Html.Raw(@TempData["Message"])
+    </div>
+}
 
