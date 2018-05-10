@@ -28,7 +28,7 @@ namespace pgDesign.Controllers
         public ActionResult Index()
         {
             //Bilder för karusell
-            vm.CarouselPics = db.GetCarouselPic();
+            //vm.CarouselPics = db.GetCarouselPic();
             
             // Om oss text
             var SiteInfoAboutText = db.SiteinfoText(1);

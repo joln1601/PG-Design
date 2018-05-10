@@ -86,7 +86,18 @@ namespace pgDesign.dbEngine
 
             _DbOperation.SaveChanges();
         }
+        public IEnumerable<ApplicationUser> GetAllUsers()
+        {
+            var list = _DbOperation.Users.ToList();
 
+            return list;
+        }
+        public ApplicationUser GetSpeifikUser(string id)
+        {
+            var user = _DbOperation.Users.Where(x => x.Id == id).Single();
+
+            return user;
+        }
         #endregion
     }
 }

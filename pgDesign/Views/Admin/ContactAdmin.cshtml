@@ -5,17 +5,12 @@
 
 
 <div id="KontaktInfoDiv">
+    <h2>Redigera innehåll i kontaktsidan</h2>
     @for (var i = 0; i < Model.Users.Count(); i++)
 
     {
 
     <table class="mb-3 contactTable">
-        @*<tr class="pb-5">
-            <th class="mb-2">Förnamn</th>
-            <th>Efternamn</th>
-            <th>Email</th>
-            <th>Telefonnummer</th>
-        </tr>*@
         @using (Html.BeginForm("SetContactAdmin", "Admin"))
 
     {

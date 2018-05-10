@@ -27,60 +27,108 @@ namespace pgDesign.Controllers
         // GET: Admin
         public ActionResult Index()
         {
-            //Bilder för karusell
-            vm.CarouselPics = db.GetCarouselPic();
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                var SiteInfoAboutText = db.SiteinfoText(1);
+                vm.AboutText = SiteInfoAboutText.Content;
+                vm.Id = SiteInfoAboutText.Id;
 
-            // Om oss text
-            var SiteInfoAboutText = db.SiteinfoText(1);
-            vm.AboutText = SiteInfoAboutText.Content;
-            vm.Id = SiteInfoAboutText.Id;
+                var SiteInfoOpen = db.SiteinfoText(2);
+                vm.OpenTimes = SiteInfoOpen.Content;
 
-            // Avikande öppettider
-            var SiteInfoOpen = db.SiteinfoText(2);
-            vm.OpenTimes = SiteInfoOpen.Content;
+                string ContainerName = "carouselpictures";
 
-            string ContainerName = "carouselpictures";
+                vm.Bloblist = AB.GetListOfData(pfm, ContainerName);
 
-            vm.Bloblist = AB.GetListOfData(pfm, ContainerName);
-
-            return View(vm);
+                return View(vm);
+            }
         }
         public ActionResult GalleryAdmin()
         {
-            return View();
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return View();
+            }
         }
         public ActionResult ContactAdmin()
         {
-            Cvm.Users = db.GetUsers();
-
-         
-
-            return View(Cvm);
-            
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                Cvm.Users = db.GetUsers();
+                return View(Cvm);
+            }
         }
         [HttpPost]
         public ActionResult SetContactAdmin(ContactInfo ci)
         {
-            try
+            if (!User.Identity.IsAuthenticated)
             {
-                
-            db.SetContactInfo(ci);
-            TempData["Message"] = "<br />Uppgifterna har nu blivit sparade.";
+                return RedirectToAction("Index", "Home");
             }
-            catch (Exception ex)
+            else
             {
-                TempData["Message"] = "<br /> Det har uppstått ett fel <br /> <br />" + ex;
-               
+                try
+                {
+                    db.SetContactInfo(ci);
+                    TempData["Message"] = "<br />Uppgifterna har nu blivit sparade.";
+                }
+                catch (Exception ex)
+                {
+                    TempData["Message"] = "<br /> Det har uppstått ett fel <br /> <br />" + ex;
+                }
+                return RedirectToAction("ContactAdmin");
             }
-            return RedirectToAction("ContactAdmin");
         }
 
         [HttpPost]
         public ActionResult AboutText(StartUpViewModel sv)
         {
-            db.SetAboutText(sv);
-            return RedirectToAction("Index");
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                db.SetAboutText(sv);
+                return RedirectToAction("Index");
+            }
         }
-
+        public ActionResult GetListOfAccounts()
+        {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                var list = db.GetAllUsers();
+                return View(list);
+            }
+        }
+        public ActionResult Edit(string id)
+        {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                var user = db.GetSpeifikUser(id);
+                return View(user);
+            }
+        }
+        
     }
 }
