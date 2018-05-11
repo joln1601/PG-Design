@@ -3,27 +3,30 @@
     ViewBag.Title = "Contact";
 }
 <div class="profile-body">
-    <h1 class="text-center mb-4">Kontakta PG-design</h1>
+    <h1 class="text-center mb-4">Kontakta oss</h1>
     @foreach (var item in Model.Users)
     {
         <div class="justify-content-center mt-5 mb-3">
             <div>
                 <img src="@item.Picture.ImageAddress" class="profile-pic center" style="max-width: 300px;" />
             </div>
-            <h1 class="text-center mt-3 mb-3">@item.Fname @item.LName</h1>
-            <p class="w-50 center mt-3">
+            <h3 class="text-center mt-3 mb-4">@item.Fname @item.LName</h3>
+            <p class="w-75 center mt-3">
+                <strong>Biografi</strong> <br />
                 @item.Biography
             </p>
+            <p class="w-75 center mt-3">
+                <strong class="w-50 mt-3">Hur du kan kontakta oss</strong>
+                <br />
+                @item.ContactUs
+            </p>
 
-            <ul class="w-50 center mt-3">
+            <ul class="w-75 center mt-3 list-unstyled">
                 <li>
-                    <a href="#">@item.Email</a>
+                    <strong> E-post:</strong> <a href="#"> @item.Email</a>
                 </li>
-                <li>
-                    <a href="#">@item.Phone</a>
-                </li>
-                <li>
-                    <a href="#">Hitta hit</a>
+                <li class="mt-3">
+                    <strong>Telefon: </strong> <a href="#">@item.Phone</a>
                 </li>
             </ul>
 

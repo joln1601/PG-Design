@@ -246,6 +246,10 @@
     <Compile Include="Migrations\201804241309368_addedForeignkeysToPictureAttachment.Designer.cs">
       <DependentUpon>201804241309368_addedForeignkeysToPictureAttachment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805110845202_add-migration contacttext.cs" />
+    <Compile Include="Migrations\201805110845202_add-migration contacttext.Designer.cs">
+      <DependentUpon>201805110845202_add-migration contacttext.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BlobList.cs" />
@@ -454,6 +458,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804241309368_addedForeignkeysToPictureAttachment.resx">
       <DependentUpon>201804241309368_addedForeignkeysToPictureAttachment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805110845202_add-migration contacttext.resx">
+      <DependentUpon>201805110845202_add-migration contacttext.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

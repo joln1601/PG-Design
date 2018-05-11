@@ -16,6 +16,7 @@ namespace pgDesign.Models
         public string UserId { get; set; }
         public int Picture_Id { get; set; }
         public string Biography { get; set; }
+        public string ContactUs { get; set; }
 
         [ForeignKey("Picture_Id")]
         public Picture Picture { get; set; }
