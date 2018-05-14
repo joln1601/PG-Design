@@ -16,6 +16,7 @@ namespace pgDesign.Controllers
         private ContactVM Cvm;
         private AzureBlobHelper AB;
         private postedFileModel pfm;
+        private Webshop ws;
         public AdminController()
         {
             db = new dbOperation();
@@ -23,6 +24,8 @@ namespace pgDesign.Controllers
             Cvm = new ContactVM();
             AB = new AzureBlobHelper();
             pfm = new postedFileModel();
+            ws = new Webshop();
+
     }
         // GET: Admin
         public ActionResult Index()
@@ -129,6 +132,70 @@ namespace pgDesign.Controllers
                 return View(user);
             }
         }
-        
+        public ActionResult WebshopAdminList()
+        {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+               var list = db.GetWebshops();
+                return View(list);
+            }
+        }
+        public ActionResult CreateWebshopItem()
+        {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return View();
+            }
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateWebshopItem(Webshop ws)
+        {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                db.CreateWebshopItem(ws);
+                return RedirectToAction("WebshopAdminList");
+            }
+        }
+        public ActionResult EditWebshopItem(int id)
+        {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                var ws = db.GetSpecificWebshop(id);
+
+
+                return View(ws);
+            }
+        }
+        [ActionName("EditItem")]
+        public ActionResult EditWebshopItem(Webshop ws)
+        {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                db.EditWebshopItem(ws);
+
+                return RedirectToAction("WebshopAdminList");
+            }
+        }
     }
 }

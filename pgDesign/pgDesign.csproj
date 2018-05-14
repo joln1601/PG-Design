@@ -205,6 +205,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ReferenserController.cs" />
+    <Compile Include="Controllers\WebshopController.cs" />
     <Compile Include="dbEngine\AzureBlobHelper.cs" />
     <Compile Include="dbEngine\dbOperation.cs" />
     <Compile Include="Global.asax.cs">
@@ -250,6 +251,10 @@
     <Compile Include="Migrations\201805110845202_add-migration contacttext.Designer.cs">
       <DependentUpon>201805110845202_add-migration contacttext.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805140859281_newWebshop.cs" />
+    <Compile Include="Migrations\201805140859281_newWebshop.Designer.cs">
+      <DependentUpon>201805140859281_newWebshop.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BlobList.cs" />
@@ -262,11 +267,13 @@
     <Compile Include="Models\PictureAttachment.cs" />
     <Compile Include="Models\postedFileModel.cs" />
     <Compile Include="Models\Siteinformation.cs" />
+    <Compile Include="Models\Webshop.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\GalleryViewModel.cs" />
     <Compile Include="ViewModels\StartUpViewModel.cs" />
     <Compile Include="ViewModels\ContactVM.cs" />
+    <Compile Include="ViewModels\WebshopVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-def.css" />
@@ -423,6 +430,10 @@
     <Content Include="Views\Admin\ContactAdmin.cshtml" />
     <Content Include="Views\Admin\GetListOfAccounts.cshtml" />
     <Content Include="Views\Admin\Edit.cshtml" />
+    <Content Include="Views\Webshop\Index.cshtml" />
+    <Content Include="Views\Admin\WebshopAdminList.cshtml" />
+    <Content Include="Views\Admin\CreateWebshopItem.cshtml" />
+    <Content Include="Views\Admin\EditWebshopItem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -461,6 +472,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805110845202_add-migration contacttext.resx">
       <DependentUpon>201805110845202_add-migration contacttext.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805140859281_newWebshop.resx">
+      <DependentUpon>201805140859281_newWebshop.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

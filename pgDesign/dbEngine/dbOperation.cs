@@ -21,11 +21,11 @@ namespace pgDesign.dbEngine
         #region Siteinformation
         public Siteinformation SiteinfoText(int id)
         {
-            
+
             var text = _DbOperation.Siteinformation.Where(c => c.Id == id).Single();
             return text;
         }
-      
+
         #endregion
 
         #region ContactPage
@@ -38,9 +38,9 @@ namespace pgDesign.dbEngine
 
         public Picture GetProfilePic(int id)
         {
-                var pic = _DbOperation.Picture.Where(x => x.Id == id).Single();
+            var pic = _DbOperation.Picture.Where(x => x.Id == id).Single();
 
-                return pic;
+            return pic;
         }
 
         public IEnumerable<PictureAttachment> GetCarouselPic()
@@ -68,9 +68,9 @@ namespace pgDesign.dbEngine
         public void SetAboutText(StartUpViewModel sv)
         {
             var text = _DbOperation.Siteinformation.Single(t => t.Id == sv.Id);
-            
+
             text.Content = sv.AboutText;
-            
+
 
             _DbOperation.SaveChanges();
         }
@@ -97,6 +97,39 @@ namespace pgDesign.dbEngine
             var user = _DbOperation.Users.Where(x => x.Id == id).Single();
 
             return user;
+        }
+        #endregion
+        #region Webshop
+        public IEnumerable<Webshop> GetWebshops()
+        {
+            var List = _DbOperation.Picture.ToList();
+
+            var list = _DbOperation.Webshop.ToList();
+
+            return list;
+        }
+
+        public void CreateWebshopItem(Webshop ws)
+        {
+            _DbOperation.Webshop.Add(ws);
+            _DbOperation.SaveChanges();
+        }
+        public Webshop GetSpecificWebshop(int id)
+        {
+            var item = _DbOperation.Webshop.Where(x => x.Id == id).Single();
+
+            return item;
+        }
+        public void EditWebshopItem(Webshop ws)
+        {
+            var webshop = _DbOperation.Webshop.Single(t => t.Id == ws.Id);
+
+            webshop.Description = ws.Description;
+            webshop.Name = ws.Name;
+            webshop.Picture_Id = ws.Picture_Id;
+            webshop.Price = ws.Price;
+
+            _DbOperation.SaveChanges();
         }
         #endregion
     }
