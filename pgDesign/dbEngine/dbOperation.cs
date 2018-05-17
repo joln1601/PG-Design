@@ -132,5 +132,13 @@ namespace pgDesign.dbEngine
             _DbOperation.SaveChanges();
         }
         #endregion
+        public void SaveImageToDb(postedFileModel pf)
+        {
+            Picture p = new Picture() { ImageAddress = pf.filePath, Name = pf.filename };
+
+            _DbOperation.Picture.Add(p);
+            _DbOperation.SaveChanges();
+        }
     }
+
 }

@@ -166,6 +166,7 @@ namespace pgDesign.Controllers
             else
             {
                 db.CreateWebshopItem(ws);
+
                 return RedirectToAction("WebshopAdminList");
             }
         }
@@ -201,5 +202,17 @@ namespace pgDesign.Controllers
         //{
         //    return
         //}
+
+        public ActionResult UploadImage()
+        {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return View();
+            }
+        }
     }
 }

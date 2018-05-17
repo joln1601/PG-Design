@@ -9,6 +9,8 @@ using Microsoft.Azure; // Namespace for CloudConfigurationManager
 using pgDesign.Models;
 using System.IO;
 using System.Net;
+using pgDesign.dbEngine;
+using pgDesign.ViewModels;
 
 namespace pgDesign.dbEngine
 {
@@ -36,14 +38,23 @@ namespace pgDesign.dbEngine
         //{
         //    _blobcontainer.CreateIfNotExists();
         //}
-        public void SaveDataToAzureBlob(postedFileModel filemodel)
+        public void SaveDataToAzureBlob(postedFileModel filemodel, string ContainerName)
         {
-            CloudBlobContainer _blobcontainer = new CloudBlobContainer(null);
+            //CloudBlobContainer _blobcontainer = new CloudBlobContainer(null);
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+                CloudConfigurationManager.GetSetting("StorageConnectionString"));
+            CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+            CloudBlobContainer container = blobClient.GetContainerReference(ContainerName);
+
             HttpWebRequest _requestPage = (HttpWebRequest)WebRequest.Create(filemodel.filePath);
             HttpWebResponse _responseRequest = (HttpWebResponse)_requestPage.GetResponse();
-            CloudBlockBlob _blockblob = _blobcontainer.GetBlockBlobReference(filemodel.filename); //Createing a Blob  
-                                                                                                  // Create or overwrite the blob with contents from a local file.  
+            CloudBlockBlob _blockblob = container.GetBlockBlobReference(filemodel.filename); //Createing a Blob  
+
+            // Create or overwrite the blob with contents from a local file.  
+
             _blockblob.UploadFromStream(_responseRequest.GetResponseStream());
+
+            
         }
 
         #region Hämtning av blobbar
@@ -80,9 +91,17 @@ namespace pgDesign.dbEngine
             }
             return list;
 
-           
             #endregion
-        }
-    }
 
+        }
+        private CloudBlobContainer GetCloudBlobContainer()
+            {
+                CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+                        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+                CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+                CloudBlobContainer container = blobClient.GetContainerReference("webshop");
+                return container;
+            }
+       
+    }
 }

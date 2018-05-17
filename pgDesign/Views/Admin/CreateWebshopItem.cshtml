@@ -1,15 +1,14 @@
 ﻿@model pgDesign.Models.Webshop
-
 @{
     ViewBag.Title = "Create";
 }
 
-<h2>EditWebshopItem</h2>
+<h2>Skapa webbhandelsobjekt</h2>
 
-@using (Html.BeginForm("CreateWebshopItem", "Admin", FormMethod.Post)) 
+@using (Html.BeginForm("CreateWebshopItem", "Admin", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Webshop</h4>
         <hr />
