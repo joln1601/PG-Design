@@ -197,5 +197,9 @@ namespace pgDesign.Controllers
                 return RedirectToAction("WebshopAdminList");
             }
         }
+        //public ActionResult _DeleteWebshopItem(Webshop ws)
+        //{
+        //    return
+        //}
     }
 }

@@ -65,6 +65,7 @@ namespace pgDesign.dbEngine
                 {
                     CloudBlockBlob blob = (CloudBlockBlob)item;
                     list.Add(blob.Uri.ToString());
+
                 }
                 else if (item.GetType() == typeof(CloudPageBlob))
                 {
