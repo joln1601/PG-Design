@@ -13,6 +13,6 @@ namespace pgDesign.ViewModels
         public IEnumerable<Webshop> WebshopItems { get; set; }
         public postedFileModel Pf { get; set; }
         public Webshop Ws { get; set; }
-
+        public HttpPostedFileBase File { get; set; }
     }
 }

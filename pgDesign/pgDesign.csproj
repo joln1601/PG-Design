@@ -255,6 +255,10 @@
     <Compile Include="Migrations\201805140859281_newWebshop.Designer.cs">
       <DependentUpon>201805140859281_newWebshop.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805181114068_webbshoppen.cs" />
+    <Compile Include="Migrations\201805181114068_webbshoppen.Designer.cs">
+      <DependentUpon>201805181114068_webbshoppen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BlobList.cs" />
@@ -477,6 +481,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805140859281_newWebshop.resx">
       <DependentUpon>201805140859281_newWebshop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805181114068_webbshoppen.resx">
+      <DependentUpon>201805181114068_webbshoppen.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

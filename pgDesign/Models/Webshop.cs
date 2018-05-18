@@ -12,9 +12,7 @@ namespace pgDesign.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public double Price { get; set; }
-        public int Picture_Id { get; set; }
-        [ForeignKey("Picture_Id")]
-        public Picture Picture { get; set; }
+        public string Picture_Url { get; set; }
         public IEnumerable<Webshop> List { get; set; }
     }
 }

@@ -6,7 +6,7 @@
 
 <h2>EditWebshopItem</h2>
 
-@using (Html.BeginForm("EditItem", "Admin"))
+@using (Html.BeginForm("EditItem", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
             
     @Html.AntiForgeryToken()
@@ -41,12 +41,18 @@
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Picture_Id, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Picture_Id, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Picture_Id, "", new { @class = "text-danger" })
-            </div>
+        <div>
+            <fieldset class="form-horizontal">
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="Photo">Photo</label>
+                    <div class="col-md-10">
+                        <input type="file" name="photo" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    &nbsp;
+                </div>
+            </fieldset>
         </div>
 
         <div class="form-group">

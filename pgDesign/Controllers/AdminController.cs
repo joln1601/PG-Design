@@ -153,12 +153,14 @@ namespace pgDesign.Controllers
             }
             else
             {
+
+
                 return View();
             }
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateWebshopItem(Webshop ws)
+        public async Task<ActionResult> CreateWebshopItem(Webshop ws, HttpPostedFileBase file)
         {
             if (!User.Identity.IsAuthenticated)
             {
@@ -166,7 +168,16 @@ namespace pgDesign.Controllers
             }
             else
             {
-                db.CreateWebshopItem(ws);
+                if (Request.Files != null && Request.Files.Count > 0)
+                {
+                    file = Request.Files[0];
+                    if (file != null && file.ContentLength > 0)
+                    {
+                    }
+                }
+                var imageUrl = await AB.UploadBlobtest(file);
+
+                db.CreateWebshopItem(ws, imageUrl.ToString());
 
                 return RedirectToAction("WebshopAdminList");
             }
@@ -181,12 +192,11 @@ namespace pgDesign.Controllers
             {
                 var ws = db.GetSpecificWebshop(id);
 
-
                 return View(ws);
             }
         }
         [ActionName("EditItem")]
-        public ActionResult EditWebshopItem(Webshop ws)
+        public async Task<ActionResult> EditWebshopItem(Webshop ws, HttpPostedFileBase file)
         {
             if (!User.Identity.IsAuthenticated)
             {
@@ -194,7 +204,15 @@ namespace pgDesign.Controllers
             }
             else
             {
-                db.EditWebshopItem(ws);
+                if (Request.Files != null && Request.Files.Count > 0)
+                {
+                    file = Request.Files[0];
+                    if (file != null && file.ContentLength > 0)
+                    {
+                    }
+                }
+                var imageUrl = await AB.UploadBlobtest(file);
+                db.EditWebshopItem(ws, imageUrl.ToString());
 
                 return RedirectToAction("WebshopAdminList");
             }
@@ -233,7 +251,7 @@ namespace pgDesign.Controllers
                 }
                 var imageUrl = await AB.UploadBlobtest(file);
                 TempData["LatestImage"] = imageUrl.ToString();
-                //AB.UploadBlob();
+
                 return View();
             }
         }

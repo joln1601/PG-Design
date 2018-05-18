@@ -102,15 +102,14 @@ namespace pgDesign.dbEngine
         #region Webshop
         public IEnumerable<Webshop> GetWebshops()
         {
-            var List = _DbOperation.Picture.ToList();
-
             var list = _DbOperation.Webshop.ToList();
 
             return list;
         }
 
-        public void CreateWebshopItem(Webshop ws)
+        public void CreateWebshopItem(Webshop ws, string url)
         {
+            ws.Picture_Url = url;
             _DbOperation.Webshop.Add(ws);
             _DbOperation.SaveChanges();
         }
@@ -120,22 +119,23 @@ namespace pgDesign.dbEngine
 
             return item;
         }
-        public void EditWebshopItem(Webshop ws)
+        public void EditWebshopItem(Webshop ws, string url)
         {
             var webshop = _DbOperation.Webshop.Single(t => t.Id == ws.Id);
+            ws.Picture_Url = url;
 
             webshop.Description = ws.Description;
             webshop.Name = ws.Name;
-            webshop.Picture_Id = ws.Picture_Id;
+            webshop.Picture_Url = ws.Picture_Url;
             webshop.Price = ws.Price;
 
             _DbOperation.SaveChanges();
         }
         #endregion
 
-        public void SaveImageToDb(postedFileModel pf)
+        public void SaveImageToDb(string uri)
         {
-            Picture p = new Picture() { ImageAddress = pf.filePath, Name = pf.filename };
+            Picture p = new Picture() { ImageAddress = uri };
 
             _DbOperation.Picture.Add(p);
             _DbOperation.SaveChanges();
