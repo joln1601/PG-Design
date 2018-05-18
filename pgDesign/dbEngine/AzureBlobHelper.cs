@@ -11,12 +11,13 @@ using System.IO;
 using System.Net;
 using pgDesign.dbEngine;
 using pgDesign.ViewModels;
+using System.Threading.Tasks;
 
 namespace pgDesign.dbEngine
 {
     public class AzureBlobHelper
     {
-        
+
         #region Constructorer
         CloudStorageAccount storageAAccountConnection
         {
@@ -60,16 +61,17 @@ namespace pgDesign.dbEngine
         #region Hämtning av blobbar
         public List<string> GetListOfData(postedFileModel filemodel, string containerName)
         {
+            
             List<string> list = new List<string>();
             CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
                 CloudConfigurationManager.GetSetting("StorageConnectionString"));
-            // Create the blob client.
+            //Create the blob client.
             CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-            // Retrieve reference to a previously created container.
-            CloudBlobContainer container = blobClient.GetContainerReference(containerName);
+            //Retrieve reference to a previously created container.
+           CloudBlobContainer container = blobClient.GetContainerReference(containerName);
 
-            // Loop over items within the container and output the length and URI.
+            //Loop over items within the container and output the length and URI.
             foreach (IListBlobItem item in container.ListBlobs(null, false))
             {
                 if (item.GetType() == typeof(CloudBlockBlob))
@@ -94,14 +96,76 @@ namespace pgDesign.dbEngine
             #endregion
 
         }
-        private CloudBlobContainer GetCloudBlobContainer()
+        //private CloudBlobContainer GetCloudBlobContainer()
+        //    {
+        //        CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        //                CloudConfigurationManager.GetSetting("StorageConnectionString"));
+        //        CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+        //        CloudBlobContainer container = blobClient.GetContainerReference("webshop");
+        //        return container;
+        //    }
+        //public string UploadBlob()
+        //{
+        //    CloudBlobContainer container = GetCloudBlobContainer();
+        //    CloudBlockBlob blob = container.GetBlockBlobReference("myBlob");
+
+        //    using (var fileStream = System.IO.File.OpenRead(blob.Uri.ToString()))
+        //    {
+        //        blob.UploadFromStream(fileStream);
+        //    }
+
+        //    return "success!";
+        //}
+        public async Task<string> UploadBlobtest(HttpPostedFileBase imageToUpload)
+        {
+            string imageFullPath = null;
+            if (imageToUpload == null || imageToUpload.ContentLength == 0)
+            {
+                return null;
+            }
+            try
             {
                 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-                        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+                 CloudConfigurationManager.GetSetting("StorageConnectionString"));
+                //Create the blob client.
                 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+
+                //Retrieve reference to a previously created container.
                 CloudBlobContainer container = blobClient.GetContainerReference("webshop");
-                return container;
+
+                if (await container.CreateIfNotExistsAsync())
+                {
+                    await container.SetPermissionsAsync(
+                        new BlobContainerPermissions
+                        {
+                            PublicAccess = BlobContainerPublicAccessType.Blob
+                        }
+                        );
+                }
+                string imageName = Guid.NewGuid().ToString() + "-" + Path.GetExtension(imageToUpload.FileName);
+
+                CloudBlockBlob cloudBlockBlob = container.GetBlockBlobReference(imageName);
+                cloudBlockBlob.Properties.ContentType = imageToUpload.ContentType;
+                await cloudBlockBlob.UploadFromStreamAsync(imageToUpload.InputStream);
+
+                imageFullPath = cloudBlockBlob.Uri.ToString();
             }
-       
+            catch (Exception ex)
+            {
+                ex.Message.ToString();
+            }
+            return imageFullPath;
+        }
+        //public static class ConnectionString
+        //{
+        //    static string account = CloudConfigurationManager.GetSetting("pgdesignstorage");
+        //    static string key = CloudConfigurationManager.GetSetting("StorageConnectionString");
+
+        //    public static CloudStorageAccount GetConnectionString()
+        //    {
+        //        string connectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", account, key);
+        //        return CloudStorageAccount.Parse(connectionString);
+        //    }
+        //}
     }
 }

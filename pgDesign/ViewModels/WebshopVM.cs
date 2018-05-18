@@ -14,6 +14,5 @@ namespace pgDesign.ViewModels
         public postedFileModel Pf { get; set; }
         public Webshop Ws { get; set; }
 
-        public HttpPostedFileBase File { get; set; }
     }
 }
