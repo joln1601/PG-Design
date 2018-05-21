@@ -10,10 +10,10 @@
 
     {
 
-    <table class="mb-3 contactTable">
-        @using (Html.BeginForm("SetContactAdmin", "Admin"))
+        using (Html.BeginForm("SetContactAdmin", "Admin"))
 
     {
+    <table class="mb-3 contactTable">
         @Html.HiddenFor(m => Model.Users.ElementAt(i).Id)
         <tr>
             <td>
@@ -62,16 +62,20 @@
         </tr>
         <tr>
             <td>
-                <input type="submit" value="Spara" class="form-control btn-primary" style="width: 100px;" />
+               
+
+                
             </td>
         </tr>
-}
     </table>
+    <div>
+                <input type="submit" value="Spara" class="form-control btn-primary float-right" style="width: 130px; margin-right: 230px;" />
+
+    </div>
+}
         <br />
     }
-    <div>
-        <input type="button" value="Ny kontakt" class="btn-primary form-control float-right" style="width: 150px;" />
-    </div>
+    
 @if (TempData["Message"] != null)
 {
     <div class="col-md-12" style="color: red;">

@@ -1,6 +1,6 @@
 ﻿@model pgDesign.Models.RegisterViewModel
 @{
-    ViewBag.Title = "Register";
+    ViewBag.Title = "Registrera nytt konto";
     if (User.Identity.IsAuthenticated == false)
     {
         Response.Redirect("~/Home/Index");
@@ -12,7 +12,7 @@
 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken();
-    <h4>Create a new account.</h4>
+    
     <hr />
     @Html.ValidationSummary("", new { @class = "text-danger" })
     <div class="form-group">
@@ -35,7 +35,7 @@
     </div>
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-primary" value="Register" />
+            <input type="submit" class="btn btn-primary float-right" value="Registrera nytt konto" />
         </div>
     </div>
 }
