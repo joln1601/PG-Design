@@ -23,20 +23,39 @@
 </head>
 <body>
     @*<div class="head-img justify-content-center">
-        <img src="~/Images/PgDesign/pgGarage.jpg" class="w-100" />
-    </div>*@
-   
+            <img src="~/Images/PgDesign/pgGarage.jpg" class="w-100" />
+        </div>*@
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div id="wrapperAdmin" class="row h-100">
+            @Html.Partial("_NavBar")
+            <div id="contentAdmin" class="container align-self-center">
+                @RenderBody()
+            </div>
+        </div>
+
+
+        @Html.Partial("_Footer")
+
+
+        <!-- Bottom footer -->
+    }
+    else
+    {
+
         <div id="wrapper" class="row h-100">
             @Html.Partial("_NavBar")
             <div id="content" class="container align-self-center">
                 @RenderBody()
             </div>
         </div>
-   
 
-    @Html.Partial("_Footer")
-    
-  
-    <!-- Bottom footer -->
+
+        @Html.Partial("_Footer")
+
+
+        <!-- Bottom footer -->
+    }
 </body>
+
 </html>

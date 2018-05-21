@@ -6,9 +6,6 @@
 
 <h2>Webbhandel utbud</h2>
 
-<p >
-        @Html.ActionLink("Create", "CreateWebshopItem", "Admin")
-</p>
 
 <table class="table">
     <tr>
@@ -49,3 +46,7 @@
 }
 
 </table>
+
+    <button class="btn btn-primary float-right" onclick="location.href='@Url.Action("CreateWebshopItem", "Admin")'">Skapa en ny vara</button>
+    
+

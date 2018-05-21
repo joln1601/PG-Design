@@ -1,15 +1,12 @@
 ﻿@model IEnumerable<pgDesign.Models.ApplicationUser>
 
 @{
-    ViewBag.Title = "GetListOfAccounts";
+    ViewBag.Title = "Redigera användare";
 }
 
-<h2>GetListOfAccounts</h2>
+<h2>Redigera användare</h2>
 
-<p>
-    @*@Html.AntiForgeryToken()*@
-    @Html.ActionLink("Create New", "Register", "Account")
-</p>
+
 <table class="table">
     <tr>
         <th>
@@ -37,3 +34,8 @@
 }
 
 </table>
+<p>
+
+    <button class="btn btn-primary float-right" onclick="location.href='@Url.Action("Register", "Account")'">Skapa ny användare</button>
+    
+</p>
