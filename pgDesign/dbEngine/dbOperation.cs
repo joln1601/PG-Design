@@ -101,18 +101,34 @@ namespace pgDesign.dbEngine
 
             return user;
         }
+        public ApplicationUser GetSpeifikUserForDelete(string id)
+        {
+            var user = _DbOperation.Users.Where(x => x.Id == id).FirstOrDefault();
 
+            return user;
+        }
         public void DeleteUser(string id)
         {
-           var user = _DbOperation.Users.Where(x => x.Id == id).Single();
+           var user = _DbOperation.Users.Where(x => x.Id == id).FirstOrDefault();
 
             _DbOperation.Users.Remove(user);
             _DbOperation.SaveChanges();
         }
+        public void EditUser(ApplicationUser user)
+        {
+            var u = _DbOperation.Users.Single(t => t.Id == user.Id);
+
+            u.Id = user.Id;
+            u.UserName = user.UserName;
+            u.Email = user.Email;
+
+            _DbOperation.SaveChanges();
+        }
+
         #endregion
 
-        #region Webshop
-        public IEnumerable<Webshop> GetWebshops()
+            #region Webshop
+            public IEnumerable<Webshop> GetWebshops()
         {
             var list = _DbOperation.Webshop.ToList();
 

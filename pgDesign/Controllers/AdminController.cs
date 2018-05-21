@@ -147,7 +147,8 @@ namespace pgDesign.Controllers
                 return View(user);
             }
         }
-        public ActionResult DeleteUser(ApplicationUser user)
+        [ActionName("EditUser")]
+        public ActionResult Edit(ApplicationUser user)
         {
             if (!User.Identity.IsAuthenticated)
             {
@@ -155,12 +156,10 @@ namespace pgDesign.Controllers
             }
             else
             {
-                var value = db.GetSpeifikUser(user.Id);
-
-                return View(value);
+                db.EditUser(user);
+                return RedirectToAction("GetListOfAccounts");
             }
         }
-        [ActionName("Delete_User")]
         public ActionResult DeleteUser(string id)
         {
             if (!User.Identity.IsAuthenticated)
@@ -169,9 +168,16 @@ namespace pgDesign.Controllers
             }
             else
             {
-                db.DeleteUser(id);
-                return View();
+                var list = db.GetAllUsers();
+                if (list.Count() > 1)
+                {
+                    var value = db.GetSpeifikUser(id);
+                    db.DeleteUser(value.Id);
+                }
+
+                return RedirectToAction("GetListOfAccounts");
             }
+        
         }
         #endregion
 
@@ -239,6 +245,8 @@ namespace pgDesign.Controllers
             }
         }
         [ActionName("EditItem")]
+        [ValidateAntiForgeryToken]
+        [HttpPost]
         public async Task<ActionResult> EditWebshopItem(Webshop ws, HttpPostedFileBase file)
         {
             if (!User.Identity.IsAuthenticated)
