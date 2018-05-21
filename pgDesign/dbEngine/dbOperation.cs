@@ -17,7 +17,6 @@ namespace pgDesign.dbEngine
             _DbOperation = new ApplicationDbContext();
         }
 
-
         #region Siteinformation
         public Siteinformation SiteinfoText(int id)
         {
@@ -86,6 +85,10 @@ namespace pgDesign.dbEngine
 
             _DbOperation.SaveChanges();
         }
+
+        #endregion
+
+        #region Accounts
         public IEnumerable<ApplicationUser> GetAllUsers()
         {
             var list = _DbOperation.Users.ToList();
@@ -98,7 +101,16 @@ namespace pgDesign.dbEngine
 
             return user;
         }
+
+        public void DeleteUser(string id)
+        {
+           var user = _DbOperation.Users.Where(x => x.Id == id).Single();
+
+            _DbOperation.Users.Remove(user);
+            _DbOperation.SaveChanges();
+        }
         #endregion
+
         #region Webshop
         public IEnumerable<Webshop> GetWebshops()
         {
@@ -133,6 +145,7 @@ namespace pgDesign.dbEngine
         }
         #endregion
 
+        #region Images
         public void SaveImageToDb(string uri)
         {
             Picture p = new Picture() { ImageAddress = uri };
@@ -140,6 +153,6 @@ namespace pgDesign.dbEngine
             _DbOperation.Picture.Add(p);
             _DbOperation.SaveChanges();
         }
+        #endregion
     }
-
 }

@@ -12,6 +12,7 @@ namespace pgDesign.Controllers
 {
     public class AdminController : Controller
     {
+        #region Objects
         private dbOperation db;
         private StartUpViewModel vm;
         private ContactVM Cvm;
@@ -26,8 +27,10 @@ namespace pgDesign.Controllers
             AB = new AzureBlobHelper();
             pfm = new postedFileModel();
             ws = new Webshop();
+        }
+        #endregion
 
-    }
+        #region Index
         // GET: Admin
         public ActionResult Index()
         {
@@ -51,6 +54,9 @@ namespace pgDesign.Controllers
                 return View(vm);
             }
         }
+        #endregion
+
+        #region Gallery
         public ActionResult GalleryAdmin()
         {
             if (!User.Identity.IsAuthenticated)
@@ -62,6 +68,9 @@ namespace pgDesign.Controllers
                 return View();
             }
         }
+        #endregion
+
+        #region Contact
         public ActionResult ContactAdmin()
         {
             if (!User.Identity.IsAuthenticated)
@@ -95,7 +104,9 @@ namespace pgDesign.Controllers
                 return RedirectToAction("ContactAdmin");
             }
         }
+        #endregion
 
+        #region Homesite
         [HttpPost]
         public ActionResult AboutText(StartUpViewModel sv)
         {
@@ -109,6 +120,9 @@ namespace pgDesign.Controllers
                 return RedirectToAction("Index");
             }
         }
+        #endregion
+
+        #region Accounts
         public ActionResult GetListOfAccounts()
         {
             if (!User.Identity.IsAuthenticated)
@@ -133,6 +147,35 @@ namespace pgDesign.Controllers
                 return View(user);
             }
         }
+        public ActionResult DeleteUser(ApplicationUser user)
+        {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                var value = db.GetSpeifikUser(user.Id);
+
+                return View(value);
+            }
+        }
+        [ActionName("Delete_User")]
+        public ActionResult DeleteUser(string id)
+        {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                db.DeleteUser(id);
+                return View();
+            }
+        }
+        #endregion
+
+        #region Webshop
         public ActionResult WebshopAdminList()
         {
             if (!User.Identity.IsAuthenticated)
@@ -217,11 +260,9 @@ namespace pgDesign.Controllers
                 return RedirectToAction("WebshopAdminList");
             }
         }
-        //public ActionResult _DeleteWebshopItem(Webshop ws)
-        //{
-        //    return
-        //}
+        #endregion
 
+        #region Images
         public ActionResult UploadImage()
         {
             if (!User.Identity.IsAuthenticated)
@@ -255,5 +296,6 @@ namespace pgDesign.Controllers
                 return View();
             }
         }
+        #endregion
     }
 }
