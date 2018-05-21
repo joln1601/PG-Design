@@ -7,7 +7,11 @@ namespace pgDesign.ViewModels
 {
     public class GalleryViewModel
     {
-        public List<string> BlobList { get; set; }
-       
+        public List<GalleryViewModel> BlobList { get; set; }
+        public string ContainerName { get; set; }
+
+        public string PictureName { get; set; }
+        public string URIName { get; set; }
+
     }
 }

@@ -25,6 +25,26 @@
 #picturesgallery{
     /*padding: 1% 1% 1% 1%;*/
 }
+#adminpicturecontainer {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+}
+    #adminpicturecontainer .btn {
+        position: absolute;
+        top: 10%;
+        left: 86%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+       
+        color: white;
+        font-size: 16px;
+        padding: 5px 10px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        text-align: center;
+    }
 #wrapper {
     display: flex;
     align-items: stretch;

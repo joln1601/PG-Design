@@ -40,7 +40,7 @@ namespace pgDesign.Controllers
 
             string ContainerName = "carouselpictures";
 
-            vm.Bloblist = AB.GetListOfData(pfm, ContainerName);
+            vm.gvm = AB.GetListOfData(pfm, ContainerName);
 
             return View(vm);
         }

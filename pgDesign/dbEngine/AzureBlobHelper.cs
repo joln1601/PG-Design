@@ -18,6 +18,7 @@ namespace pgDesign.dbEngine
     public class AzureBlobHelper
     {
 
+       
         #region Constructorer
         CloudStorageAccount storageAAccountConnection
         {
@@ -57,12 +58,21 @@ namespace pgDesign.dbEngine
 
             
         }
-
-        #region Hämtning av blobbar
-        public List<string> GetListOfData(postedFileModel filemodel, string containerName)
+        public void DeleteFile(string cn, string pn)
         {
             
-            List<string> list = new List<string>();
+            CloudBlobContainer blobContainer = _blobClient.GetContainerReference(cn);
+
+            var blob = blobContainer.GetBlockBlobReference(pn);
+            blob.DeleteIfExists();
+        }
+
+        #region Hämtning av blobbar
+        public GalleryViewModel GetListOfData(postedFileModel filemodel, string containerName)
+        {
+
+            GalleryViewModel galleryvm = new GalleryViewModel();
+            List<GalleryViewModel> list = new List<GalleryViewModel>();
             CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
                 CloudConfigurationManager.GetSetting("StorageConnectionString"));
             //Create the blob client.
@@ -74,24 +84,37 @@ namespace pgDesign.dbEngine
             //Loop over items within the container and output the length and URI.
             foreach (IListBlobItem item in container.ListBlobs(null, false))
             {
+
                 if (item.GetType() == typeof(CloudBlockBlob))
                 {
                     CloudBlockBlob blob = (CloudBlockBlob)item;
-                    list.Add(blob.Uri.ToString());
+                    GalleryViewModel gvm = new GalleryViewModel() { URIName = blob.Uri.ToString(), PictureName = blob.Name.ToString(), ContainerName = containerName };
+                    list.Add(gvm);
 
                 }
                 else if (item.GetType() == typeof(CloudPageBlob))
                 {
+                   
                     CloudPageBlob pageBlob = (CloudPageBlob)item;
-                    list.Add(pageBlob.Uri.ToString());
+                    GalleryViewModel gvm = new GalleryViewModel() { URIName = pageBlob.Uri.ToString(), PictureName = pageBlob.Name.ToString(), ContainerName = containerName };
+                  
+                    list.Add(gvm);
                 }
                 else if (item.GetType() == typeof(CloudBlobDirectory))
                 {
+                    
+
                     CloudBlobDirectory directory = (CloudBlobDirectory)item;
-                    list.Add(directory.Uri.ToString());
+                    GalleryViewModel gvm = new GalleryViewModel() { URIName = directory.Uri.ToString(), ContainerName = containerName };
+                  
+                    list.Add(gvm);
+
+
                 }
             }
-            return list;
+
+            galleryvm.BlobList = list;
+            return galleryvm;
 
             #endregion
 
