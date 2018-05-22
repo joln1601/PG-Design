@@ -23,22 +23,20 @@
         }
     </div>
 
-
     <div class="modal" id="myModal">
         <div class="modal-dialog" role="document">
-
-
-
             <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: white;">
                 <span aria-hidden="true">&times;</span>
             </button>
-
             <div class="modal-body">
-                <img id="showimg" src="#" alt="" class="showPic w-100" />
+                <div class="modal-content" id="modalcontent">
+                    <img id="showimg" src="#" alt="" class="showPic h-auto" />
+                </div>
             </div>
 
         </div>
     </div>
+
 }
 else
 {
@@ -50,14 +48,9 @@ else
                 var id = i;
 
 
-        <div class="col-md-4" id="adminpicturecontainer">
-
-            <img src="@Model.BlobList.ElementAt(i).URIName" alt="..." class="img-thumbnail img-fluid hoverimg" style="max-height: 364.42px;" id="@{@id}">
-            <input type="button" id="@{@id}" class="btn btn-danger"  value="X" onclick="location.href='@Url.Action("DeleteImage", "Gallery", new { url = Model.BlobList.ElementAt(i).URIName, cn = Model.BlobList.ElementAt(i).ContainerName, pn = Model.BlobList.ElementAt(i).PictureName })'" />
-
-            @*<input type="button" id="@{@id}" value="X" class="btn btn-danger" formmethod="post" onclick="location.href='<%: Url.Action(" DeleteImage", "Gallery" ) %>'" />*@
-            @*<button class="btn btn-danger" id="@{@id}">X</button>*@
-
+        <div class="col-md-6" id="adminpicturecontainer">
+            <img src="@Model.BlobList.ElementAt(i).URIName" alt="..." class="img-thumbnail hoverimg img-fluid" style="max-height: 300px; width: 100%;" id="@{@id}">
+                <input type="button" id="@{@id}" class="btn btn-danger" value="X" onclick="location.href='@Url.Action("DeleteImage", "Gallery", new { url = Model.BlobList.ElementAt(i).URIName, cn = Model.BlobList.ElementAt(i).ContainerName, pn = Model.BlobList.ElementAt(i).PictureName })'" />
         </div>
             }
         }

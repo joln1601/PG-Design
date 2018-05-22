@@ -9,7 +9,10 @@
     margin-bottom: 0px;
     padding-bottom: 0px;
 }
-#content{
+#modalcontent{
+    width: 100%;
+}
+#content {
     min-height: 700px;
 }
 #contentAdmin {

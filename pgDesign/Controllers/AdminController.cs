@@ -202,8 +202,6 @@ namespace pgDesign.Controllers
             }
             else
             {
-
-
                 return View();
             }
         }
@@ -224,7 +222,7 @@ namespace pgDesign.Controllers
                     {
                     }
                 }
-                var imageUrl = await AB.UploadBlobtest(file);
+                var imageUrl = await AB.UploadBlobtest(file, "webshop");
 
                 db.CreateWebshopItem(ws, imageUrl.ToString());
 
@@ -262,7 +260,7 @@ namespace pgDesign.Controllers
                     {
                     }
                 }
-                var imageUrl = await AB.UploadBlobtest(file);
+                var imageUrl = await AB.UploadBlobtest(file, "webshop");
                 db.EditWebshopItem(ws, imageUrl.ToString());
 
                 return RedirectToAction("WebshopAdminList");
@@ -271,19 +269,9 @@ namespace pgDesign.Controllers
         #endregion
 
         #region Images
-        public ActionResult UploadImage()
-        {
-            if (!User.Identity.IsAuthenticated)
-            {
-                return RedirectToAction("Index", "Home");
-            }
-            else
-            {
-                return View();
-            }
-        }
         [HttpPost]
-        public async Task<ActionResult> UploadImage(HttpPostedFileBase file)
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> UploadImage(HttpPostedFileBase file, string ContainerName)
         {
             if (!User.Identity.IsAuthenticated)
             {
@@ -298,10 +286,10 @@ namespace pgDesign.Controllers
                     {
                     }
                 }
-                var imageUrl = await AB.UploadBlobtest(file);
+                var imageUrl = await AB.UploadBlobtest(file, ContainerName);
                 TempData["LatestImage"] = imageUrl.ToString();
 
-                return View();
+                return RedirectToAction("Index", "Gallery");
             }
         }
         #endregion

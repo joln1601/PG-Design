@@ -120,7 +120,7 @@ namespace pgDesign.dbEngine
 
         }
         
-        public async Task<string> UploadBlobtest(HttpPostedFileBase imageToUpload)
+        public async Task<string> UploadBlobtest(HttpPostedFileBase imageToUpload, string containername)
         {
             string imageFullPath = null;
             if (imageToUpload == null || imageToUpload.ContentLength == 0)
@@ -135,7 +135,7 @@ namespace pgDesign.dbEngine
                 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
                 //Retrieve reference to a previously created container.
-                CloudBlobContainer container = blobClient.GetContainerReference("webshop");
+                CloudBlobContainer container = blobClient.GetContainerReference(containername);
 
                 if (await container.CreateIfNotExistsAsync())
                 {
