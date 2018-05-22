@@ -96,26 +96,7 @@ namespace pgDesign.dbEngine
             #endregion
 
         }
-        //private CloudBlobContainer GetCloudBlobContainer()
-        //    {
-        //        CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        //                CloudConfigurationManager.GetSetting("StorageConnectionString"));
-        //        CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-        //        CloudBlobContainer container = blobClient.GetContainerReference("webshop");
-        //        return container;
-        //    }
-        //public string UploadBlob()
-        //{
-        //    CloudBlobContainer container = GetCloudBlobContainer();
-        //    CloudBlockBlob blob = container.GetBlockBlobReference("myBlob");
-
-        //    using (var fileStream = System.IO.File.OpenRead(blob.Uri.ToString()))
-        //    {
-        //        blob.UploadFromStream(fileStream);
-        //    }
-
-        //    return "success!";
-        //}
+        
         public async Task<string> UploadBlobtest(HttpPostedFileBase imageToUpload)
         {
             string imageFullPath = null;
@@ -156,16 +137,6 @@ namespace pgDesign.dbEngine
             }
             return imageFullPath;
         }
-        //public static class ConnectionString
-        //{
-        //    static string account = CloudConfigurationManager.GetSetting("pgdesignstorage");
-        //    static string key = CloudConfigurationManager.GetSetting("StorageConnectionString");
-
-        //    public static CloudStorageAccount GetConnectionString()
-        //    {
-        //        string connectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", account, key);
-        //        return CloudStorageAccount.Parse(connectionString);
-        //    }
-        //}
     }
+
 }
