@@ -25,6 +25,26 @@
 #picturesgallery{
     /*padding: 1% 1% 1% 1%;*/
 }
+#adminpicturecontainer {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+}
+    #adminpicturecontainer .btn {
+        position: absolute;
+        top: 10%;
+        left: 86%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+       
+        color: white;
+        font-size: 16px;
+        padding: 5px 10px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        text-align: center;
+    }
 #wrapper {
     display: flex;
     align-items: stretch;
@@ -39,7 +59,7 @@
 }
 /*Navbar*/
 #menu-content li{
-    padding-left: 20px;
+    padding-left: 5px;
 }
 .nav-side-menu {
     overflow: auto;
@@ -425,12 +445,15 @@ hr {
 
     #gallery-sidebar h3 {
         color: white;
+        
     }
 
     #gallery-sidebar .list-group {
         min-width: 300px;
         /*min-height: 100vh;*/
         height: 100%;
+        font-size: 14.5px;
+       
     }
 
     #gallery-sidebar i {
@@ -445,6 +468,7 @@ hr {
         border-right: 0;
         border-color: #2c2c2c;
         white-space: nowrap;
+        padding: 0.75rem 0.6rem;
     }
 
         #gallery-sidebar .list-group-item:hover {

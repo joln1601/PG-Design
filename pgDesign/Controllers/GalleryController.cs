@@ -28,17 +28,24 @@ namespace pgDesign.Controllers
             if(id == null)
             {
             id = "bildekor";
-            gvm.BlobList = AB.GetListOfData(pfm, id);
+            gvm = AB.GetListOfData(pfm, id);
                 return View(gvm);
             }
             else
             {
-            gvm.BlobList = AB.GetListOfData(pfm, id);
+            gvm = AB.GetListOfData(pfm, id);
             return View(gvm);
             }
 
       
             
+        }
+       
+        public ActionResult DeleteImage(string url, string cn, string pn)
+        {
+            AB.DeleteFile(cn, pn);
+
+            return RedirectToAction("Index");
         }
        
     }

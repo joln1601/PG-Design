@@ -1,4 +1,5 @@
-﻿@if (User.Identity.IsAuthenticated)
+﻿<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" /> <!--Ikoner från fontawesome-->
+@if (User.Identity.IsAuthenticated)
 {
     <div class="nav-side-menu">
         <div class="brand">
@@ -16,7 +17,7 @@
                 <li class="nav-item">
                     <a title="Mina tidigare jobb" class="nav-link" href="@Url.Action("ContactAdmin", "Admin")"> Admin Kontakta oss</a>
                 </li>
-              
+
                 <li class="nav-item">
                     <a title="Mina tidigare jobb" class="nav-link" href="@Url.Action("GetListOfAccounts", "Admin")"> Redigera användare</a>
                 </li>
@@ -24,7 +25,7 @@
                     <a title="Webbhandel" class="nav-link" href="@Url.Action("WebshopAdminList", "Admin")"> Admin Webhandel</a>
                 </li>
                 <li class="nav-item">
-                    <a title="Logga ut" class="nav-link" href="@Url.Action("LogOff", "Account")"> Logga ut</a>
+                    <a title="Logga ut" class="nav-link" href="@Url.Action("LogOff", "Account")"><i class="fas fa-arrow-left"></i> Logga ut</a>
                 </li>
             </ul>
         </div>
@@ -40,22 +41,22 @@ else
         <div class="menu-list">
             <ul id="menu-content" class="menu-content collapse out">
                 <li class="nav-item">
-                    <a title="Startsida" class="nav-link" href="@Url.Action("Index", "Home")"> Startsida</a>
+                    <a title="Startsida" class="nav-link" href="@Url.Action("Index", "Home")"><i class="fas fa-home fa-fw fa-lg"></i> Startsida</a>
                 </li>
                 <li class="nav-item">
-                    <a title="Galleri" class="nav-link" href="@Url.Action("Index", "Gallery")"> Galleri</a>
+                    <a title="Galleri" class="nav-link" href="@Url.Action("Index", "Gallery")"><i class="fas fa-images"></i> Galleri</a>
                 </li>
                 <li class="nav-item">
-                    <a title="Kontakta oss" class="nav-link" href="@Url.Action("Contact", "Home")"> Kontakta oss</a>
+                    <a title="Webbhandel" class="nav-link" href="@Url.Action("Index", "Webshop")"><i class="fas fa-shopping-cart"></i> Webbhandel</a>
                 </li>
                 <li class="nav-item">
-                    <a title="Mina tidigare jobb" class="nav-link" href="@Url.Action("Index", "Referenser")"> Referenser</a>
+                    <a title="Referenser" class="nav-link" href="@Url.Action("Index", "Referenser")"><i class="fas fa-handshake"></i> Referenser</a>
                 </li>
                 <li class="nav-item">
-                    <a title="Webbhandel" class="nav-link" href="@Url.Action("Index", "Webshop")"> Webbhandel</a>
+                    <a title="Kontakta oss" class="nav-link" href="@Url.Action("Contact", "Home")"><i class="fas fa-phone"></i> Kontakta oss</a>
                 </li>
                 <li class="nav-item">
-                    <a title="Mina tidigare jobb" class="nav-link" href="@Url.Action("Login", "Account")"> Logga in</a>
+                    <a title="Logga in" class="nav-link" href="@Url.Action("Login", "Account")"> <i class="fas fa-arrow-right"></i>Logga in</a>
                 </li>
             </ul>
         </div>
