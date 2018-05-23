@@ -80,10 +80,14 @@
                 <div class="modal-content col-md-4 center">
                     @{
                         List<SelectListItem> list = new List<SelectListItem>();
-                        list.Add(new SelectListItem { Text = "Övrigt", Value = "ovrigt", Selected = true });
-                        list.Add(new SelectListItem { Text = "Månad", Value = "M" });
-                        list.Add(new SelectListItem { Text = "Säsong", Value = "S" });
-                        list.Add(new SelectListItem { Text = "Visa alla", Value = "A" });
+                        list.Add(new SelectListItem { Text = "Bildekor", Value = "bildekor", Selected = true });
+                        list.Add(new SelectListItem { Text = "Ombyggnad av fordon", Value = "ombyggnadavfordon" });
+                        list.Add(new SelectListItem { Text = "Utställning & Inredning", Value = "utstallningarochinredningar" });
+                        list.Add(new SelectListItem { Text = "Skyltar", Value = "skyltar" });
+                        list.Add(new SelectListItem { Text = "Arbetsmiljölösningar", Value = "arbetsmiljolosningar" });
+                        list.Add(new SelectListItem { Text = "Offentlig utsmyckning", Value = "offentligutsmyckning" });
+                        list.Add(new SelectListItem { Text = "Legotillverkning & innovation", Value = "legotillverkningochinnovationer" });
+                        list.Add(new SelectListItem { Text = "Övrigt", Value = "ovrigt"});
                     }
 
                     @Html.DropDownListFor(x => x.ContainerName, new SelectList(list, "Value", "Text"), htmlAttributes: new { @class = "form-control", id = "combobox" })
