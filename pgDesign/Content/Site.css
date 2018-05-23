@@ -388,7 +388,13 @@ footer p{
     overflow: hidden;
     padding: 2% 2% 2% 2%;
 }
+.new_Btn {
+    
+}
 
+#html_btn {
+    display: none;
+}
 #OpenDiv {
     box-shadow: 0 0 0.5rem rgba(83,78,76,.6);
     background: rgba(244, 244, 244, 0.1);
