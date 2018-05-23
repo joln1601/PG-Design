@@ -25,6 +25,7 @@
     </tr>
 
 @foreach (var item in Model) {
+
     <tr class="border-bottom border-top">
         <td>
             <img src="@item.Picture_Url" style="max-height: 100px; max-width: 175px;" />
@@ -40,7 +41,30 @@
         </td>
         <td>
             @Html.ActionLink("Edit", "EditWebshopItem", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "_DeleteWebshopItem", new { id=item.Id })
+            <a href="" data-target="#myModal" data-toggle="modal">Delete</a>
+            
+            <div class="modal" id="myModal">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: white;">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <div class="modal-header">
+                            <h2>Är du säker på att du vill radera @item.Name</h2>
+                        </div>
+                        <div class="modal-body">
+
+                            <img src="@item.Picture_Url" />
+
+                        </div>
+                        <div class="modal-footer">
+                            <input value="Radera" type="button" class="btn btn-danger" />
+                            <input value="Avbryt" type="submit" class="btn btn-danger" />
+                            @Html.ActionLink("Delete", "DeleteWebshop", new { id = item.Id })
+                        </div>
+                    </div>
+                </div>
+            </div>
         </td>
     </tr>
 }

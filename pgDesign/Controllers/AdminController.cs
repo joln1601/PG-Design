@@ -292,6 +292,18 @@ namespace pgDesign.Controllers
                 return RedirectToAction("Index", "Gallery");
             }
         }
+        public ActionResult DeleteWebshop(int id)
+        {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                db.DeleteWebshopItem(id);
+                return RedirectToAction("WebshopAdminList");
+            }
+        }
         #endregion
         public ActionResult Statistics()
         {
