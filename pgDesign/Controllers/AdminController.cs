@@ -292,7 +292,7 @@ namespace pgDesign.Controllers
                 return RedirectToAction("Index", "Gallery");
             }
         }
-        public ActionResult DeleteWebshop(int id)
+        public ActionResult DeleteWebshop(string id)
         {
             if (!User.Identity.IsAuthenticated)
             {
@@ -300,7 +300,7 @@ namespace pgDesign.Controllers
             }
             else
             {
-                db.DeleteWebshopItem(id);
+                db.DeleteWebshopItem(Convert.ToInt32(id));
                 return RedirectToAction("WebshopAdminList");
             }
         }

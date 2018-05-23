@@ -40,9 +40,13 @@
             @Html.DisplayFor(modelItem => item.Price)
         </td>
         <td>
-            @Html.ActionLink("Edit", "EditWebshopItem", new { id=item.Id }) |
-            <a href="" data-target="#myModal" data-toggle="modal">Delete</a>
-            
+            @Html.ActionLink("Edit", "EditWebshopItem", new { id = item.Id }) |
+            <a data-toggle="modal" data-target="#myModal" data-id="@item.Id" title="Add this item" class="open-modal" href="#addBookDialog">Delete</a>
+        </td>
+    </tr>
+}
+
+</table>
             <div class="modal" id="myModal">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -50,27 +54,31 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                         <div class="modal-header">
-                            <h2>Är du säker på att du vill radera @item.Name</h2>
+                            <h2>Är du säker på att du vill radera</h2>
                         </div>
                         <div class="modal-body">
+                            @*@using (Html.BeginForm("DeleteWebshop", "Admin", FormMethod.Post))*@
+                                <input id="itemId" type="submit" />
+                            @Html.ActionLink("Delete", "DeleteWebshop", new { @id = "test", @class = "sendThis" })
 
-                            <img src="@item.Picture_Url" />
 
-                        </div>
-                        <div class="modal-footer">
-                            <input value="Radera" type="button" class="btn btn-danger" />
-                            <input value="Avbryt" type="submit" class="btn btn-danger" />
-                            @Html.ActionLink("Delete", "DeleteWebshop", new { id = item.Id })
+                            @*MODALEN MÅSTE FIXAS*@
+
                         </div>
                     </div>
                 </div>
             </div>
-        </td>
-    </tr>
-}
-
-</table>
-
     <button class="btn btn-primary float-right" onclick="location.href='@Url.Action("CreateWebshopItem", "Admin")'">Skapa en ny vara</button>
     
+
+<script>
+    $(document).on("click", ".open-modal", function () {
+        var IdToDelete = $(this).data('id');
+        $(".modal-body #itemId").val(IdToDelete);
+        $('#addBookDialog').modal('show');
+
+        $('#test').attr('id', 'itemId');
+    });
+
+</script>
 
