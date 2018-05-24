@@ -147,10 +147,19 @@ namespace pgDesign.dbEngine
 
             return item;
         }
-        public void EditWebshopItem(Webshop ws, string url)
+        public Webshop GetImage(Webshop ws)
+        {
+            var image = _DbOperation.Webshop.Single(t => t.Id == ws.Id);
+            ws.Picture_Url = image.Picture_Url;
+
+
+            return (ws);
+
+        }
+        public void EditWebshopItem(Webshop ws)
         {
             var webshop = _DbOperation.Webshop.Single(t => t.Id == ws.Id);
-            ws.Picture_Url = url;
+           
 
             webshop.Description = ws.Description;
             webshop.Name = ws.Name;

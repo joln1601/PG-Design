@@ -260,8 +260,17 @@ namespace pgDesign.Controllers
                     {
                     }
                 }
-                var imageUrl = await AB.UploadBlobtest(file, "webshop");
-                db.EditWebshopItem(ws, imageUrl.ToString());
+                if(file.FileName == "")
+                {
+                    db.GetImage(ws);
+                }
+                else
+                {
+                ws.Picture_Url = await AB.UploadBlobtest(file, "webshop");
+                    
+
+                }
+                db.EditWebshopItem(ws);
 
                 return RedirectToAction("WebshopAdminList");
             }
