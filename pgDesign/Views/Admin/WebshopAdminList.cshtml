@@ -47,30 +47,39 @@
 }
 
 </table>
-            <div class="modal" id="myModal">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: white;">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <div class="modal-header">
-                            <h2>Är du säker på att du vill radera</h2>
-                        </div>
-                        <div class="modal-body">
-                            @*@using (Html.BeginForm("DeleteWebshop", "Admin", FormMethod.Post))*@
-                                <input id="itemId" type="submit" />
-                            @Html.ActionLink("Delete", "DeleteWebshop", new { @id = "test", @class = "sendThis" })
+<div class="modal" id="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content center" style=" background-color: #333;">
 
-
-                            @*MODALEN MÅSTE FIXAS*@
-
-                        </div>
-                    </div>
-                </div>
+            <div class="modal-header">
+                <h5 class="modal-title text-white center" style="margin-right: -20px">Är du säker att du vill radera varan?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" style="color: red">&times;</span>
+                </button>
             </div>
+            <div class="modal-body">
+
+                <input id="itemId" type="submit" />
+
+                <div class="float-right">
+
+                @Html.ActionLink("Ta bort", "DeleteWebshop", new { @id = "test" }, new { @class = "btn btn-danger" })
+                
+
+                @Html.ActionLink("Tillbaka", "WebshopAdminList", new { @id = "ok" }, new { @class = "btn btn-secondary" })
+                </div>
+
+            </div>
+            <div class="modal-footer">
+              
+            </div>
+        </div>
+    </div>
+</div>
+           
     <button class="btn btn-primary float-right" onclick="location.href='@Url.Action("CreateWebshopItem", "Admin")'">Skapa en ny vara</button>
     
-
+   
 <script>
     $(document).on("click", ".open-modal", function () {
         var IdToDelete = $(this).data('id');
