@@ -25,6 +25,7 @@
     </tr>
 
 @foreach (var item in Model) {
+
     <tr class="border-bottom border-top">
         <td>
             <img src="@item.Picture_Url" style="max-height: 100px; max-width: 175px;" />
@@ -39,14 +40,45 @@
             @Html.DisplayFor(modelItem => item.Price)
         </td>
         <td>
-            @Html.ActionLink("Edit", "EditWebshopItem", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "_DeleteWebshopItem", new { id=item.Id })
+            @Html.ActionLink("Edit", "EditWebshopItem", new { id = item.Id }) |
+            <a data-toggle="modal" data-target="#myModal" data-id="@item.Id" title="Add this item" class="open-modal" href="#addBookDialog">Delete</a>
         </td>
     </tr>
 }
 
 </table>
+            <div class="modal" id="myModal">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: white;">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <div class="modal-header">
+                            <h2>Är du säker på att du vill radera</h2>
+                        </div>
+                        <div class="modal-body">
+                            @*@using (Html.BeginForm("DeleteWebshop", "Admin", FormMethod.Post))*@
+                                <input id="itemId" type="submit" />
+                            @Html.ActionLink("Delete", "DeleteWebshop", new { @id = "test", @class = "sendThis" })
 
+
+                            @*MODALEN MÅSTE FIXAS*@
+
+                        </div>
+                    </div>
+                </div>
+            </div>
     <button class="btn btn-primary float-right" onclick="location.href='@Url.Action("CreateWebshopItem", "Admin")'">Skapa en ny vara</button>
     
+
+<script>
+    $(document).on("click", ".open-modal", function () {
+        var IdToDelete = $(this).data('id');
+        $(".modal-body #itemId").val(IdToDelete);
+        $('#addBookDialog').modal('show');
+
+        $('#test').attr('id', 'itemId');
+    });
+
+</script>
 

@@ -127,7 +127,7 @@ namespace pgDesign.dbEngine
 
         #endregion
 
-            #region Webshop
+        #region Webshop
             public IEnumerable<Webshop> GetWebshops()
         {
             var list = _DbOperation.Webshop.ToList();
@@ -157,6 +157,13 @@ namespace pgDesign.dbEngine
             webshop.Picture_Url = ws.Picture_Url;
             webshop.Price = ws.Price;
 
+            _DbOperation.SaveChanges();
+        }
+        public void DeleteWebshopItem(int id)
+        {
+            var item = _DbOperation.Webshop.Where(x => x.Id == id).FirstOrDefault();
+
+            _DbOperation.Webshop.Remove(item);
             _DbOperation.SaveChanges();
         }
         #endregion

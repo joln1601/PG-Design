@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@model pgDesign.ViewModels.GalleryViewModel
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -23,49 +24,119 @@
             <img src="~/Images/PgDesign/pgGarage.jpg" class="w-100" />
         </div>*@
 
+
     <div id="wrapper" class="row h-100">
         @Html.Partial("_NavBar")
-        
-           
-       
-    <div id="contentgallery" class="container">
 
-<div class="wrapper-header">
-        <a id="test" class="float-left ml-3 menu" href="#" data-target="#gallery-sidebar" data-toggle="collapse"><img src="~/Images/menu.png" style="height: 30px" class="rotate" /></a>
 
-        <h4 class="text-white">Bildgalleri</h4>
+
+        <div id="contentgallery" class="container">
+
+            <div class="wrapper-header">
+                <a id="test" class="float-left ml-3 menu" href="#" data-target="#gallery-sidebar" data-toggle="collapse"><img src="~/Images/menu.png" style="height: 30px" class="rotate" /></a>
+                <div class="row">
+
+                    <h4 class="text-white center">Bildgalleri</h4>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                    <input data-toggle="modal" data-target="#myModal" type="button" value="Ladda upp bild" class="btn btn-primary mr-3" />
+                    }
+                </div>
+            </div>
+
+            <!-- Flex Wrapper -->
+            <div id="gallery-wrapper" class="wrapper d-flex flex-row">
+
+                <!-- Side bar -->
+                <div id="gallery-sidebar" class="collapse in width show">
+
+                    <div class="list-group border-0 text-md-left">
+                        <a href="@Url.Action("Index", "Gallery", new { id = "bildekor" })" class="list-group-item d-inline-block"><i class="fas fa-paint-brush"></i><span class="d-none d-md-inline">Bildekor</span></a>
+                        <a href="@Url.Action("Index", "Gallery", new { id = "ombyggnadavfordon" })" class="list-group-item d-inline-block"><i class="fas fa-wrench"></i><span class="d-none d-md-inline">Ombyggnad av fordon</span></a>
+                        <a href="@Url.Action("Index", "Gallery", new { id = "utstallningarochinredningar" })" class="list-group-item d-inline-block"><i class="fas fa-eye"></i><span class="d-none d-md-inline">Utställning & Inredning</span></a>
+                        <a href="@Url.Action("Index", "Gallery", new { id = "skyltar" })" class="list-group-item d-inline-block"><i class="fas fa-map-signs"></i></i><span class="d-none d-md-inline">Skyltar</span></a>
+                        <a href="@Url.Action("Index", "Gallery", new { id = "arbetsmiljolosningar" })" class="list-group-item d-inline-block"><i class="fab fa-envira"></i><span class="d-none d-md-inline">Arbetsmiljölösningar</span></a>
+                        <a href="@Url.Action("Index", "Gallery", new { id = "offentligutsmyckning" })" class="list-group-item d-inline-block"><i class="fas fa-gem"></i><span class="d-none d-md-inline">Offentlig utsmyckning</span></a>
+                        <a href="@Url.Action("Index", "Gallery", new { id = "legotillverkningochinnovationer" })" class="list-group-item d-inline-block"><i class="fas fa-lightbulb"></i><span class="d-none d-md-inline">Legotillverkning & innovation</span></a>
+                        <a href="@Url.Action("Index", "Gallery", new { id = "ovrigt" })" class="list-group-item d-inline-block"><i class="fas fa-exclamation-circle"></i><span class="d-none d-md-inline">Övrigt</span></a>
+                        <br />
+                    </div>
+                </div>
+                <div id="gallery-content" class="w-100">
+                    @RenderBody()
+                </div>
+            </div>
+            <script src="~/Scripts/JavaScript.js"></script>
+        </div>
     </div>
 
-    <!-- Flex Wrapper -->
-    <div id="gallery-wrapper" class="wrapper d-flex flex-row">
 
-        <!-- Side bar -->
-        <div id="gallery-sidebar" class="collapse in width show" >
 
-            <div class="list-group border-0 text-md-left">
-                <a href="@Url.Action("Index", "Gallery", new { id = "bildekor" })" class="list-group-item d-inline-block"><i class="fas fa-paint-brush"></i><span class="d-none d-md-inline">Bildekor</span></a>
-                <a href="@Url.Action("Index", "Gallery", new { id = "ombyggnadavfordon" })" class="list-group-item d-inline-block"><i class="fas fa-wrench"></i><span class="d-none d-md-inline">Ombyggnad av fordon</span></a>
-                <a href="@Url.Action("Index", "Gallery", new { id = "utstallningarochinredningar" })" class="list-group-item d-inline-block"><i class="fas fa-eye"></i><span class="d-none d-md-inline">Utställning & Inredning</span></a>
-                <a href="@Url.Action("Index", "Gallery", new { id = "skyltar" })" class="list-group-item d-inline-block"><i class="fas fa-map-signs"></i></i><span class="d-none d-md-inline">Skyltar</span></a>
-                <a href="@Url.Action("Index", "Gallery", new { id = "arbetsmiljolosningar" })" class="list-group-item d-inline-block"><i class="fab fa-envira"></i><span class="d-none d-md-inline">Arbetsmiljölösningar</span></a>
-                <a href="@Url.Action("Index", "Gallery", new { id = "offentligutsmyckning" })" class="list-group-item d-inline-block"><i class="fas fa-gem"></i><span class="d-none d-md-inline">Offentlig utsmyckning</span></a>
-                <a href="@Url.Action("Index", "Gallery", new { id = "legotillverkningochinnovationer" })" class="list-group-item d-inline-block"><i class="fas fa-lightbulb"></i><span class="d-none d-md-inline">Legotillverkning & innovation</span></a>
-                <a href="@Url.Action("Index", "Gallery", new { id = "ovrigt" })" class="list-group-item d-inline-block"><i class="fas fa-exclamation-circle"></i><span class="d-none d-md-inline">Övrigt</span></a>
-                <br />
+    @using (Html.BeginForm("UploadImage", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+    <div class="modal" id="myModal">
+        <div class="modal-dialog" role="document" >
+            <div class="modal-content center"  style=" background-color: #333;">
+
+            <div class="modal-header">
+                <h5 class="modal-title text-white center" style="margin-right: -20px">Ladda upp bild till galleri</h5>
+                <button type="button" class="close"  data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h5 class="text-white text-center">1. Välj kategori</h5>
+                @{
+                List<SelectListItem> list = new List<SelectListItem>();
+                list.Add(new SelectListItem { Text = "Bildekor", Value = "bildekor", Selected = true });
+                list.Add(new SelectListItem { Text = "Ombyggnad av fordon", Value = "ombyggnadavfordon" });
+                list.Add(new SelectListItem { Text = "Utställning & Inredning", Value = "utstallningarochinredningar" });
+                list.Add(new SelectListItem { Text = "Skyltar", Value = "skyltar" });
+                list.Add(new SelectListItem { Text = "Arbetsmiljölösningar", Value = "arbetsmiljolosningar" });
+                list.Add(new SelectListItem { Text = "Offentlig utsmyckning", Value = "offentligutsmyckning" });
+                list.Add(new SelectListItem { Text = "Legotillverkning & innovation", Value = "legotillverkningochinnovationer" });
+                list.Add(new SelectListItem { Text = "Övrigt", Value = "ovrigt" });
+                }
+
+                @Html.DropDownListFor(x => x.ContainerName, new SelectList(list, "Value", "Text"), htmlAttributes: new { @class = "form-control text-center", id = "combobox" })
+
+
+                <fieldset class="form-horizontal">
+                    <div class="form-group">
+                        <br />
+                        <h5 class="text-white text-center">2. Välj ditt foto</h5>
+                        @*<label class="control-label col-md-2 text-white mt-2 center" for="Photo">Välj ditt foto</label>*@
+                        <div class="new_Btn col-md-6 btn btn-primary center" > Klicka för att välja
+                        </div>
+                            <input type="file" name="photo" id="html_btn" />
+                    </div>
+                    <div class="form-group">
+                        &nbsp;
+                        <div class="col-md-offset-2 col-md-10">
+                            <h5 class="text-white center">3. Ladda upp foto</h5>
+                            <input type="submit" value="Ladda upp" class="btn btn-success center" style="margin-right: 93px;" />
+                        </div>
+
+                    </div>
+                </fieldset>
+
+            </div>
+            <div class="modal-footer">
+                @*<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>*@
             </div>
         </div>
-        <div id="gallery-content" class="w-100">
-            @RenderBody()
         </div>
-    </div>
-    <script src="~/Scripts/JavaScript.js"></script>
-    </div>
+            </div>
+        }
+        @Html.Partial("_Footer")
 
-    </div>
-    @Html.Partial("_Footer")
-
-
-    <!-- Bottom footer -->
+    <script>
+        $('.new_Btn').bind("click", function () {
+            $('#html_btn').click();
+        });
+    </script>
+        <!-- Bottom footer -->
 </body>
 </html>
 
