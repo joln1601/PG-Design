@@ -86,7 +86,7 @@ namespace pgDesign.Controllers
             }
         }
         [HttpPost]
-        public ActionResult SetContactAdmin(ContactVM ci)
+        public async Task<ActionResult> SetContactAdmin(ContactVM ci, HttpPostedFileBase file)
         {
             if (!User.Identity.IsAuthenticated)
             {
@@ -96,6 +96,16 @@ namespace pgDesign.Controllers
             {
                 try
                 {
+                    if (Request.Files != null && Request.Files.Count > 0)
+                    {
+                        file = Request.Files[0];
+                        if (file != null && file.ContentLength > 0)
+                        {
+                        }
+                    }
+                    var imageUrl = await AB.UploadBlobtest(file, "profile");
+                    ci.Picture_Url = imageUrl;
+
                     db.SetContactInfo(ci);
                     TempData["Message"] = "<br />Uppgifterna har nu blivit sparade.";
                 }
@@ -304,9 +314,12 @@ namespace pgDesign.Controllers
                     {
                     }
                 }
-                var imageUrl = await AB.UploadBlobtest(file, ContainerName);
-                TempData["LatestImage"] = imageUrl.ToString();
+                if (ContainerName == "profile")
+                {
+                }
+                    var imageUrl = await AB.UploadBlobtest(file, ContainerName);
 
+                TempData["LatestImage"] = imageUrl.ToString();
                 return RedirectToAction("Index", "Gallery");
             }
         }

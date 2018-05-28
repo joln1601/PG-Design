@@ -6,7 +6,7 @@
 
 <div id="KontaktInfoDiv">
     <h2>Redigera innehåll i kontaktsidan</h2>
-    @using (Html.BeginForm("SetContactAdmin", "Admin"))
+    @using (Html.BeginForm("SetContactAdmin", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         <table class="mb-3 contactTable">
             <tr>
@@ -20,6 +20,24 @@
                     <div id="Lname">
                         <strong>@Html.Label("Efternamn")</strong>
                         @Html.TextBoxFor(m => Model.LName, new { @style = "margin-right:20px;", @class = "form-control" })
+                    </div>
+                </td>
+                <td>
+                    <div id="profile_pic">
+                        <img src="@Model.Picture_Url" class="profile-pic" id="profile" style="max-width: 300px;" />
+
+                        @Html.HiddenFor(model => model.ContainerName, new { @Value = "profile", name = "ContainerName" })
+                        <fieldset class="form-horizontal">
+                            <div class="form-group">
+                                <div class="col-md-10">
+                                    <div class="new_Btn col-md-8 btn btn-primary center">
+                                        Ändra profilbild
+                                    </div>
+                                    <input type="file" name="photo" id="html_btn" />
+                                </div>
+                            </div>
+                        </fieldset>
+
                     </div>
                 </td>
             </tr>
@@ -74,7 +92,24 @@
     }
 </div>
 
+<script type="text/javascript">
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
 
+            reader.onload = function (e) {
+                $('#profile').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#html_btn").change(function () {
+        readURL(this);
+    });
+</script>
 
-
-
+<script>
+    $('.new_Btn').bind("click", function () {
+        $('#html_btn').click();
+    });
+</script>

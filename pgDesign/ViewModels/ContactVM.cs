@@ -17,5 +17,6 @@ namespace pgDesign.ViewModels
         public string Picture_Url { get; set; }
         public string Biography { get; set; }
         public string ContactUs { get; set; }
+        public string ContainerName { get; set; }
     }
 }
