@@ -12,8 +12,7 @@
             for (int i = 0; i < Model.BlobList.Count; i++)
             {
                 var id = i;
-
-
+                
                 <div class="col-md-4">
 
                     <img src="@Model.BlobList.ElementAt(i).URIName" alt="..." data-toggle="modal" data-target="#myModal" class="getSrc img-thumbnail img-fluid hoverimg" style="max-height: 364.42px;" id="@{@id}">
@@ -29,11 +28,8 @@
                 <span aria-hidden="true">&times;</span>
             </button>
             <div class="modal-body">
-                <div class="modal-content" id="modalcontent">
-                    <img id="showimg" src="#" alt="" class="showPic h-auto" />
-                </div>
+                <img id="showimg" src="#" alt="" class="showPic h-100 w-100" />
             </div>
-
         </div>
     </div>
 

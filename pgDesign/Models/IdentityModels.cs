@@ -21,10 +21,6 @@ namespace pgDesign.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Siteinformation> Siteinformation { get; set; }
-        public DbSet<Category> Category { get; set; }
-        public DbSet<Gallery> Gallery { get; set; }
-        public DbSet<Picture> Picture { get; set; }
-        public DbSet<PictureAttachment> PictureAttachment { get; set; }
         public DbSet<ContactInfo> ContactInfo { get; set; }
         public DbSet<Webshop> Webshop { get; set; }
         public ApplicationDbContext()

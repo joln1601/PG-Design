@@ -79,12 +79,14 @@ namespace pgDesign.Controllers
             }
             else
             {
-                Cvm.Users = db.GetUsers();
-                return View(Cvm);
+                //Cvm.Users = db.GetUsers();
+                var model = db.GetContactInfos(Cvm);
+
+                return View(model);
             }
         }
         [HttpPost]
-        public ActionResult SetContactAdmin(ContactInfo ci)
+        public ActionResult SetContactAdmin(ContactVM ci)
         {
             if (!User.Identity.IsAuthenticated)
             {
@@ -274,6 +276,12 @@ namespace pgDesign.Controllers
 
                 return RedirectToAction("WebshopAdminList");
             }
+        }
+        public ActionResult _MoreInfo(int id)
+        {
+            var ws = db.GetSpecificWebshop(id);
+
+            return PartialView(ws);
         }
         #endregion
 

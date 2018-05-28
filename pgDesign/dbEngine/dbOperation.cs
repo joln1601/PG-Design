@@ -34,30 +34,20 @@ namespace pgDesign.dbEngine
 
             return users;
         }
-
-        public Picture GetProfilePic(int id)
+        public ContactVM GetContactInfos(ContactVM cvm)
         {
-            var pic = _DbOperation.Picture.Where(x => x.Id == id).Single();
+            var model = _DbOperation.ContactInfo.FirstOrDefault();
 
-            return pic;
-        }
+            cvm.Id = model.Id;
+            cvm.Fname = model.Fname;
+            cvm.LName = model.LName;
+            cvm.Biography = model.Biography;
+            cvm.Email = model.Email;
+            cvm.ContactUs = model.ContactUs;
+            cvm.Phone = model.Phone;
+            cvm.Picture_Url = model.Picture_Url;
 
-        public IEnumerable<PictureAttachment> GetCarouselPic()
-        {
-            int carouselId = 1;
-
-            var pics = _DbOperation.PictureAttachment.Where(x => x.Gallery.Category.Id == carouselId).ToList();
-
-            foreach (var item in pics)
-            {
-                GetPicturesToList(item);
-            }
-            return pics;
-        }
-
-        private void GetPicturesToList(PictureAttachment item)
-        {
-            var pictures = _DbOperation.Picture.Where(x => x.Id == item.Picture_id).ToList();
+            return cvm;
         }
 
         #endregion
@@ -73,15 +63,17 @@ namespace pgDesign.dbEngine
 
             _DbOperation.SaveChanges();
         }
-        public void SetContactInfo(ContactInfo ci)
+        public void SetContactInfo(ContactVM ci)
         {
-            var contactinfo = _DbOperation.ContactInfo.Single(t => t.Id == ci.Id);
+            var contactinfo = _DbOperation.ContactInfo.FirstOrDefault();
 
             contactinfo.Fname = ci.Fname;
             contactinfo.LName = ci.LName;
             contactinfo.Phone = ci.Phone;
             contactinfo.Email = ci.Email;
             contactinfo.Biography = ci.Biography;
+            contactinfo.Picture_Url = ci.Picture_Url;
+            contactinfo.ContactUs = ci.ContactUs;
 
             _DbOperation.SaveChanges();
         }
@@ -147,6 +139,7 @@ namespace pgDesign.dbEngine
 
             return item;
         }
+       
         public Webshop GetImage(Webshop ws)
         {
             var image = _DbOperation.Webshop.Single(t => t.Id == ws.Id);
@@ -178,13 +171,7 @@ namespace pgDesign.dbEngine
         #endregion
 
         #region Images
-        public void SaveImageToDb(string uri)
-        {
-            Picture p = new Picture() { ImageAddress = uri };
-
-            _DbOperation.Picture.Add(p);
-            _DbOperation.SaveChanges();
-        }
+        
         #endregion
     }
 }

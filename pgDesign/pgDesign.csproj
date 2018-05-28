@@ -251,24 +251,24 @@
     <Compile Include="Migrations\201805110845202_add-migration contacttext.Designer.cs">
       <DependentUpon>201805110845202_add-migration contacttext.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805140859281_newWebshop.cs" />
-    <Compile Include="Migrations\201805140859281_newWebshop.Designer.cs">
-      <DependentUpon>201805140859281_newWebshop.cs</DependentUpon>
+    <Compile Include="Migrations\201805280810535_editwebbshop.cs" />
+    <Compile Include="Migrations\201805280810535_editwebbshop.Designer.cs">
+      <DependentUpon>201805280810535_editwebbshop.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805181114068_webbshoppen.cs" />
-    <Compile Include="Migrations\201805181114068_webbshoppen.Designer.cs">
-      <DependentUpon>201805181114068_webbshoppen.cs</DependentUpon>
+    <Compile Include="Migrations\201805280841340_clean.cs" />
+    <Compile Include="Migrations\201805280841340_clean.Designer.cs">
+      <DependentUpon>201805280841340_clean.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805280852143_contact.cs" />
+    <Compile Include="Migrations\201805280852143_contact.Designer.cs">
+      <DependentUpon>201805280852143_contact.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BlobList.cs" />
-    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\ContactInfo.cs" />
-    <Compile Include="Models\Gallery.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Picture.cs" />
-    <Compile Include="Models\PictureAttachment.cs" />
     <Compile Include="Models\postedFileModel.cs" />
     <Compile Include="Models\Siteinformation.cs" />
     <Compile Include="Models\Webshop.cs" />
@@ -475,11 +475,14 @@
     <EmbeddedResource Include="Migrations\201805110845202_add-migration contacttext.resx">
       <DependentUpon>201805110845202_add-migration contacttext.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805140859281_newWebshop.resx">
-      <DependentUpon>201805140859281_newWebshop.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201805280810535_editwebbshop.resx">
+      <DependentUpon>201805280810535_editwebbshop.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805181114068_webbshoppen.resx">
-      <DependentUpon>201805181114068_webbshoppen.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201805280841340_clean.resx">
+      <DependentUpon>201805280841340_clean.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805280852143_contact.resx">
+      <DependentUpon>201805280852143_contact.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

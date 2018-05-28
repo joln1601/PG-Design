@@ -4,30 +4,57 @@
 }
 
 <h2 class="text-center mb-5"> PG-Design Webbhandel</h2>
-<div id="webshop" class="webshop-container">
-    <ul class="list-unstyled border p-4">
-        @foreach (var item in Model.WebshopItems)
-        {
-            <li class="mb-5 ml-5">
-                <div class="webshop-body d-inline-block">
-                    <div class="webshop-image d-inline-flex">
-                        <img src="@item.Picture_Url" style="max-height: 200px;" />
-                        <div class="mt-3 ml-5">
-                            <h4>@item.Name</h4>
-                            <p>
-                                @item.Description
-                            </p>
-                            <p>
-                                Pris: @item.Price :-
-                            </p>
-                            <div class="">
-                                <input type="submit" value="Köp" class="btn btn-primary" />
-                            </div>
-                        </div>
+
+<div id="webshop" class="webshop-container row">
+    @foreach (var item in Model.WebshopItems)
+    {
+        <div class="col-md-3 border p-2 ml-5 mt-5">
+            <div class="webshop-body ">
+                <div class="webshop-image ">
+                    <img src="@item.Picture_Url" class="center" style="max-height: 250px; max-width: 255px;" />
+                </div>
+                <div class="center">
+                    <h4 class="mt-1" style="text-align: center">@item.Name</h4>
+                    <br />
+                    <div class="d-inline-flex ml-3">
+                    
+                        <input data-id="@item.Description" type="submit" value="Mer info" class="btn btn-primary info" data-target="#myModal" data-toggle="modal" />
+                        <p class="ml-4">
+                            Pris: @item.Price :-
+                        </p>
                     </div>
                 </div>
-                <hr />
-            </li>
-        }
-    </ul>
+            </div>
+        </div>
+    }
 </div>
+
+<script>
+    $(document).on("click", ".info", function () {
+        var desc = $(this).data('id');
+        $(".modal-body #itemId").text(desc);
+    });
+</script>
+
+<div class="modal" id="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content center" style=" background-color: #333;">
+            <div class="modal-header">
+                <h5 class="modal-title text-white center" style="margin-right: -20px">Ladda upp bild till galleri</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img id="showimg" src="#" class="showPic"/>
+                <p id="itemId">
+
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+

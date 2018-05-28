@@ -54,14 +54,9 @@ namespace pgDesign.Controllers
 
         public ActionResult Contact()
         {
-            Cvm.Users = db.GetUsers();
+            var model = db.GetContactInfos(Cvm);
 
-            foreach (var item in Cvm.Users)
-            {
-                db.GetProfilePic(item.Picture_Id);
-            }
-
-            return View(Cvm);
+            return View(model);
         }
         public ActionResult FindUs()
         {

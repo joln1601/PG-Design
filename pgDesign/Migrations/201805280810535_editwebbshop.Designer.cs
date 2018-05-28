@@ -7,13 +7,13 @@ namespace pgDesign.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class newWebshop : IMigrationMetadata
+    public sealed partial class editwebbshop : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(newWebshop));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(editwebbshop));
         
         string IMigrationMetadata.Id
         {
-            get { return "201805140859281_newWebshop"; }
+            get { return "201805280810535_editwebbshop"; }
         }
         
         string IMigrationMetadata.Source
