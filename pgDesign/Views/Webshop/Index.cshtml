@@ -8,9 +8,6 @@
 <div id="webshop" class="webshop-container row">
     @foreach (var item in Model.WebshopItems)
     {
-        using (Html.BeginForm("WebshopView", "Webshop", FormMethod.Post))
-        {
-            @Html.AntiForgeryToken()
             <div class="col-md-3 border p-2 ml-5 mt-5">
                 <div class="webshop-body ">
                     <div class="webshop-image ">
@@ -20,16 +17,19 @@
                         <h4 class="mt-1" style="text-align: center">@item.Name</h4>
                         <br />
                         <div class="d-inline-flex ml-3">
+        @using (Html.BeginForm("WebshopView", "Webshop", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
                             <input type="hidden" value="@item.Id" name="id" />
                             <input type="submit" value="Mer info" class="btn btn-primary" />
+        }
                             <p class="ml-4">
-                                Pris: @item.    Price :-
+                                Pris: @item.Price :-
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
-        }
     }
 </div>
 

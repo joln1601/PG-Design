@@ -35,8 +35,9 @@ namespace pgDesign.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult WebshopView(int id)
         {
+            var item = db.GetSpecificWebshop(id);
 
-            return View();
+            return View(item);
         }
     }
 }

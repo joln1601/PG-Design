@@ -131,11 +131,20 @@ namespace pgDesign.dbEngine
             _DbOperation.Webshop.Add(ws);
             _DbOperation.SaveChanges();
         }
-        public Webshop GetSpecificWebshop(int id)
+        public WebshopVM GetSpecificWebshop(int id)
         {
             var item = _DbOperation.Webshop.Where(x => x.Id == id).Single();
 
-            return item;
+            var vm = new WebshopVM
+            {
+                Id = item.Id,
+                Description = item.Description,
+                Picture_Url = item.Picture_Url,
+                Price = item.Price,
+                Name = item.Name
+            };
+
+            return vm;
         }
        
         public Webshop GetImage(Webshop ws)
