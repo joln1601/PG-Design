@@ -319,8 +319,7 @@ namespace pgDesign.Controllers
                 return RedirectToAction("Index", "Gallery");
             }
         }
-        [HttpPost]
-        public ActionResult DeleteWebshop(Webshop ws)
+        public ActionResult DeleteWebshopItem(int id)
         {
             if (!User.Identity.IsAuthenticated)
             {
@@ -328,8 +327,24 @@ namespace pgDesign.Controllers
             }
             else
             {
-                db.DeleteWebshopItem(ws.Id);
+                var ws = db.GetSpecificWebshop(id);
+                return View(ws);
+            }
+        }
+        [HttpPost]
+        [ActionName("DeleteWebshop")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteWebshopItem(Webshop ws)
+        {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                db.DeleteWebshopItem(ws);
                 return RedirectToAction("WebshopAdminList");
+
             }
         }
         #endregion

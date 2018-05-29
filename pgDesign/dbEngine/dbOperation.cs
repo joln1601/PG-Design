@@ -159,9 +159,9 @@ namespace pgDesign.dbEngine
 
             _DbOperation.SaveChanges();
         }
-        public void DeleteWebshopItem(int id)
+        public void DeleteWebshopItem(Webshop ws)
         {
-            var item = _DbOperation.Webshop.Where(x => x.Id == id).FirstOrDefault();
+            var item = _DbOperation.Webshop.Where(x => x.Id == ws.Id).FirstOrDefault();
 
             _DbOperation.Webshop.Remove(item);
             _DbOperation.SaveChanges();
