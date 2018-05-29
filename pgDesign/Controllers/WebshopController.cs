@@ -16,6 +16,7 @@ namespace pgDesign.Controllers
         private StartUpViewModel vm;
         private AzureBlobHelper AB;
         private postedFileModel pfm;
+        private ContactVM cvm;
         public WebshopController()
         {
             db = new dbOperation();
@@ -23,6 +24,7 @@ namespace pgDesign.Controllers
             AB = new AzureBlobHelper();
             pfm = new postedFileModel();
             ws = new WebshopVM();
+            cvm = new ContactVM();
         }
         // GET: Webshop
         public ActionResult Index()
@@ -35,7 +37,8 @@ namespace pgDesign.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult WebshopView(int id)
         {
-            var item = db.GetSpecificWebshop(id);
+            var item = db.GetSpecificWebshopNew(id);
+            item.Cvm = db.GetContactInfos(cvm);
 
             return View(item);
         }

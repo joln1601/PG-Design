@@ -9,6 +9,9 @@
     margin-bottom: 0px;
     padding-bottom: 0px;
 }
+.moveright{
+    margin-left: 75px;
+}
 #modalcontent{
     width: 100%;
 }
