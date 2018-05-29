@@ -579,7 +579,13 @@ hr {
   }
  
   
-
+  .wide {
+      max-width: 1000px;
+      align-items: center;
+  }
+  #testid {
+      max-width: 100px;
+  }
 
 
 

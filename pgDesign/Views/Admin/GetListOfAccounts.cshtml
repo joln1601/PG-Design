@@ -27,8 +27,8 @@
             @Html.DisplayFor(modelItem => item.UserName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "DeleteUser", new { id=item.Id })
+            @Html.ActionLink("Redigera", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Ta bort", "DeleteUser", new { id=item.Id})
         </td>
     </tr>
 }
