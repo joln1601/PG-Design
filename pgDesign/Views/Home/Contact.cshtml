@@ -6,12 +6,14 @@
     <h2 class="text-center mb-4">Kontakta oss</h2>
     
      
-    <div class="justify-content-center mt-5 mb-3 border shadow-lg">
-            <div class=" col-md-8 center">
-                <img src="@Model.Picture_Url" class="profile-pic center mt-3" style="max-width: 300px;" />
+    <div class="justify-content-center border shadow-lg" style="background-color: #eaeaea;">
+        <div style="background-color: #dbdbdb;">
+        <div class="pt-2 col-md-8 center">
+                <img src="@Model.Picture_Url" class="profile-pic center" style="max-width: 300px;" />
             </div>
             <h3 class="text-center mt-4 mb-4">@Model.Fname @Model.LName</h3>
         <hr />
+        </div>
             <p class="w-75 text-center center mt-3">
                 <strong style="text-decoration: underline">Biografi</strong> <br />
                 @Model.Biography
