@@ -8,24 +8,28 @@
 <div id="webshop" class="webshop-container row">
     @foreach (var item in Model.WebshopItems)
     {
-        <div class="col-md-3 border p-2 ml-5 mt-5">
-            <div class="webshop-body ">
-                <div class="webshop-image ">
-                    <img src="@item.Picture_Url" class="center" style="max-height: 250px; max-width: 255px;" />
-                </div>
-                <div class="center">
-                    <h4 class="mt-1" style="text-align: center">@item.Name</h4>
-                    <br />
-                    <div class="d-inline-flex ml-3">
-                    
-                        <input data-id="@item.Description" type="submit" value="Mer info" class="btn btn-primary info" data-target="#myModal" data-toggle="modal" />
-                        <p class="ml-4">
-                            Pris: @item.Price :-
-                        </p>
+        using (Html.BeginForm("WebshopView", "Webshop", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <div class="col-md-3 border p-2 ml-5 mt-5">
+                <div class="webshop-body ">
+                    <div class="webshop-image ">
+                        <img src="@item.Picture_Url" class="center" style="max-height: 250px; max-width: 255px;" />
+                    </div>
+                    <div class="center">
+                        <h4 class="mt-1" style="text-align: center">@item.Name</h4>
+                        <br />
+                        <div class="d-inline-flex ml-3">
+                            <input type="hidden" value="@item.Id" name="id" />
+                            <input type="submit" value="Mer info" class="btn btn-primary" />
+                            <p class="ml-4">
+                                Pris: @item.    Price :-
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        }
     }
 </div>
 
@@ -35,26 +39,3 @@
         $(".modal-body #itemId").text(desc);
     });
 </script>
-
-<div class="modal" id="myModal">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content center" style=" background-color: #333;">
-            <div class="modal-header">
-                <h5 class="modal-title text-white center" style="margin-right: -20px">Ladda upp bild till galleri</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <img id="showimg" src="#" class="showPic"/>
-                <p id="itemId">
-
-                </p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-

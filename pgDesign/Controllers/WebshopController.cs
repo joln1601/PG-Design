@@ -31,5 +31,12 @@ namespace pgDesign.Controllers
 
             return View(ws);
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult WebshopView(int id)
+        {
+
+            return View();
+        }
     }
 }
