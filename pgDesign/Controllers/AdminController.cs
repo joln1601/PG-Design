@@ -47,9 +47,7 @@ namespace pgDesign.Controllers
                 var SiteInfoOpen = db.SiteinfoText(2);
                 vm.OpenTimes = SiteInfoOpen.Content;
 
-                string ContainerName = "carouselpictures";
-
-                vm.gvm = AB.GetListOfData(pfm, ContainerName);
+                vm.gvm.BlobList = db.GetCarouselPics();
 
                 return View(vm);
             }
@@ -314,10 +312,8 @@ namespace pgDesign.Controllers
                     {
                     }
                 }
-                if (ContainerName == "profile")
-                {
-                }
-                    var imageUrl = await AB.UploadBlobtest(file, ContainerName);
+
+                var imageUrl = await AB.UploadBlobtest(file, ContainerName);
 
                 TempData["LatestImage"] = imageUrl.ToString();
                 return RedirectToAction("Index", "Gallery");
@@ -336,9 +332,33 @@ namespace pgDesign.Controllers
             }
         }
         #endregion
-        public ActionResult Statistics()
+
+        #region caurousell
+        [HttpPost]
+        public async Task<ActionResult> ChangeCarPics(HttpPostedFileBase file, int id)
         {
-            return View();
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                if (Request.Files != null && Request.Files.Count > 0)
+                {
+                    file = Request.Files[0];
+                    if (file != null && file.ContentLength > 0)
+                    {
+                    }
+                }
+
+
+                var imageUrl = await AB.UploadBlobtest(file, "carouselpictures");
+
+                db.SetNewCarouselPics(imageUrl.ToString(), id);
+
+                return RedirectToAction("Index", "Admin");
+            }
         }
+        #endregion
     }
 }

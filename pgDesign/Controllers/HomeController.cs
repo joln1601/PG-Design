@@ -38,9 +38,11 @@ namespace pgDesign.Controllers
             var SiteInfoOpen = db.SiteinfoText(2);
             vm.OpenTimes = SiteInfoOpen.Content;
 
-            string ContainerName = "carouselpictures";
+            //string ContainerName = "carouselpictures";
+            //vm.gvm = AB.GetListOfData(pfm, ContainerName);
+            //db.SaveCarouselpics(vm.gvm.BlobList);
 
-            vm.gvm = AB.GetListOfData(pfm, ContainerName);
+            vm.gvm.BlobList = db.GetCarouselPics();
 
             return View(vm);
         }

@@ -20,11 +20,9 @@ namespace pgDesign.dbEngine
         #region Siteinformation
         public Siteinformation SiteinfoText(int id)
         {
-
             var text = _DbOperation.Siteinformation.Where(c => c.Id == id).Single();
             return text;
         }
-
         #endregion
 
         #region ContactPage
@@ -172,6 +170,47 @@ namespace pgDesign.dbEngine
 
         #region Images
         
+        //Metod för att synka carouselbilderna till databasen
+        public void SaveCarouselpics(List<GalleryViewModel> BlobList)
+        {
+            List<Carousel> list = new List<Carousel>();
+
+            foreach (var item in BlobList)
+            {
+               var c = new Carousel { Uri = item.URIName };
+
+                list.Add(c);
+            }
+
+            foreach (var pic in list)
+            {
+                _DbOperation.Carousels.Add(pic);
+                _DbOperation.SaveChanges();
+            }
+        }
+
+        public List<GalleryViewModel> GetCarouselPics()
+        {
+            var list = new List<GalleryViewModel>();
+
+            var pics = _DbOperation.Carousels.ToList();
+
+            foreach (var item in pics)
+            {
+                list.Add(new GalleryViewModel { URIName = item.Uri, Id = item.Id });
+            }
+
+            return list;
+        }
+
+        public void SetNewCarouselPics(string uri, int id)
+        {
+            var pic = _DbOperation.Carousels.Where(x => x.Id == id).FirstOrDefault();
+            pic.Uri = uri;
+
+            _DbOperation.SaveChanges();
+        }
+
         #endregion
     }
 }

@@ -9,9 +9,8 @@ namespace pgDesign.ViewModels
     {
         public List<GalleryViewModel> BlobList { get; set; }
         public string ContainerName { get; set; }
-
         public string PictureName { get; set; }
         public string URIName { get; set; }
-
+        public int Id { get; set; }
     }
 }

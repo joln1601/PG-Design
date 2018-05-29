@@ -263,9 +263,14 @@
     <Compile Include="Migrations\201805280852143_contact.Designer.cs">
       <DependentUpon>201805280852143_contact.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805290747269_carouseltable.cs" />
+    <Compile Include="Migrations\201805290747269_carouseltable.Designer.cs">
+      <DependentUpon>201805290747269_carouseltable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BlobList.cs" />
+    <Compile Include="Models\Carousel.cs" />
     <Compile Include="Models\ContactInfo.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -435,7 +440,6 @@
     <Content Include="Views\Admin\WebshopAdminList.cshtml" />
     <Content Include="Views\Admin\CreateWebshopItem.cshtml" />
     <Content Include="Views\Admin\EditWebshopItem.cshtml" />
-    <Content Include="Views\Admin\Statistics.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -483,6 +487,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805280852143_contact.resx">
       <DependentUpon>201805280852143_contact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805290747269_carouseltable.resx">
+      <DependentUpon>201805290747269_carouseltable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

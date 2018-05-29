@@ -342,15 +342,7 @@ footer p{
 .profile-pic{
     border-radius: 50%;
 }
-.profile-card{
-    border: solid 1px black;
-}
-.card-header {
-    background-color: #999999;
-}
-.card-body {
-    background-color: #FFF;
-}
+
 .center {
     display: block;
     margin-left: auto;

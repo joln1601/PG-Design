@@ -58,14 +58,16 @@ namespace pgDesign.dbEngine
 
             
         }
+
+        #region DeleteBlob
         public void DeleteFile(string cn, string pn)
         {
-            
             CloudBlobContainer blobContainer = _blobClient.GetContainerReference(cn);
 
             var blob = blobContainer.GetBlockBlobReference(pn);
             blob.DeleteIfExists();
         }
+        #endregion
 
         #region Hämtning av blobbar
         public GalleryViewModel GetListOfData(postedFileModel filemodel, string containerName)
@@ -115,11 +117,10 @@ namespace pgDesign.dbEngine
 
             galleryvm.BlobList = list;
             return galleryvm;
-
+        }
             #endregion
 
-        }
-        
+        #region Uppladdning av blobbar
         public async Task<string> UploadBlobtest(HttpPostedFileBase imageToUpload, string containername)
         {
             string imageFullPath = null;
@@ -160,6 +161,8 @@ namespace pgDesign.dbEngine
             }
             return imageFullPath;
         }
+        #endregion
+
     }
 
 }

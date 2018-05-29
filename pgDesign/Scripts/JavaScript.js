@@ -23,11 +23,11 @@ $('.getSrc').click(function () {
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 
+
 $(document).ready(function () {
     $('.nav-link li.active').removeClass('active');
     $('a[href="' + location.pathname + '"]').closest('.nav-item').addClass('active');
 });
-
 
 
        
