@@ -3,24 +3,26 @@
     ViewBag.Title = "Contact";
 }
 <div class="profile-body">
-    <h1 class="text-center mb-4">Kontakta oss</h1>
+    <h2 class="text-center mb-4">Kontakta oss</h2>
+    
      
-    <div class="justify-content-center mt-5 mb-3">
-            <div>
-                <img src="@Model.Picture_Url" class="profile-pic center" style="max-width: 300px;" />
+    <div class="justify-content-center mt-5 mb-3 border shadow-lg">
+            <div class=" col-md-8 center">
+                <img src="@Model.Picture_Url" class="profile-pic center mt-3" style="max-width: 300px;" />
             </div>
-            <h3 class="text-center mt-3 mb-4">@Model.Fname @Model.LName</h3>
-            <p class="w-75 center mt-3">
-                <strong>Biografi</strong> <br />
+            <h3 class="text-center mt-4 mb-4">@Model.Fname @Model.LName</h3>
+        <hr />
+            <p class="w-75 text-center center mt-3">
+                <strong style="text-decoration: underline">Biografi</strong> <br />
                 @Model.Biography
             </p>
-            <p class="w-75 center mt-3">
-                <strong class="w-50 mt-3">Hur du kan kontakta oss</strong>
+            <p class="w-75 center text-center mt-3">
+                <strong class="w-50 mt-4" style="text-decoration: underline">Hur du kan kontakta oss</strong>
                 <br />
                 @Model.ContactUs
             </p>
 
-            <ul class="w-75 center mt-3 list-unstyled">
+            <ul class="w-75 center text-center list-unstyled">
                 <li>
                     <strong> E-post:</strong> <a href="#"> @Model.Email</a>
                 </li>
@@ -29,7 +31,7 @@
                 </li>
             </ul>
 
-            <div class="links justify-content-center mt-5">
+            <div class="links justify-content-center mt-5 mb-5">
                 <hr class="col-md-6"/>
                 <ul class="icon-list text-center">
                     <li>
