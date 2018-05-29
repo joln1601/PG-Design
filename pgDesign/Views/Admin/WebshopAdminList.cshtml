@@ -58,12 +58,14 @@
                 </button>
             </div>
             <div class="modal-body">
-
-                <input id="itemId" type="submit" />
+                @using (Html.BeginForm("DeleteWebshop", "Admin", FormMethod.Post, new { @id = this.Model }))
+                {
+                    <input id="itemId" type="submit" value="@this.Model.Where(x => x.Id == )" name="ws" />
+                }
 
                 <div class="float-right">
 
-                @Html.ActionLink("Ta bort", "DeleteWebshop", new { @id = "test" }, new { @class = "btn btn-danger" })
+                @Html.ActionLink("Ta bort", "DeleteWebshop", new { @id = this.Model }, new { @class = "btn btn-danger" })
                 
 
                 @Html.ActionLink("Tillbaka", "WebshopAdminList", new { @id = "ok" }, new { @class = "btn btn-secondary" })
