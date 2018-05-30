@@ -53,7 +53,6 @@ namespace pgDesign.Controllers
 
             return View();
         }
-
         public ActionResult Contact()
         {
             var model = db.GetContactInfos(Cvm);
