@@ -154,6 +154,7 @@ namespace pgDesign.Controllers
             else
             {
                 var user = db.GetSpeifikUser(id);
+                TempData["MessageEdit"] = "<br /> <br /> Kontot har nu blivit uppdaterat";
                 return View(user);
             }
         }
@@ -168,6 +169,7 @@ namespace pgDesign.Controllers
             {
                 db.EditUser(user);
                 return RedirectToAction("GetListOfAccounts");
+                
             }
         }
         public ActionResult DeleteUser(string id)
@@ -184,7 +186,7 @@ namespace pgDesign.Controllers
                     var value = db.GetSpeifikUser(id);
                     db.DeleteUser(value.Id);
                 }
-
+                TempData["MessageRemove"] = "<br /> <br /> Kontot har nu blivit borttaget";
                 return RedirectToAction("GetListOfAccounts");
             }
         

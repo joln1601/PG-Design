@@ -18,24 +18,40 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr class="border-bottom border-top">
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UserName)
-        </td>
-        <td>
-            @Html.ActionLink("Redigera", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Ta bort", "DeleteUser", new { id=item.Id})
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr class="border-bottom border-top">
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.ActionLink("Redigera", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Ta bort", "DeleteUser", new { id = item.Id })
+            </td>
+        </tr>
+    }
 
 </table>
 <p>
 
     <button class="btn btn-primary float-right" onclick="location.href='@Url.Action("Register", "Account")'">Skapa ny användare</button>
-    
+
 </p>
+
+@if (TempData["MessageRemove"] != null)
+{
+    <div class="col-md-12" style="color: red;">
+
+        @Html.Raw(@TempData["MessageRemove"])
+    </div>
+}
+@if (TempData["MessageEdit"] != null)
+{
+    <div class="col-md-12" style="color: red;">
+
+        @Html.Raw(@TempData["MessageEdit"])
+    </div>
+}
