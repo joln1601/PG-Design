@@ -62,8 +62,6 @@ namespace pgDesign.Controllers
         }
         public ActionResult FindUs()
         {
-            
-
             return View();
         }
     }

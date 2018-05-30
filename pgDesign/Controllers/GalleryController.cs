@@ -24,17 +24,17 @@ namespace pgDesign.Controllers
 
         public ActionResult Index(string id)
         {
-          
             if(id == null)
             {
-            id = "bildekor";
-            gvm = AB.GetListOfData(pfm, id);
+                id = "bildekor";
+                gvm = AB.GetListOfData(pfm, id);
+
                 return View(gvm);
             }
             else
             {
-            gvm = AB.GetListOfData(pfm, id);
-            return View(gvm);
+                gvm = AB.GetListOfData(pfm, id);
+                return View(gvm);
             }
 
       

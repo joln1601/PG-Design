@@ -1,5 +1,4 @@
 ﻿<!--- Partial View for footer -->
-
 <footer id="main-footer" class="mb-0">
     <div id="fb-root"></div>
 
@@ -21,17 +20,12 @@
                             <li>
                                 @Html.ActionLink("Referenser", "Index", "Referenser", null, new { @class = "nav-link", title = "Referenser" })
                             </li>
-
                             <li>
-                               <a id="OpenTimes" class="nav-link" title="Öppettider" data-toggle="modal" data-target="#myModalOpenTimes">Öppettider</a>
+                                <a id="OpenTimes" class="nav-link" title="Öppettider" data-toggle="modal" data-target="#myModalOpenTimes">Öppettider</a>
                             </li>
-
                         </ul>
                     </div>
-
                 </div>
-
-
             </div>
             <div class="col-md-4 social-media-links text-white">
                 <h4>Sociala medier</h4>
@@ -41,13 +35,7 @@
                     @*<a id="facebook" href="https://www.facebook.com/PG-Design-AB-968888989852243/" target="_blank" title="Facebook"><i class="fab fa-facebook-square fa-2x" aria-hidden="true"</i><img src="~/Images/Logos/facobookLogo.png" title="facebooklogo" /></a>*@
                     <div class="fb-like text-white" data-href="https://www.facebook.com/PG-Design-AB-968888989852243/" data-width="240" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-colorscheme="dark" data-share="true"></div>
                 </div>
-                
-
-                
             </div>
-
-
-
         </div>
     </div>
     <div class="footer-bottom">
@@ -57,28 +45,23 @@
     </div>
 </footer>
 
-<div class="modal" id="myModalOpenTimes">
+@*<div class="modal" id="myModalOpenTimes">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="center">Öppettider</h5>
                 @*<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>*@
-            </div>
-            
+                        <span aria-hidden="true">&times;</span>
+                    </button>*@
+            @*</div>
             <div class="modal-body">
                 <table class="table table-hover">
-
                     <tbody>
-
                         <tr>
                             <th scope="row">Måndag-Fredag</th>
                             <td>08:00 - 16:00</td>
-
                         </tr>
-
-                        <tr >
+                        <tr>
                             <th scope="row">Lördag</th>
                             <td style="color: #ff0000">Stängt</td>
                         </tr>
@@ -86,15 +69,11 @@
                             <th scope="row">Söndag</th>
                             <td style="color: #ff0000">Stängt</td>
                         </tr>
-                       
-
                     </tbody>
                 </table>
-                
-                            <h5 class="text-center">Avvikande öppettider</h5>
+                <h5 class="text-center">Avvikande öppettider</h5>
                 <hr />
-                            
-                            <p class="text-center" style="color: #ff0000">Vi har stängt alla röda dagar</p>
+                <p class="text-center" style="color: #ff0000">Vi har stängt alla röda dagar och </p>
             </div>
             <div class="modal-footer">
 
@@ -102,4 +81,4 @@
             </div>
         </div>
     </div>
-</div>
+</div>*@*@
