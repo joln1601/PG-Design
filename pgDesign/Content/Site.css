@@ -266,24 +266,22 @@
 }
 
 #content {
-    padding: 2% 2% 2% 2%;
+    padding: 5% 5% 5% 5%;
     margin-top: 2%;
     margin-bottom: 5%;
     box-shadow: 0 0 0.5rem rgba(83,78,76,.6);
     background: rgb(244, 244, 244);
     background: rgba(244, 244, 244, 0.85);
     border: 0.5px solid black;
-    
-    
-   
 }
 #contentAdmin {
     padding: 2% 2% 2% 2%;
     margin-top: 2%;
     margin-bottom: 5%;
     box-shadow: 0 0 0.5rem rgba(83,78,76,.6);
-    background: rgb(153, 15, 15);
-    background: rgba(153, 15, 15, 0.85);
+    /*background: rgb(153, 15, 15);*/
+    background-color: #45b0ff; 
+    /*background: rgba(153, 15, 15, 0.85);*/
     border: 0.5px solid black;
 }
 
