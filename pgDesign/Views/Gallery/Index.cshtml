@@ -43,7 +43,6 @@ else
             {
                 var id = i;
 
-
         <div class="col-md-6" id="adminpicturecontainer">
             <img src="@Model.BlobList.ElementAt(i).URIName" alt="..." class="img-thumbnail hoverimg img-fluid" style="max-height: 300px; width: 100%;" id="@{@id}">
                 <input type="button" id="@{@id}" class="btn btn-danger" value="X" onclick="location.href='@Url.Action("DeleteImage", "Gallery", new { url = Model.BlobList.ElementAt(i).URIName, cn = Model.BlobList.ElementAt(i).ContainerName, pn = Model.BlobList.ElementAt(i).PictureName })'" />
