@@ -36,11 +36,7 @@ namespace pgDesign.Controllers
             vm.Id = SiteInfoAboutText.Id;     
             // Avikande öppettider
             var SiteInfoOpen = db.SiteinfoText(2);
-            vm.OpenTimes = SiteInfoOpen.Content;
-
-            //string ContainerName = "carouselpictures";
-            //vm.gvm = AB.GetListOfData(pfm, ContainerName);
-            //db.SaveCarouselpics(vm.gvm.BlobList);
+            ViewBag.OpenTimes = SiteInfoOpen.Content;
 
             vm.gvm.BlobList = db.GetCarouselPics();
 
@@ -62,6 +58,15 @@ namespace pgDesign.Controllers
         public ActionResult FindUs()
         {
             return View();
+        }
+
+        [HttpGet]
+        public string Opentimes()
+        {
+            var SiteInfoOpen = db.SiteinfoText(2);
+            string ret = SiteInfoOpen.Content;
+
+            return ret;
         }
     }
 }

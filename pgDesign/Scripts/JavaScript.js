@@ -27,7 +27,25 @@ $('.getSrc').click(function () {
 $(document).ready(function () {
     $('.nav-link li.active').removeClass('active');
     $('a[href="' + location.pathname + '"]').closest('.nav-item').addClass('active');
+    
+    $('#myModalOpenTimes').on('shown.bs.modal', function () {
+        modalOpenTimes();
+    })
 });
 
+function modalOpenTimes() {
+    $.ajax({
 
-       
+        type: "GET",
+        url: "/Home/Opentimes",
+        success: function (response) {
+            console.log(response);
+            $('#openT').text(response);
+        },
+        error: function (response) {
+            console.log(response);
+        }
+    });
+};
+
+

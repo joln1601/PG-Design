@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
@@ -11,18 +13,46 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using pgDesign.Models;
+using SendGrid.Helpers.Mail;
+using SendGrid;
+using System.Diagnostics;
 
 namespace pgDesign
 {
     public class EmailService : IIdentityMessageService
     {
-        public Task SendAsync(IdentityMessage message)
+        public async Task SendAsync(IdentityMessage message)
         {
             // Plug in your email service here to send an email.
-            return Task.FromResult(0);
+            await configSendGridAsync(message);
+
+            //return Task.FromResult(0);
+        }
+        // Use NuGet to install SendGrid (Basic C# client lib)
+        private async Task configSendGridAsync(IdentityMessage message)
+        {
+            var apiKey = ConfigurationManager.AppSettings["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"];//Environment.GetEnvironmentVariable("NAME_OF_THE_ENVIRONMENT_VARIABLE_FOR_YOUR_SENDGRID_KEY");
+            var client = new SendGridClient(apiKey);
+            var from = new EmailAddress("Jonathan.970329@gmail.com", "No-Reply");
+            var subject = message.Subject;
+            var to = new EmailAddress("jonte.9744@gmail.com", "Test-User");
+            var plainTextContent = message.Body;
+            var htmlContent = message.Body;
+            var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
+            var response = await client.SendEmailAsync(msg);
+
+            // Send the email.
+            if (client != null)
+            {
+                await client.SendEmailAsync(msg);
+            }
+            else
+            {
+                Trace.TraceError("Failed to create Web transport.");
+                await Task.FromResult(0);
+            }
         }
     }
-
     public class SmsService : IIdentityMessageService
     {
         public Task SendAsync(IdentityMessage message)
