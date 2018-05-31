@@ -21,6 +21,7 @@
 #contentAdmin {
     min-height: 700px;
 }
+
 #contentgallery {
     margin-top: 2%;
     margin-bottom: 5%;
@@ -490,8 +491,9 @@ hr {
         }
 
         #gallery-sidebar .list-group-item.active {
-            color: #00daff;
+            color: #FFF;
             border-left: thick solid #FFF;
+            
         }
 
 @media (max-width:767px) {
