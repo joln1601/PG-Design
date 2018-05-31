@@ -1,4 +1,5 @@
 ﻿<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" /> <!--Ikoner från fontawesome-->
+
 @if (User.Identity.IsAuthenticated)
 {
     <div class="nav-side-menu">
@@ -13,7 +14,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a title="Admin galleri" class="nav-link" href="@Url.Action("GalleryAdmin", "Admin")"> Admin Galleri</a>
+                    <a title="Admin galleri" class="nav-link" href="@Url.Action("GalleryAdmin", "Admin", new { id = "bildekor" })"> Admin Galleri</a>
                 </li>
                 <li class="nav-item">
                     <a title="Mina tidigare jobb" class="nav-link" href="@Url.Action("ContactAdmin", "Admin")"> Admin Kontakta oss</a>
@@ -45,7 +46,7 @@ else
                     <a title="Startsida" class="nav-link" href="@Url.Action("Index", "Home")"><i class="fas fa-home fa-fw fa-lg"></i> Startsida</a>
                 </li>
                 <li class="nav-item">
-                    <a title="Galleri" class="nav-link" href="@Url.Action("Index", "Gallery")"><i class="fas fa-images"></i> Galleri</a>
+                    <a title="Galleri" class="nav-link" href="@Url.Action("Index", "Gallery", new { id = "bildekor" })"><i class="fas fa-images"></i> Galleri</a>
                 </li>
                 <li class="nav-item">
                     <a title="Webbhandel" class="nav-link" href="@Url.Action("Index", "Webshop")"><i class="fas fa-shopping-cart"></i> Webbhandel</a>
