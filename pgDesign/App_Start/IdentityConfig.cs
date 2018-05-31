@@ -31,7 +31,7 @@ namespace pgDesign
         // Use NuGet to install SendGrid (Basic C# client lib)
         private async Task configSendGridAsync(IdentityMessage message)
         {
-            var apiKey = ConfigurationManager.AppSettings["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"];//Environment.GetEnvironmentVariable("NAME_OF_THE_ENVIRONMENT_VARIABLE_FOR_YOUR_SENDGRID_KEY");
+            var apiKey = ConfigurationManager.AppSettings["SendApiKey"];//Environment.GetEnvironmentVariable("NAME_OF_THE_ENVIRONMENT_VARIABLE_FOR_YOUR_SENDGRID_KEY");
             var client = new SendGridClient(apiKey);
             var from = new EmailAddress("Jonathan.970329@gmail.com", "No-Reply");
             var subject = message.Subject;
@@ -39,12 +39,11 @@ namespace pgDesign
             var plainTextContent = message.Body;
             var htmlContent = message.Body;
             var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
-            var response = await client.SendEmailAsync(msg);
 
             // Send the email.
             if (client != null)
             {
-                await client.SendEmailAsync(msg);
+                var response = await client.SendEmailAsync(msg);
             }
             else
             {
