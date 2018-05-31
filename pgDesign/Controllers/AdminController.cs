@@ -318,7 +318,7 @@ namespace pgDesign.Controllers
                 var imageUrl = await AB.UploadBlobtest(file, ContainerName);
 
                 TempData["LatestImage"] = imageUrl.ToString();
-                return RedirectToAction("Index", "Gallery");
+                return RedirectToAction("Index", "Gallery", new { id = ContainerName });
             }
         }
         public ActionResult DeleteWebshopItem(int id)

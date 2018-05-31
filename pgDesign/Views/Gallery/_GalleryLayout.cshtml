@@ -39,7 +39,7 @@
                     <h4 class="text-white center">Bildgalleri</h4>
                     @if (User.Identity.IsAuthenticated)
                     {
-                    <input data-toggle="modal" data-target="#myModal" type="button" value="Ladda upp bild" class="btn btn-primary mr-3" />
+                        <input data-toggle="modal" data-target="#myModal" type="button" value="Ladda upp bild" class="btn btn-primary mr-3" />
                     }
                 </div>
             </div>
@@ -75,68 +75,75 @@
     @using (Html.BeginForm("UploadImage", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken()
-    <div class="modal" id="myModal">
-        <div class="modal-dialog" role="document" >
-            <div class="modal-content center"  style=" background-color: #333;">
+        <div class="modal" id="myModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content center" style=" background-color: #333;">
 
-            <div class="modal-header">
-                <h5 class="modal-title text-white center" style="margin-right: -20px">Ladda upp bild till galleri</h5>
-                <button type="button" class="close"  data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true" style="color: red">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <h5 class="text-white text-center">1. Välj kategori</h5>
-                @{
-                List<SelectListItem> list = new List<SelectListItem>();
-                list.Add(new SelectListItem { Text = "Bildekor", Value = "bildekor", Selected = true });
-                list.Add(new SelectListItem { Text = "Ombyggnad av fordon", Value = "ombyggnadavfordon" });
-                list.Add(new SelectListItem { Text = "Utställning & Inredning", Value = "utstallningarochinredningar" });
-                list.Add(new SelectListItem { Text = "Skyltar", Value = "skyltar" });
-                list.Add(new SelectListItem { Text = "Arbetsmiljölösningar", Value = "arbetsmiljolosningar" });
-                list.Add(new SelectListItem { Text = "Offentlig utsmyckning", Value = "offentligutsmyckning" });
-                list.Add(new SelectListItem { Text = "Legotillverkning & innovation", Value = "legotillverkningochinnovationer" });
-                list.Add(new SelectListItem { Text = "Övrigt", Value = "ovrigt" });
-                }
-
-                @Html.DropDownListFor(x => x.ContainerName, new SelectList(list, "Value", "Text"), htmlAttributes: new { @class = "form-control text-center", id = "combobox" })
-
-
-                <fieldset class="form-horizontal">
-                    <div class="form-group">
-                        <br />
-                        <h5 class="text-white text-center">2. Välj ditt foto</h5>
-                        @*<label class="control-label col-md-2 text-white mt-2 center" for="Photo">Välj ditt foto</label>*@
-                        <div class="new_Btn col-md-6 btn btn-primary center" > Klicka för att välja
-                        </div>
-                            <input type="file" name="photo" id="html_btn" />
+                    <div class="modal-header">
+                        <h5 class="modal-title text-white center" style="margin-right: -20px">Ladda upp bild till galleri</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true" style="color: red">&times;</span>
+                        </button>
                     </div>
-                    <div class="form-group">
-                        &nbsp;
-                        <div class="col-md-offset-2 col-md-10">
-                            <h5 class="text-white text-center" style="margin-right: -82px">3. Ladda upp foto</h5>
-                            <input type="submit" value="Ladda upp" class="btn btn-success center" style="margin-right: 93px;" />
-                        </div>
+                    <div class="modal-body">
+                        <h5 class="text-white text-center">1. Välj kategori</h5>
+                        @{
+                            List<SelectListItem> list = new List<SelectListItem>();
+                            list.Add(new SelectListItem { Text = "Bildekor", Value = "bildekor", Selected = true });
+                            list.Add(new SelectListItem { Text = "Ombyggnad av fordon", Value = "ombyggnadavfordon" });
+                            list.Add(new SelectListItem { Text = "Utställning & Inredning", Value = "utstallningarochinredningar" });
+                            list.Add(new SelectListItem { Text = "Skyltar", Value = "skyltar" });
+                            list.Add(new SelectListItem { Text = "Arbetsmiljölösningar", Value = "arbetsmiljolosningar" });
+                            list.Add(new SelectListItem { Text = "Offentlig utsmyckning", Value = "offentligutsmyckning" });
+                            list.Add(new SelectListItem { Text = "Legotillverkning & innovation", Value = "legotillverkningochinnovationer" });
+                            list.Add(new SelectListItem { Text = "Övrigt", Value = "ovrigt" });
+                        }
+
+                        @Html.DropDownListFor(x => x.ContainerName, new SelectList(list, "Value", "Text"), htmlAttributes: new { @class = "form-control text-center", id = "combobox" })
+
+
+                        <fieldset class="form-horizontal">
+                            <div class="form-group">
+                                <br />
+                                <h5 class="text-white text-center">2. Välj ditt foto</h5>
+                                @*<label class="control-label col-md-2 text-white mt-2 center" for="Photo">Välj ditt foto</label>*@
+                                <div class="new_Btn col-md-6 btn btn-primary center">
+                                    Klicka för att välja
+                                </div>
+                                <input type="file" name="photo" id="html_btn" />
+                            </div>
+                            <div class="form-group">
+                                &nbsp;
+                                <div class="col-md-offset-2 col-md-10">
+                                    <h5 class="text-white text-center" style="margin-right: -82px">3. Ladda upp foto</h5>
+                                    <input type="submit" value="Ladda upp" class="btn btn-success center" style="margin-right: 93px;" />
+                                </div>
+
+                            </div>
+                        </fieldset>
 
                     </div>
-                </fieldset>
-
-            </div>
-            <div class="modal-footer">
-                @*<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>*@
+                    <div class="modal-footer">
+                        @*<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>*@
+                    </div>
+                </div>
             </div>
         </div>
-        </div>
-            </div>
-        }
-        @Html.Partial("_Footer")
+    }
+    @*@Html.Partial("_Footer")*@
 
     <script>
         $('.new_Btn').bind("click", function () {
             $('#html_btn').click();
         });
     </script>
-        <!-- Bottom footer -->
+    <script>
+        $(document).ready(function () {
+            $('.list-group-item a.active').removeClass('active');
+            $('a[href="' + location.pathname + '"]').closest('.list-group-item').addClass('active');
+        });
+    </script>
+    <!-- Bottom footer -->
 </body>
 </html>
 
