@@ -378,5 +378,11 @@ namespace pgDesign.Controllers
             }
         }
         #endregion
+        #region statistics
+        public ActionResult Statistics()
+        {
+            return View();
+        }
+        #endregion
     }
 }

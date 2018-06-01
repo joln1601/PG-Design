@@ -446,6 +446,7 @@
     <Content Include="Views\Admin\DeleteWebshopItem.cshtml" />
     <Content Include="Views\Webshop\WebshopView.cshtml" />
     <Content Include="Views\Home\_Opentimes.cshtml" />
+    <Content Include="Views\Admin\Statistics.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
