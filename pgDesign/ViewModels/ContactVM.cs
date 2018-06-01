@@ -18,5 +18,6 @@ namespace pgDesign.ViewModels
         public string Biography { get; set; }
         public string ContactUs { get; set; }
         public string ContainerName { get; set; }
+        public MailVM Mail { get; set; }
     }
 }

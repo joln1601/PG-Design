@@ -284,6 +284,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\Blobs.cs" />
     <Compile Include="ViewModels\GalleryViewModel.cs" />
+    <Compile Include="ViewModels\MailVM.cs" />
     <Compile Include="ViewModels\StartUpViewModel.cs" />
     <Compile Include="ViewModels\ContactVM.cs" />
     <Compile Include="ViewModels\WebshopVM.cs" />

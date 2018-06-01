@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using pgDesign.dbEngine;
 using pgDesign.ViewModels;
 using pgDesign.Models;
+using System.Threading.Tasks;
+using Microsoft.AspNet.Identity;
 
 namespace pgDesign.Controllers
 {
@@ -16,6 +18,7 @@ namespace pgDesign.Controllers
         private ContactVM Cvm;
         private AzureBlobHelper AB;
         private postedFileModel pfm;
+        private EmailService ES;
         public HomeController()
         {
             db = new dbOperation();
@@ -23,6 +26,7 @@ namespace pgDesign.Controllers
             Cvm = new ContactVM();
             AB = new AzureBlobHelper();
             pfm = new postedFileModel();
+            ES = new EmailService();
         }
         
         public ActionResult Index()
@@ -67,6 +71,30 @@ namespace pgDesign.Controllers
             string ret = SiteInfoOpen.Content;
 
             return ret;
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> SendMail(ContactVM model)
+        {
+            if (ModelState.IsValid)
+            {
+                // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
+                // Send an email with this link
+                IdentityMessage msg = new IdentityMessage {
+                    Subject = model.Mail.Subject,
+                    Body = model.Mail.Content,
+                    Destination = model.Mail.Receiver
+                };
+
+                await ES.SendAsync(msg);
+
+                return RedirectToAction("Contact", "Home");
+            }
+
+            // If we got this far, something failed, redisplay form
+            return View(model);
         }
     }
 }

@@ -5373,6 +5373,7 @@ button.close {
   left: 0;
   z-index: 1040;
   background-color: #000;
+  opacity: 0.4;
 }
 
 .modal-backdrop.fade {
