@@ -1,5 +1,4 @@
-﻿+
-$(".rotate").click(function () {
+﻿$(".rotate").click(function () {
         $(this).toggleClass("down");
 })
 
