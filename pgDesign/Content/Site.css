@@ -633,8 +633,24 @@ hr {
     #content{
         width: 100%;
         padding: 0;
+        min-height: unset;
     }
-    #CarouselId{
+    #contentAdmin {
+        width: 100%;
+        min-height: unset;
+        margin-left: unset;
+    }
+    #carouselcollection{
+        max-width: 300px;
+    }
+    .caroStyle {
+        max-width: 300px;
+    }
+    .CompanyHeadline{
+        font-size: 24px;
+        margin-top: 3%;
+    }
+    #CarouselId {
         padding-left: 5%;
         padding-right: 5%;
         padding-top: 5%;
@@ -653,19 +669,35 @@ hr {
        margin-left: 10%;
        margin-right: 10%;
     }
+    /*Hitta oss*/
     #findusbtn{
         margin-bottom: 10px !important;
     }
-    @media(max-width: 568px) {
-        #ContactPic{
-            max-width: 300px;
-        }
-        #ContactPicDiv{
-            padding-left: 2%;
-        }
+    /*Logga in*/
+    #loginContent{
+        padding: 3% 3% 3% 3%;
+    }
+    #loginHeadline {
+        padding: 3% 3% 3% 3%;
+    }
+    /*Kontaktsidan i adminläge*/
+    #profile_pic{
+        display: inherit;
+    }
+    #KontaktInfoDiv{
+        display: inherit;
     }
 }
+@media(max-width: 568px) {
+    /*Fix i kontakt för iphone 5*/
+    #ContactPic {
+        max-width: 300px;
+    }
 
+    #ContactPicDiv {
+        padding-left: 2%;
+    }
+}
 
 
 
