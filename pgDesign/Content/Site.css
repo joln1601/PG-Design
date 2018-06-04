@@ -389,6 +389,13 @@ footer p{
     box-shadow: 0 0 0.5rem rgba(83,78,76,.6);
     background: rgba(244, 244, 244, 0.1);
 }
+#AvvikandeOppettiderDiv {
+    box-shadow: 0 0 0.5rem rgba(83,78,76,.6);
+    background: rgba(244, 244, 244, 0.1);
+    padding: 10px;
+    overflow: hidden;
+}
+
 #OmOssDivAdmin {
     box-shadow: 0 0 0.5rem rgba(83,78,76,.6);
     background: rgba(244, 244, 244, 0.1);

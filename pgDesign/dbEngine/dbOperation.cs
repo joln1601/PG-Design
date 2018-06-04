@@ -61,6 +61,15 @@ namespace pgDesign.dbEngine
 
             _DbOperation.SaveChanges();
         }
+        public void SetOpenTimes(StartUpViewModel sv)
+        {
+            var text = _DbOperation.Siteinformation.Single(t => t.Id == 2);
+
+            text.Content = sv.OpenTimes;
+
+
+            _DbOperation.SaveChanges();
+        }
         public void SetContactInfo(ContactVM ci)
         {
             var contactinfo = _DbOperation.ContactInfo.FirstOrDefault();

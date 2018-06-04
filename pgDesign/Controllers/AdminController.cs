@@ -52,6 +52,19 @@ namespace pgDesign.Controllers
                 return View(vm);
             }
         }
+        [HttpPost]
+        public ActionResult NewOpenTimes(StartUpViewModel sv)
+        {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                db.SetOpenTimes(sv);
+                return RedirectToAction("Index");
+            }
+        }
         #endregion
 
         #region Gallery
