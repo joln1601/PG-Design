@@ -5,24 +5,33 @@
 
 
 <div>
-    <div>
-        <div>
-            <img src="@Model.Picture_Url" class="center" style="max-height: 400px; margin-top: 50px;" />
-        </div>
-        <div class="text-center">
-            <div class="d-inline">
+
+    <div id="Webshopvaravy" class="shadow-lg border border-dark rounded">
+        <div class="pt-3 row col-md-12">
+            <div class="pl-2 col-md-6" style="margin-right: 50px;">
+            <img src="@Model.Picture_Url" class="center img-thumbnail mt-3" style="max-height: 400px; margin-top: 50px;" />
+
+            </div>
+            <div class="text-center col-md-5">
+            <div class="pt-5">
                 <h2>@Model.Name</h2>
                 <h3 class="">Pris: @Model.Price</h3>
             </div>
-            <p class="col-md-8 center">
+            <p class="center">
                 @Model.Description
             </p>
-            <hr />
-            <div id="webshopfooter">
+           
+
+            </div>
+        </div>
+
+        <hr />
+        <div class="text-center row">
+            <div id="webshopfooter" class="center col-md-12">
                 <p class="w-75 center text-center mt-3">
-                    <strong class="w-50 mt-4" style="text-decoration: underline">Hur du kan kontakta oss</strong>
+                    <strong class="w-50 mt-4" style="text-decoration: underline">Hur du kan kontakta oss om du är intresserad av varan.</strong>
                     <br />
-                    @Model.Cvm.ContactUs
+                   
                 </p>
 
                 <ul class="w-75 center text-center list-unstyled">
