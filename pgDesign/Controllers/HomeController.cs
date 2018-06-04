@@ -82,17 +82,24 @@ namespace pgDesign.Controllers
             {
                 // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                 // Send an email with this link
-                IdentityMessage msg = new IdentityMessage {
-                    Subject = model.Mail.Subject,
-                    Body = model.Mail.Content,
-                    Destination = model.Mail.Receiver
-                };
+                if (model.Mail.Subject != null || model.Mail.Content != null || model.Mail.Email != null)
+                {
+                    IdentityMessage msg = new IdentityMessage
+                    {
+                        Subject = model.Mail.Subject,
+                        Body = model.Mail.Content,
+                        Destination = model.Mail.Receiver
+                    };
 
-                await ES.SendAsync(msg);
+                    await ES.SendAsync(msg);
+                    return RedirectToAction("Contact", "Home");
+                }
+                else
+                {
 
-                return RedirectToAction("Contact", "Home");
+                }
+
             }
-
             // If we got this far, something failed, redisplay form
             return View(model);
         }

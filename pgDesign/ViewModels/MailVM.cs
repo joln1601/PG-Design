@@ -8,7 +8,9 @@ namespace pgDesign.ViewModels
 {
     public class MailVM
     {
+        [Required]
         public string Subject { get; set; }
+        [Required]
         public string Content { get; set; }
         public string Receiver { get; set; }
 
