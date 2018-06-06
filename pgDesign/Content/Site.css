@@ -520,9 +520,7 @@ hr {
       max-width: 100px;
   }
 
-#Webshopvaravy {
-    background-color: rgba(137, 0, 0, .3);
-}
+
 
 @media (min-width: 767px) {
     .nav-side-menu .menu-list .menu-content {
@@ -532,8 +530,7 @@ hr {
     #content {
         width: calc(100% - 300px);
         float: right;
-    }
-
+   
     #contentAdmin {
         width: calc(100% - 300px);
         float: right;
