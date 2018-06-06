@@ -4,51 +4,55 @@
     ViewBag.Title = "WebshopAdminList";
 }
 
-<h2 class="text-center">Varor webbhandel</h2>
+<h2 class="text-center">Webbhandel översikt</h2>
 <hr />
 
 
-    <button class="btn btn-primary float-right" onclick="location.href='@Url.Action("CreateWebshopItem", "Admin")'">Skapa en ny vara</button>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Picture_Url)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <th></th>
-    </tr>
+    <div class="justify-content-center border shadow-lg bg-white">
 
-@foreach (var item in Model) {
+        <table class="table">
+            <tr class="headElement">
+                <th>
+                </th>
+                <th>
+                    <div class="accListP"> @Html.DisplayNameFor(model => model.Name) </div>
+                </th>
+                <th>
+                    <div class="accListP"> @Html.DisplayNameFor(model => model.Description)</div>
+                </th>
+                <th>
+                    <div class="accListP"> @Html.DisplayNameFor(model => model.Price)</div>
+                </th>
+                <th>
+                    <button class="btn btn-primary float-right" onclick="location.href='@Url.Action("CreateWebshopItem", "Admin")'">Skapa en ny vara</button>
+                </th>
+            </tr>
 
-    <tr class="border-bottom border-top">
-        <td>
-            <img src="@item.Picture_Url" style="max-height: 100px; max-width: 175px;" />
-        </td>
-        <td>
-           <p style="max-width: 136px;">@Html.DisplayFor(modelItem => item.Name)</p>
-        </td>
-        <td>
-            <p style="max-width:400px;">@Html.DisplayFor(modelItem => item.Description)</p>
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.ActionLink("Redigera vara", "EditWebshopItem", new { id = @item.Id }) |
-            @Html.ActionLink("Radera vara", "DeleteWebshopItem", new { id = item.Id }) |
-        </td>
-    </tr>
-}
+            @foreach (var item in Model)
+        {
 
-</table>
+            <tr class="border-bottom border-top border-secondary">
+                <td>
+                    <img src="@item.Picture_Url" style="max-height: 100px; max-width: 175px;" />
+                </td>
+                <td>
+                    <p class="font-weight-bold" style="max-width: 136px;">@Html.DisplayFor(modelItem => item.Name)</p>
+                </td>
+                <td>
+                    <p style="max-width:400px;">@Html.DisplayFor(modelItem => item.Description)</p>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.ActionLink("Redigera", "EditWebshopItem", new { id = @item.Id }, new { @class = "btn btn-secondary" }) 
+                    @Html.ActionLink("Ta bort", "DeleteWebshopItem", new { id = item.Id }, new { @class = "btn btn-danger" }) 
+                </td>
+            </tr>
+    }
+
+        </table>
+    </div>
            
     
    

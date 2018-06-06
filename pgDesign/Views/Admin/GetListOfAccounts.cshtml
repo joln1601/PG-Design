@@ -7,39 +7,38 @@
 <h2 class="text-center">Redigera användare</h2>
 <hr />
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UserName)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr class="border-bottom border-top">
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserName)
-            </td>
-            <td>
-                @Html.ActionLink("Redigera", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Ta bort", "DeleteUser", new { id = item.Id })
-            </td>
+<div class="justify-content-center border shadow-lg bg-white">
+    <table class="table">
+        <tr class="headElement">
+            <th>
+                @Html.Label("E-post", new { @class = "accListP" })
+            </th>
+            <th>
+                @Html.Label("Användarnamn", new { @class = "accListP" })
+            </th>
+            <th>
+                <button class="btn btn-primary" onclick="location.href='@Url.Action("Register", "Account")'">Skapa ny användare</button>
+            </th>
         </tr>
-    }
+        @foreach (var item in Model)
+        {
+            <tr class="border-bottom border-top border-secondary">
+                <td>
+                    <p class="accListP">@Html.DisplayFor(modelItem => item.Email)</p>
+                </td>
+                <td>
+                    <p class="accListP">@Html.DisplayFor(modelItem => item.UserName)</p>
+                </td>
+                <td>
+                    @Html.ActionLink("Redigera", "Edit", new { id = item.Id }, new { @class = "btn btn-secondary" })
+                    @Html.ActionLink("Ta bort", "DeleteUser", new { id = item.Id }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
 
-</table>
-<p>
+    </table>
+</div>
 
-    <button class="btn btn-primary float-right" onclick="location.href='@Url.Action("Register", "Account")'">Skapa ny användare</button>
-
-</p>
 
 @if (TempData["MessageRemove"] != null)
 {

@@ -65,6 +65,9 @@
         border-radius: 5px;
         text-align: center;
     }
+.headElement {
+    background-color: #dbdbdb;
+}
 #wrapper {
     display: flex;
     align-items: stretch;
@@ -76,6 +79,9 @@
     align-items: stretch;
     margin-right: 0px;
     margin-left: 0px;
+}
+.accListP{
+    font-size: 18px;
 }
 /*Navbar*/
 #menu-content li{
