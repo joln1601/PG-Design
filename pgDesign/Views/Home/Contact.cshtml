@@ -33,7 +33,7 @@
         </ul>
 
         <div class="links justify-content-center mt-5 mb-5">
-            <hr class="col-md-6" />
+            <hr class="w-50" />
             <ul class="icon-list text-center">
                 <li>
                     <a style="cursor:pointer;" data-target="#myModal" data-toggle="modal">@*<i class="far fa-envelope"></i>*@<img title="E-post" src="~/Images/Contact/mail.png" style="width: 50px;" /></a>
@@ -42,7 +42,7 @@
                     <img title="Mobil" src="~/Images/Contact/phone.png" style="width: 50px;" />
                 </li>
                 <li>
-                    <img title="Hitta oss" src="~/Images/Contact/navPin.png" style="width: 30px;" />
+                   <a href="@Url.Action("FindUs", "Home")"> <img title="Hitta oss" src="~/Images/Contact/navPin.png" style="width: 30px;" /> </a>
                 </li>
             </ul>
         </div>
