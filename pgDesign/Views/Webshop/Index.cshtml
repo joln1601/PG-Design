@@ -7,39 +7,40 @@
 <hr />
 
 <div id="webshop" class="webshop-container row">
-    <input type="text" id="Search" onkeyup="Searchfunction()" placeholder="Sökord ex motor" class="form-control col-md-4 ml-5">
 
-<div id="DataSearching">
+    <input type="text" id="Search" onkeyup="Searchfunction()" placeholder="Sökord ex motor" class="form-control col-md-7 ml-5 " style="max-height: 38px;">
+
+    <div id="DataSearching">
 
         @foreach (var item in Model.WebshopItems)
-    {
-        <div class="saleItem d-inline-block border p-2 ml-5 mt-5 shadow-lg">
-            <div class="webshop-body ">
-                <div class="webshop-image bg-light " style="width: 255px; height: 250px;  display: flex; justify-content: center; align-items: center">
-                    <img src="@item.Picture_Url" class="center" style="max-height: 250px; max-width: 255px; " />
-                </div>
-                <div class="center">
-                    <h4 class="mt-1" style="text-align: center">@item.Name</h4>
-                    <br />
-                    <div class="d-inline-flex ml-3">
-                        @using (Html.BeginForm("WebshopView", "Webshop", FormMethod.Post))
-                    {
-                        @Html.AntiForgeryToken()
-                        <input type="hidden" value="@item.Id" name="id" />
-                        <input type="submit" value="Mer info" class="btn btn-primary" />
-                }
-                        <p class="ml-4">
-                            Pris: @item.Price :-
-                        </p>
+        {
+            <div class="saleItem d-inline-block border p-2 ml-5 mt-5 shadow-lg">
+                <div class="webshop-body ">
+                    <div class="webshop-image bg-light " style="width: 255px; height: 250px;  display: flex; justify-content: center; align-items: center">
+                        <img src="@item.Picture_Url" class="center" style="max-height: 250px; max-width: 255px; " />
+                    </div>
+                    <div class="center">
+                        <h4 class="mt-1" style="text-align: center">@item.Name</h4>
+                        <br />
+                        <div class="d-inline-flex ml-3">
+                            @using (Html.BeginForm("WebshopView", "Webshop", FormMethod.Post))
+                            {
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" value="@item.Id" name="id" />
+                                <input type="submit" value="Mer info" class="btn btn-primary" />
+                            }
+                            <p class="ml-4">
+                                Pris: @item.Price :-
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-}
+        }
     </div>
-
 </div>
+
 <script>
     $(document).on("click", ".info", function () {
         var desc = $(this).data('id');
