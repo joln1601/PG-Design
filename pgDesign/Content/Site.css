@@ -32,7 +32,6 @@
     min-height: 700px;
 }
 #contentAdmin {
-    min-height: 700px;
 }
 
 #contentgallery {
@@ -230,12 +229,13 @@
     border: 0.5px solid black;
 }
 #contentAdmin {
+    min-height: 700px;
     padding: 2% 2% 2% 2%;
     margin-top: 2%;
     margin-bottom: 5%;
     box-shadow: 0 0 0.5rem rgba(83,78,76,.6);
     /*background: rgb(153, 15, 15);*/
-    background-color: #45b0ff4d;
+    /*background-color: #45b0ff4d;*/
     /*background-color: #fe5a5a99;*/
     /*background-color: #00000080;*/
     /*background: rgba(153, 15, 15, 0.85);*/
