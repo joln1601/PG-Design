@@ -287,7 +287,7 @@ footer p{
     margin-bottom: 0px !important;
 }
 
-#OpenTimes:hover {
+#OpenTimesFooter:hover {
     color: rgb(19,180,224);
     color: rgba(19,180,224,1);
     cursor:pointer;
