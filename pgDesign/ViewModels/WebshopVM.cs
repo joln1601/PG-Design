@@ -20,5 +20,6 @@ namespace pgDesign.ViewModels
         public double Price { get; set; }
         public string Picture_Url { get; set; }
         public ContactVM Cvm { get; set; }
+        public MailVM Mail = new MailVM();
     }
 }
