@@ -559,14 +559,24 @@ hr {
         min-width: unset;
     }
 }
-
-@media(max-width: 1024px) {
+@media(min-width: 1342px){
+    .editBtn {
+        margin-top: 5px;
+    }
+}
+@media(min-width: 1024px){
+    .editBtn {
+        margin-bottom: 5px;
+    }
+}
+@media (max-width:1024px) {
+    .description {
+        display: none;
+    }
+   
     .container {
         width: 100%;
     }
-}
-
-@media (max-width:1024px) {
     #gallery-sidebar {
         min-width: 35px;
         max-width: 40px;
@@ -637,7 +647,11 @@ hr {
         margin: auto !important;
     }
 }
-
+@media(max-width: 767px){
+    .editBtn {
+        margin-bottom: 5px;
+    }
+}
 /*Responsivitet Mobiler*/
 @media(max-width: 736px){
     

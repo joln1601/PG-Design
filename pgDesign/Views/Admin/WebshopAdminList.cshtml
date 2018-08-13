@@ -8,7 +8,7 @@
 <hr />
 
 
-    <div class="justify-content-center border shadow-lg bg-white">
+    <div class="justify-content-center border shadow-lg bg-white table-responsive">
 
         <table class="table">
             <tr class="headElement">
@@ -18,7 +18,7 @@
                     <div class="accListP"> @Html.DisplayNameFor(model => model.Name) </div>
                 </th>
                 <th>
-                    <div class="accListP"> @Html.DisplayNameFor(model => model.Description)</div>
+                    <div class="accListP description"> @Html.DisplayNameFor(model => model.Description)</div>
                 </th>
                 <th>
                     <div class="accListP"> @Html.DisplayNameFor(model => model.Price)</div>
@@ -39,13 +39,13 @@
                     <p class="font-weight-bold" style="max-width: 136px;">@Html.DisplayFor(modelItem => item.Name)</p>
                 </td>
                 <td>
-                    <p style="max-width:400px;">@Html.DisplayFor(modelItem => item.Description)</p>
+                    <p class="description" style="max-width:400px;">@Html.DisplayFor(modelItem => item.Description)</p>
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Price)
                 </td>
                 <td>
-                    @Html.ActionLink("Redigera", "EditWebshopItem", new { id = @item.Id }, new { @class = "btn btn-secondary" }) 
+                    @Html.ActionLink("Redigera", "EditWebshopItem", new { id = @item.Id }, new { @class = "btn btn-secondary editBtn" }) 
                     @Html.ActionLink("Ta bort", "DeleteWebshopItem", new { id = item.Id }, new { @class = "btn btn-danger" }) 
                 </td>
             </tr>
