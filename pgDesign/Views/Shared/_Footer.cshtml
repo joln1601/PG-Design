@@ -21,8 +21,10 @@
                                 @Html.ActionLink("Referenser", "Index", "Referenser", null, new { @class = "nav-link", title = "Referenser" })
                             </li>
                             <li>
-                                @*@Html.ActionLink("Öpettider test", "_Opentimes", "Home")*@
                                 <a id="OpenTimesFooter" class="nav-link" title="Öppettider" data-toggle="modal" data-target="#myModalOpenTimes">Öppettider</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="@Url.Action("Login", "Account")">Admin</a>
                             </li>
                         </ul>
                     </div>
