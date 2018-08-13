@@ -523,7 +523,7 @@ hr {
 
 
 
-@media (min-width: 767px) {
+@media (min-width: 1024px) {
     .nav-side-menu .menu-list .menu-content {
         display: block;
     }
@@ -565,7 +565,7 @@ hr {
     }
 }
 
-@media (max-width:767px) {
+@media (max-width:1024px) {
     #gallery-sidebar {
         min-width: 35px;
         max-width: 40px;
@@ -586,9 +586,13 @@ hr {
 
         #gallery-sidebar, #gallery-sidebar .list-group {
             min-width: 60px;
-            overflow: visible;
+            overflow: hidden;
+            
             min-height: 100%;
         }
+    .ikontext {
+        font-size: 0px;
+    }
 
     #gallery-gallery-sidebar .list-group > .list-group-item {
         text-align: center;
