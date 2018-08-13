@@ -32,6 +32,7 @@
     min-height: 700px;
 }
 #contentAdmin {
+    min-height: 700px;
 }
 
 #contentgallery {
@@ -626,6 +627,9 @@ hr {
     }
 
     #content {
+        margin: auto !important;
+    }
+    #contentAdmin {
         margin: auto !important;
     }
 

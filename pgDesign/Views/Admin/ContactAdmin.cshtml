@@ -4,15 +4,16 @@
 }
 
 
-<div id="KontaktInfoDiv">
+<div id="KontaktInfoDiv" class="table-responsive">
     <h2 class="text-center">Redigera innehåll i kontaktsidan</h2>
     <hr />
     @using (Html.BeginForm("SetContactAdmin", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
-        <table class="mb-3 contactTable col-md-12 ">
-            <tr>
-                <td class="form-group mr-2 ">
-                    <div id="profile_pic"  class="col-md-10 center border mb-2 pt-2 shadow-lg rounded" style="background-color: #333">
+        <div>
+
+        </div>
+          
+                    <div id="profile_pic"  class="col-md-12 border mb-2 pt-2 shadow-lg rounded" style="background-color: #333">
                         <img src="@Model.Picture_Url" class="profile-pic center" id="profile" style="max-width: 300px;" />
 
                         @Html.HiddenFor(model => model.ContainerName, new { @Value = "profile", name = "ContainerName" })
@@ -28,9 +29,8 @@
                         </fieldset>
 
                     </div>
-                </td>
-            </tr>
-            
+           
+        <table class="mb-3 contactTable col-md-12 table-responsive">
             <tr >
                 <td class="col-md-12 form-group form-inline text-center">
                     <div class="center" >

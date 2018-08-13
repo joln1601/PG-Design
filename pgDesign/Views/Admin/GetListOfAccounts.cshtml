@@ -7,7 +7,7 @@
 <h2 class="text-center">Redigera användare</h2>
 <hr />
 
-<div class="justify-content-center border shadow-lg bg-white">
+<div class="justify-content-center border shadow-lg bg-white table-responsive">
     <table class="table">
         <tr class="headElement">
             <th>
@@ -22,6 +22,7 @@
         </tr>
         @foreach (var item in Model)
         {
+            
             <tr class="border-bottom border-top border-secondary">
                 <td>
                     <p class="accListP">@Html.DisplayFor(modelItem => item.Email)</p>
