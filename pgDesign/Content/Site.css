@@ -377,15 +377,16 @@ hr {
     padding: 0px;
 }
 
-
-
+/*modal Open Times*/
+#myModalOpenTimes {
+    z-index: 9999;
+}
 /*Sidebar gallery*/
 .wrapper-header {
     background: #222;
     text-align: center;
     padding: 10px 0;
     height: auto;
-    
 }
 
 #gallery-wrapper {
@@ -648,13 +649,17 @@ hr {
 
     #content {
         margin: auto !important;
+       margin-bottom: 15px !important;
+
     }
     #contentAdmin {
         margin: auto !important;
+        margin-bottom: 15px !important;
     }
 
     #contentgallery {
         margin: auto !important;
+        margin-bottom: 15px !important;
     }
 }
 @media(max-width: 767px){
