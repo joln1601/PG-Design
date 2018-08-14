@@ -23,8 +23,9 @@
 .moveright{
     margin-left: 75px;
 }
-
-
+#Search {
+    width: 20%;
+}
 #modalcontent{
     width: 100%;
 }
@@ -542,6 +543,9 @@ hr {
         width: calc(100% - 300px);
         float: right;
     }
+    #Search {
+        width: 20%;
+    }
 }
 
 /*------------*/
@@ -549,7 +553,7 @@ hr {
     #content {
         margin-left: 312px;
     }
-
+    
     #contentAdmin {
         margin-left: 312px;
     }
@@ -563,17 +567,23 @@ hr {
     .editBtn {
         margin-top: 5px;
     }
+    
 }
 @media(min-width: 1024px){
     .editBtn {
         margin-bottom: 5px;
+    }
+    #Search {
+        width: 20%;
     }
 }
 @media (max-width:1024px) {
     .description {
         display: none;
     }
-   
+    #Search {
+        width: 50%;
+    }
     .container {
         width: 100%;
     }
@@ -651,6 +661,9 @@ hr {
     .editBtn {
         margin-bottom: 5px;
     }
+    #Search {
+        width: 20%;
+    }
 }
 /*Responsivitet Mobiler*/
 @media(max-width: 736px){
@@ -685,10 +698,14 @@ hr {
         padding: 4% 4% 4% 4%;
     }
     /*Webbhandel*/
+    #Search {
+        width: 50%;
+    }
     .saleItem{
         padding: 5% 5% 5% 5% !important;
         max-width: 300px;
-        margin-left: 7% !important; 
+        /*margin-left: 7% !important;*/
+        
     }
     #saleItemImg {
        margin: 0;

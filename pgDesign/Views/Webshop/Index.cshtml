@@ -8,13 +8,13 @@
 
 <div id="webshop" class="webshop-container row">
 
-    <input type="text" id="Search" onkeyup="Searchfunction()" placeholder="Sökord ex motor" class="form-control col-md-7 ml-5 " style="max-height: 38px;">
+    <input type="text" id="Search" onkeyup="Searchfunction()" placeholder="Sökord ex motor" class="form-control center" style="max-height: 38px;">
 
     <div id="DataSearching">
 
         @foreach (var item in Model.WebshopItems)
         {
-            <div class="saleItem d-inline-block border p-2 ml-5 mt-5 shadow-lg">
+            <div class="saleItem d-inline-block border p-2 ml-5 mt-5 shadow-lg center">
                 <div class="webshop-body ">
                     <div class="webshop-image bg-light " style="width: 255px; height: 250px;  display: flex; justify-content: center; align-items: center">
                         <img src="@item.Picture_Url" class="center" style="max-height: 250px; max-width: 255px; " />

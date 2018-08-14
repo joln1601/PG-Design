@@ -21,11 +21,14 @@
             <strong class="w-50 mt-4" style="text-decoration: underline">Hur du kan kontakta oss</strong>
             <br />
             @Model.ContactUs
+        <p class="text-center">
+            Kontakta oss gärna genom att <a href="#" data-target="#myModal" data-toggle="modal">skicka ett mejl</a>
         </p>
+            </div>
 
         <ul class="w-75 center text-center list-unstyled">
             <li>
-                <strong> E-post:</strong> <a href="#" data-target="#myModal" data-toggle="modal"> @Model.Email</a>
+                <strong> E-post:</strong> <a href="#" data-target="#myModal" data-toggle="modal"> @Model.Email</a> </p>
             </li>
             <li class="mt-3">
                 <strong>Telefon: </strong> <a href="#">@Model.Phone</a>
@@ -42,7 +45,7 @@
                     <img title="Mobil" src="~/Images/Contact/phone.png" style="width: 50px;" />
                 </li>
                 <li>
-                   <a href="@Url.Action("FindUs", "Home")"> <img title="Hitta oss" src="~/Images/Contact/navPin.png" style="width: 30px;" /> </a>
+                    <a href="@Url.Action("FindUs", "Home")"> <img title="Hitta oss" src="~/Images/Contact/navPin.png" style="width: 30px;" /> </a>
                 </li>
             </ul>
         </div>
