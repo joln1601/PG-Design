@@ -64,7 +64,7 @@
                 @using (Html.BeginForm("SendMail", "Home"))
                 {
                     @Html.AntiForgeryToken()
-                    <div class="modal-body">
+                    <div class="modal-body" id="mailModal">
                         <div class="Mail-body col-md-12">
                             <div class="Mail-content">
 

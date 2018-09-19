@@ -12,22 +12,16 @@
     /*overflow: auto;
     height: 100%;*/
 }
-/*html {
-    overflow: hidden;
-    height: 100%;
-}
-.modal-open {
-    overflow: auto;
-    padding-right: 0 !important;
-}*/
 .moveright{
     margin-left: 75px;
 }
 #Search {
     width: 20%;
 }
-#modalcontent{
+
+#modalcontent {
     width: 100%;
+    z-index: 99999;
 }
 #content {
     min-height: 700px;
@@ -259,7 +253,7 @@ footer {
     padding-top: 30px;
     color: #FFF;
     margin-bottom: 0px;
-    z-index: 9999 !important;
+    z-index: 1000;
     position: relative;
 }
 footer h4, footer .fab, footer a 
