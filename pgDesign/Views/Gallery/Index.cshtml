@@ -39,7 +39,6 @@ else
     <div class="row" id="picturesgallery">
         @if (Model != null)
         {
-
             for (int i = 0; i < Model.BlobList.Count; i++)
             {
                 using (Html.BeginForm("DeleteImage", "Gallery", new { cn = Model.BlobList.ElementAt(i).ContainerName, pn = Model.BlobList.ElementAt(i).PictureName }, FormMethod.Post))
