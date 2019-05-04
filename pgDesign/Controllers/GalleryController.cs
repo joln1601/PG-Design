@@ -40,8 +40,8 @@ namespace pgDesign.Controllers
       
             
         }
-       
-        public ActionResult DeleteImage(string url, string cn, string pn)
+        [HttpPost]
+        public ActionResult DeleteImage(string cn, string pn)
         {
             AB.DeleteFile(cn, pn);
 

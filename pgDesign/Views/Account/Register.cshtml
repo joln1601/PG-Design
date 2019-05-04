@@ -1,17 +1,17 @@
 ﻿@model pgDesign.Models.RegisterViewModel
 @{
     ViewBag.Title = "Registrera nytt konto";
-    if (!User.Identity.IsAuthenticated)
-    {
-        Response.Redirect("~/Home/Index");
-    }
+    //if (!User.Identity.IsAuthenticated)
+    //{
+    //    Response.Redirect("~/Home/Index");
+    //}
 }
 
 <h2>@ViewBag.Title.</h2>
 
 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
-    @Html.AntiForgeryToken();
+   @Html.AntiForgeryToken();
     
     <hr />
     @Html.ValidationSummary("", new { @class = "text-danger" })

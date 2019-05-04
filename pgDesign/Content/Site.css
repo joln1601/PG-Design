@@ -519,7 +519,11 @@ hr {
   }
 
 
-
+@media (min-height: 1100px){
+    #wrapper{
+        margin-bottom: 110px;
+    }
+}
 @media (min-width: 1024px) {
     .nav-side-menu .menu-list .menu-content {
         display: block;

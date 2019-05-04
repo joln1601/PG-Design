@@ -118,7 +118,6 @@ namespace pgDesign.dbEngine
             var u = _DbOperation.Users.Single(t => t.Id == user.Id);
 
             u.Id = user.Id;
-            u.UserName = user.UserName;
             u.Email = user.Email;
 
             _DbOperation.SaveChanges();
