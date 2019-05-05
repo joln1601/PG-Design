@@ -1,0 +1,61 @@
+﻿@model IEnumerable<pgDesign.Models.ApplicationUser>
+
+@{
+    ViewBag.Title = "PG Design AB - Redigera användare";
+}
+
+<h2 class="text-center">Redigera användare</h2>
+<hr />
+
+<div class="justify-content-center border shadow-lg bg-white table-responsive">
+    <table class="table">
+        <tr class="headElement">
+            <th>
+                @Html.Label("E-post", new { @class = "accListP" })
+            </th>
+            <th>
+                @Html.Label("Användarnamn", new { @class = "accListP" })
+            </th>
+            <th>
+                <button class="btn btn-primary" onclick="location.href='@Url.Action("Register", "Account")'">Skapa ny användare</button>
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            
+            <tr class="border-bottom border-top border-secondary">
+                <td>
+                    <p class="accListP">@Html.DisplayFor(modelItem => item.Email)</p>
+                </td>
+                <td>
+                    <p class="accListP">@Html.DisplayFor(modelItem => item.UserName)</p>
+                </td>
+                <td>
+                    @Html.ActionLink("Redigera", "Edit", new { id = item.Id }, new { @class = "btn btn-secondary" })
+                    @Html.ActionLink("Ta bort", "DeleteUser", new { id = item.Id }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
+<style>
+    #contentAdmin {
+        padding: 1px 1px 1px 1px;
+    }
+</style>
+@if (TempData["MessageRemove"] != null)
+{
+    <div class="col-md-12" style="color: red;">
+
+        @Html.Raw(@TempData["MessageRemove"])
+    </div>
+}
+@if (TempData["MessageEdit"] != null)
+{
+    <div class="col-md-12" style="color: red;">
+
+        @Html.Raw(@TempData["MessageEdit"])
+    </div>
+}

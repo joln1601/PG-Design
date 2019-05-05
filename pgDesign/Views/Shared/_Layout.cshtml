@@ -1,9 +1,24 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120200466-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-120200466-1');
+    </script>
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/JavaScript.js"></script>
+
+
 
     <title>@ViewBag.Title</title>
     <!--Script Bundles-->
@@ -17,14 +32,38 @@
 
 </head>
 <body>
-    @Html.Partial("_NavBar")
-    <div id="content" class="container body-content">
-        @RenderBody()
-    </div>
-    <div class="row justify-content-center">
-        <img src="~/Images/CarsOnRow.png"/>
-    </div>
-    <!-- Bottom footer -->
-    @Html.Partial("_Footer")
+    
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div id="wrapperAdmin" class="row h-100">
+            @Html.Partial("_NavBar")
+            <div id="contentAdmin" class="container align-self-center">
+                @RenderBody()
+            </div>
+        </div>
+
+
+        @Html.Partial("_Footer")
+
+
+        <!-- Bottom footer -->
+    }
+    else
+    {
+
+        <div id="wrapper" class="row h-100">
+            @Html.Partial("_NavBar")
+            <div id="content" class="container align-self-center">
+                @RenderBody()
+            </div>
+        </div>
+
+
+        @Html.Partial("_Footer")
+
+
+        <!-- Bottom footer -->
+    }
 </body>
+
 </html>

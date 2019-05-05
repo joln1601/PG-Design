@@ -1,13 +1,14 @@
 ﻿<!--- Partial View for footer -->
+<footer id="main-footer" class="mb-0">
+    <div id="fb-root"></div>
 
-<footer id="main-footer">
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <h4>Kontaktuppgifter</h4>
+                <h4>Besöksadress</h4>
                 <hr />
                 <ul class="list-unstyled">
-                    <li><a class="type17">Besöksadress <br>123455, Sverige</a></li>
+                    <li><a class="type17">Strinne 110 <br /> 872 96  Bjärtrå</a></li>
                 </ul>
             </div>
             <div class="col-md-4">
@@ -17,39 +18,27 @@
                     <div class="col-md-6">
                         <ul class="list-unstyled">
                             <li>
-                                @Html.ActionLink("Hitta hit", @*"FindUs", "Home",*@ null, new { @class = "nav-link", title = "Hitta hit" })
+                                @Html.ActionLink("Referenser", "Index", "Referenser", null, new { @class = "nav-link", title = "Referenser" })
                             </li>
                             <li>
-                                @Html.ActionLink("Öppettider och priser", @*"Prices", "Home",*@ null, new { @class = "nav-link", title = "Öppettider och priser" })
+                                <a id="OpenTimesFooter" class="nav-link" title="Öppettider" data-toggle="modal" data-target="#myModalOpenTimes">Öppettider</a>
                             </li>
                             <li>
-                                @Html.ActionLink("Om oss", @*"About", "Home",*@ null, new { @class = "nav-link", title = "Om oss" })
+                                <a class="nav-link" href="@Url.Action("Login", "Account")">Admin</a>
                             </li>
-                            @*<li>
-                                <a class="nav-link" title="asdf" target="_blank" href="http://www.facebook.com">Länk</a>
-                            </li>*@
                         </ul>
                     </div>
-                    @*<div class="col-md-6">
-                        <ul class="list-unstyled">
-                            <li>*@
-                                @*@Html.ActionLink("Om oss",*@ @*"About", "Home",*@ @*null, new { @class = "nav-link", title = "Om oss" })*@
-                            @*</li>
-                            <li>
-                                <a class="nav-link" title="asdf" target="_blank" href="http://www.facebook.com">Länk</a>
-                            </li>
-                        </ul>
-                    </div>*@
                 </div>
-
-
             </div>
             <div class="col-md-4 social-media-links text-white">
-                <h4>Följ oss</h4>
+                <h4>Sociala medier</h4>
                 <hr />
-                <a id="facebook" href="https://www.facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook-square fa-2x" aria-hidden="true"</i><img src="~/Images/facobookLogo.png.png" title="facebooklogo" /></a>
-            </div>
+                <div class="col-md-12">
 
+                    @*<a id="facebook" href="https://www.facebook.com/PG-Design-AB-968888989852243/" target="_blank" title="Facebook"><i class="fab fa-facebook-square fa-2x" aria-hidden="true"</i><img src="~/Images/Logos/facobookLogo.png" title="facebooklogo" /></a>*@
+                    <div class="fb-like text-white" data-href="https://www.facebook.com/PG-Design-AB-968888989852243/" data-width="240" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-colorscheme="dark" data-share="true"></div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="footer-bottom">
@@ -59,3 +48,39 @@
     </div>
 </footer>
 
+<div class="modal" id="myModalOpenTimes">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="center">Öppettider</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-hover">
+                    <tbody>
+                        <tr>
+                            <th scope="row">Måndag-Fredag</th>
+                            <td>08:00 - 16:00</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Lördag</th>
+                            <td style="color: #ff0000">Stängt</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Söndag</th>
+                            <td style="color: #ff0000">Stängt</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h5 class="text-center">Avvikande öppettider</h5>
+                <hr />
+                <p class="text-center" style="color: #ff0000" id="openT">Vi har stängt alla röda dagar</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Stäng</button>
+            </div>
+        </div>
+    </div>
+</div>

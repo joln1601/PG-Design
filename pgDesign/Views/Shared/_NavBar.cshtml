@@ -1,38 +1,72 @@
-﻿
+﻿<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" /> <!--Ikoner från fontawesome-->
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
-    <div class="navbar-header vertical-line">
-        <a class="navbar-brand" href="#"><img id="Loggo" src="~/Images/PgDesign/pgDesignLoggo.png" /></a>
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="nav-side-menu">
+        <div class="brand">
+            <a class="navbar-brand" href="@Url.Action("Index", "Admin")"><img id="Loggo" style="height: 160px" src="~/Images/Logos/PgDesignLoggo.png" /></a>
+        </div>
+        <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+        <div class="menu-list">
+            <ul id="menu-content" class="menu-content collapse out">
+                <li class="nav-item">
+                    <a title="Startsida" class="nav-link" href="@Url.Action("Index", "Admin")"> Admin startsida</a>
+                </li>
 
+                <li class="nav-item">
+                    <a title="Admin galleri" class="nav-link" href="@Url.Action("Index", "Gallery", new { id = "bildekor" })"> Admin Galleri</a>
+                </li>
+                <li class="nav-item">
+                    <a title="Mina tidigare jobb" class="nav-link" href="@Url.Action("ContactAdmin", "Admin")"> Admin Kontakta oss</a>
+                </li>
 
+                <li class="nav-item">
+                    <a title="Mina tidigare jobb" class="nav-link" href="@Url.Action("GetListOfAccounts", "Admin")"> Redigera användare</a>
+                </li>
+                <li class="nav-item">
+                    <a title="Webbhandel" class="nav-link" href="@Url.Action("WebshopAdminList", "Admin")"> Admin Webhandel</a>
+                </li>
+                @*<li class="nav-item">
+                    <a title="Logga ut" class="nav-link" href="@Url.Action("Statistics", "Admin")">Admin Statistik</a>
+                </li>*@
+                <li class="nav-item">
+                    <a title="Logga ut" class="nav-link" href="@Url.Action("LogOff", "Account")"><i class="fas fa-arrow-left"></i> Logga ut</a>
+                </li>
+            </ul>
+        </div>
     </div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav container-fluid justify-content-center">
-            <li class="nav-item">
-                <a title="Startsida" class="nav-link" href="@Url.Action("Index", "Home")"> Startsida</a>
-            </li>
-            <li class="nav-item">
-                <a title="Mina tidigare jobb" class="nav-link" href="@Url.Action("Index", "Gallery")"> Galleri</a>
-            </li>
-            <li class="nav-item">
-                <a title="Mina tidigare jobb" class="nav-link" href="@Url.Action("Index", "Gallery")"> Webbshop</a>
-            </li>
-            <li class="nav-item">
-                <a title="Mina tidigare jobb" class="nav-link" href="@Url.Action("Index", "Gallery")"> Referenser</a>
-            </li>
-        </ul>
-
+}
+else
+{
+    <div class="nav-side-menu">
+        <div class="brand">
+            <a class="navbar-brand" href="@Url.Action("Index", "Home")"><img id="Loggo" style="height: 160px" src="~/Images/Logos/PgDesignLoggo.png" /></a>
+        </div>
+        <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+        <div class="menu-list">
+            <ul id="menu-content" class="menu-content collapse out">
+                <li class="nav-item">
+                    <a title="Startsida" class="nav-link" href="@Url.Action("Index", "Home")"><i class="fas fa-home fa-fw fa-lg"></i> Startsida</a>
+                </li>
+                <li class="nav-item">
+                    <a title="Galleri" class="nav-link" href="@Url.Action("Index", "Gallery", new { id = "bildekor" })"><i class="fas fa-images"></i> Galleri</a>
+                </li>
+                <li class="nav-item">
+                    <a title="Webbhandel" class="nav-link" href="@Url.Action("Index", "Webshop")"><i class="fas fa-shopping-cart"></i> Webbhandel</a>
+                </li>
+                <li class="nav-item">
+                    <a title="Referenser" class="nav-link" href="@Url.Action("FindUs", "Home")"><i class="fas fa-map-pin"></i> Hitta hit</a>  @*TODO: Ny icon*@
+                </li>
+                <li class="nav-item">
+                    <a title="Kontakta oss" class="nav-link" href="@Url.Action("Contact", "Home")"><i class="fas fa-phone"></i> Kontakta oss</a>
+                </li>
+                
+            </ul>
+        </div>
     </div>
-   
-</nav>
 
-<!-- Script to change active status for navbar items -->
-<script>
-    $(document).ready(function () {
-        $('.nav-link li.active').removeClass('active');
-        $('a[href="' + location.pathname + '"]').closest('.nav-item').addClass('active');
-    });
-</script>
+}
+
+
+
+

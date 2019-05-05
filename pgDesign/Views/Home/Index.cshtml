@@ -1,36 +1,77 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model pgDesign.ViewModels.StartUpViewModel
+@{
+    ViewBag.Title = "PG Design AB - Startsida";
+    ViewBag.MetaKeywords = "PG Design AB, pg design, pg, PG, Bjärtrå, Design, verkstad, tillverkning, bilar, lack, däck, ";
     //Layout = "~/Views/Home/_IndexLayout.cshtml";
 }
+<div class="row">
+    <div class="col-md-12 mb-3" id="CarouselId">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
 
-
-
-
-<div class="jumbotron">
-
-    <div class="polaroid-images row">
-        <a href=""><img height="200" src="~/Images/PgDesign/ute 3 (kopia).jpg" alt="Cave" title="Cave" /><p>asdf</p></a>
-        <a href=""><img height="200" src="~/Images/PgDesign/Första sida tidningen.jpg" alt="Islands Forest" title="asdf" /><p>asdf</p></a>
-        
-        <a href=""><img height="200" src="~/Images/PgDesign/DSC_0061.jpg" alt="Islands Forest" title="asdf" /><p>asdf</p></a>
-
-
+                @for (int i = 0; i < Model.gvm.BlobList.Count; i++)
+                {
+                    if (i == 0)
+                    {
+                        <div class="carousel-item active">
+                            <img class="d-block w-100" style="max-height: 580px; " src="@Model.gvm.BlobList.ElementAt(i).URIName" alt="First slide">
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="carousel-item">
+                            <img class="d-block w-100" style="max-height: 580px;" src="@Model.gvm.BlobList.ElementAt(i).URIName" alt="First slide">
+                        </div>
+                    }
+                }
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
     </div>
-    
+</div>
+<div class="row"  id="HomeContent">
+    <div class="col-md-6">
+        <div id="companyDescription">
+            <h4 class="text-center" style="color:#000">PG Design</h4>
+            <div>
+                <p class="" id="OmOssText">@Model.AboutText</p>
+            </div>
+        </div>
+        <div class="">
+            <h4 class="text-center">Boka tid</h4>
+            <p class="text-center">För tidsbokning eller vid andra funderingar så har du möjlighet att kontakta oss. <br /> <br /> För mer information, <a href="@Url.Action("Contact", "Home")">Klicka här!</a></p>
 
-    <div class="row">
-        <div class="col-md-6">
-            <h2 class="text-center" style="color:#808080">Öppettider</h2>
-            <hr />
-            <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel enim velit. Pellentesque sollicitudin tellus risus, nec laoreet sem auctor id. Aliquam vel hendrerit arcu. Fusce et dignissim turpis, sit amet ultricies metus. Etiam vitae nisl dolor. Curabitur ultrices ac libero non placerat. Etiam dictum mauris quis velit pellentesque maximus. In in sem sit amet libero tincidunt volutpat quis a ipsum. Maecenas facilisis nec lacus vitae venenatis. In condimentum maximus velit, nec malesuada leo euismod lobortis. Aenean efficitur nisl eget quam faucibus, sed sodales leo pretium. Integer condimentum vehicula ex, quis pretium purus. Aliquam sit amet nunc arcu. Fusce tincidunt risus vitae nulla viverra, eu mollis odio tristique</p>
         </div>
-        <div class="col-md-6">
-            <h2 class="text-center" style="color:#808080">Nyheter</h2>
-            <hr />
-            <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel enim velit. Pellentesque sollicitudin tellus risus, nec laoreet sem auctor id. Aliquam vel hendrerit arcu. Fusce et dignissim turpis, sit amet ultricies metus. Etiam vitae nisl dolor. Curabitur ultrices ac libero non placerat. Etiam dictum mauris quis velit pellentesque maximus. In in sem sit amet libero tincidunt volutpat quis a ipsum. Maecenas facilisis nec lacus vitae venenatis. In condimentum maximus velit, nec malesuada leo euismod lobortis. Aenean efficitur nisl eget quam faucibus, sed sodales leo pretium. Integer condimentum vehicula ex, quis pretium purus. Aliquam sit amet nunc arcu. Fusce tincidunt risus vitae nulla viverra, eu mollis odio tristique</p>
-        </div>
+    </div>
+    <div class="col-md-6">
+        <h4 class="text-center" style="color:#000">Besök vår Facebooksida</h4>
+        <br />
+        <div class="fb-page" data-href="https://www.facebook.com/PG-Design-AB-968888989852243/" data-tabs="timeline" data-width="500" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/PG-Design-AB-968888989852243/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/PG-Design-AB-968888989852243/">PG Design AB</a></blockquote></div>
     </div>
 </div>
 
 
 
+
+
+<div id="fb-root"></div>
+<script>
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/sv_SE/sdk.js#xfbml=1&version=v2.12';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>

@@ -1,7 +1,74 @@
-﻿
+﻿@model pgDesign.ViewModels.GalleryViewModel
 @{
-    ViewBag.Title = "Gallery";
+    ViewBag.Title = "PG Design AB - Galleri";
+    Layout = "~/Views/Gallery/_GalleryLayout.cshtml";
+}
+@*kommentar*@
+@if (!User.Identity.IsAuthenticated)
+{
+
+    <div class="row" id="picturesgallery">
+        @if (Model != null)
+        {
+            for (int i = 0; i < Model.BlobList.Count; i++)
+            {
+                var id = i;
+                <div class="col-md-4">
+                    <img src="@Model.BlobList.ElementAt(i).URIName" alt="..." data-toggle="modal" data-target="#myModal" class="getSrc img-thumbnail img-fluid hoverimg" style="max-height: 364.42px;" id="@{@id}">
+                </div>
+            }
+        }
+    </div>
+
+    <div class="modal" id="myModal">
+        <div class="modal-dialog" role="document" style="max-height: 1000px; max-width: 1000px;">
+
+            <div class="modal-body" style="max-height: 1000px;  max-width: 1000px;">
+
+                <img id="showimg" src="#" alt="" class="showPic mh-100 mw-100 center img-thumbnail" />
+                <div class="middle">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+else
+{
+    <div class="row" id="picturesgallery">
+        @if (Model != null)
+        {
+            for (int i = 0; i < Model.BlobList.Count; i++)
+            {
+                using (Html.BeginForm("DeleteImage", "Gallery", new { cn = Model.BlobList.ElementAt(i).ContainerName, pn = Model.BlobList.ElementAt(i).PictureName }, FormMethod.Post))
+                {
+                    var id = i;
+
+
+                    var modalForDelete = "modalForDelete" + id;
+                    <div class="col-md-6" id="adminpicturecontainer">
+                        <img src="@Model.BlobList.ElementAt(i).URIName" alt="..." class="img-thumbnail hoverimg img-fluid" style="max-height: 300px; width: 100%;" id="@{@id}">
+                        <input type="button" id="@{@id}" class="btn btn-danger" value="X" data-toggle="modal" data-target="#@modalForDelete" />
+                    </div>
+
+                    <div class="modal" id="@modalForDelete">
+                        <div class="modal-dialog" role="document" style="max-height: 1000px; max-width: 1000px;">
+                            <div class="modal-body" style="max-height: 1000px;  max-width: 1000px;">
+                                <div class="middle">
+
+                                    <input type="button" value="Delete" class="btn btn-danger" id="@{@id}" />
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        }
+
+    </div>
 }
 
-<h2>Gallery</h2>
+
 
