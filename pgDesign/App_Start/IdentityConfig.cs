@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
@@ -11,18 +13,45 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using pgDesign.Models;
+using SendGrid.Helpers.Mail;
+using SendGrid;
+using System.Diagnostics;
 
 namespace pgDesign
 {
     public class EmailService : IIdentityMessageService
     {
-        public Task SendAsync(IdentityMessage message)
+        public async Task SendAsync(IdentityMessage message)
         {
             // Plug in your email service here to send an email.
-            return Task.FromResult(0);
+            await configSendGridAsync(message);
+
+            //return Task.FromResult(0);
+        }
+        // Use NuGet to install SendGrid (Basic C# client lib)
+        private async Task configSendGridAsync(IdentityMessage message)
+        {
+            var apiKey = ConfigurationManager.AppSettings["SendApiKey"];
+            var client = new SendGridClient(apiKey);
+            var from = new EmailAddress("Jonathan.970329@gmail.com", "No-Reply");
+            var subject = message.Subject;
+            var to = new EmailAddress(message.Destination, "Test-User");
+            var plainTextContent = message.Body;
+            var htmlContent = message.Body;
+            var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
+
+            // Send the email.
+            if (client != null)
+            {
+                var response = await client.SendEmailAsync(msg);
+            }
+            else
+            {
+                Trace.TraceError("Failed to create Web transport.");
+                await Task.FromResult(0);
+            }
         }
     }
-
     public class SmsService : IIdentityMessageService
     {
         public Task SendAsync(IdentityMessage message)

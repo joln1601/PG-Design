@@ -20,6 +20,10 @@ namespace pgDesign.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Siteinformation> Siteinformation { get; set; }
+        public DbSet<ContactInfo> ContactInfo { get; set; }
+        public DbSet<Webshop> Webshop { get; set; }
+        public DbSet<Carousel> Carousels { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

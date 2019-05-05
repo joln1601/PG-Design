@@ -1,0 +1,92 @@
+﻿@model pgDesign.Models.Webshop
+
+@{
+    ViewBag.Title = "PG Design AB - Redigera";
+}
+
+<h2 class="text-center">@ViewBag.Title</h2>
+<br />
+
+@using (Html.BeginForm("EditItem", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+            
+    @Html.AntiForgeryToken()
+<div class="form-horizontal ">
+    
+    <br />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Id)
+
+    <div class="border border-dark shadow-lg">
+        <br />
+    <div class="form-group center col-md-6 text-center font-weight-bold">
+        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label center" })
+        <div>
+            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control center col-md-12" } })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group center col-md-12 text-center font-weight-bold">
+        @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label center" })
+        <div style="width: 100%">
+            @Html.TextAreaFor(model => model.Description, 4, 69, new { htmlAttributes = new { @class = "form-control center col-md-12" }  })
+            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group center col-md-6 text-center font-weight-bold">
+        @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label center" })
+        <div>
+            @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control center col-md-12" } })
+            @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+        </div>
+    </div>
+   
+    <div class="form-group center col-md-6 text-center" style="align-items: center">
+        <fieldset class="form-horizontal">
+
+            <label class="control-label font-weight-bold" for="Photo">Bild</label>
+            <div class="new_Btn col-md-6 btn btn-primary center">
+                Ladda upp ny bild
+            </div>
+            <img src="" id="profile-img-tag" width="200" class="mt-5" />
+            <p>OBS Om du inte vill ladda upp en ny bild skippa detta steg</p>
+            <br />
+            <br />
+            <br />
+            <input type="file" name="photo" id="html_btn" class="form-control-file" />
+        </fieldset>
+        <br />
+    </div>
+
+</div>
+   
+    <div class="form-group center col-md-12  mt-2 ">
+        <div >
+            <input type="submit" value="Spara" class="btn btn-success pl-5 pr-5 float-right" style="width: 250px;" />
+        </div>
+    </div>
+    </div>
+}
+<script type="text/javascript">
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#profile-img-tag').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#html_btn").change(function () {
+        readURL(this);
+    });
+</script>
+
+<script>
+        $('.new_Btn').bind("click", function () {
+            $('#html_btn').click();
+        });
+</script>

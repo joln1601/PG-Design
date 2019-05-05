@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "PG Design AB - Hitta hit";
+}
+<h2 class="text-center">Hitta hit</h2>
+<hr />
+<div class=" mt-5">
+    <div class="col-md-6 m-auto text-center pb-5">
+
+        <h4 class="mt-3" style="text-decoration: underline">Vägbeskrivning</h4>
+        <p class="mt-2">Skriv in ditt postnummer och tryck "Hitta hit" för att få en vägbeskrivning till PG Design</p>
+        <div>
+            <form action="http://maps.google.com/maps" method="get" target="_blank">
+                <input type="text" class="w-50 form-control center" name="saddr" />
+                <input type="hidden" name="daddr" value="Strinne 110 Bjärtrå, 87296 Kramfors" />
+                <br />
+                <input id="findusbtn" type="submit" class="btn btn-success align-self-center mt-2" value="Hitta hit" />
+            </form>
+
+        </div>
+    </div>
+    <div class="col-md-12">
+    <iframe class="col-md-12"
+            height="450"
+           
+            frameborder="0" style="border:0"
+            src="https://www.google.com/maps/embed/v1/search?key=AIzaSyCLzqgtUgI036tuRcLrE-OZXjjMvE8KfrM&q=Bjärtrå+110,+872+96+Bjärtrå" allowfullscreen></iframe>
+    </div>
+
+</div>

@@ -1,0 +1,131 @@
+﻿@model pgDesign.ViewModels.ContactVM
+@{
+    ViewBag.Title = "PG Design AB - KontaktAdmin";
+}
+
+
+<div id="KontaktInfoDiv" class="table-responsive">
+    <h2 class="text-center">Redigera innehåll i kontaktsidan</h2>
+    <hr />
+    @using (Html.BeginForm("SetContactAdmin", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div>
+
+        </div>
+          
+                    <div id="profile_pic"  class="col-md-12 border mb-2 pt-2 shadow-lg rounded" style="background-color: #333">
+                        <img src="@Model.Picture_Url" class="profile-pic center" id="profile" style="max-width: 300px;" />
+
+                        @Html.HiddenFor(model => model.ContainerName, new { @Value = "profile", name = "ContainerName" })
+                        <fieldset class="form-horizontal">
+                            <div class="form-group">
+                                <div class="col-md-10 center mt-2">
+                                    <div class="new_Btn col-md-6 btn btn-primary center">
+                                        Ändra profilbild
+                                    </div>
+                                    <input type="file" name="photo" id="html_btn" />
+                                </div>
+                            </div>
+                        </fieldset>
+
+                    </div>
+           
+        <table class="mb-3 contactTable col-md-12 table-responsive">
+            <tr >
+                <td class="col-md-12 form-group form-inline text-center">
+                    <div class="center" >
+
+                     
+                    <strong>@Html.Label("Förnamn")</strong>
+
+                        @Html.TextBoxFor(m => Model.Fname, new { @style = "margin-right:20px; width: 400px", @class = "form-control" })
+
+
+
+
+                      
+                    </div>
+                    <div class="center">
+                        <strong>@Html.Label("Efternamn")</strong>
+                        @Html.TextBoxFor(m => Model.LName, new { @style = "margin-right:20px; width: 400px", @class = "form-control" })
+                    </div>
+
+
+
+
+                </td>
+                
+             
+            </tr>
+            <tr>
+
+                <td class="col-md-12 form-group form-inline text-center">
+                    <div class="center">
+                        <strong>@Html.Label("E-post")</strong>
+                        @Html.TextBoxFor(m => Model.Email, new { @style = "margin-right:20px; width: 400px", @class = "form-control" })
+                    </div>
+                
+                
+                    <div  class="center">
+                        <strong>@Html.Label("Telefon")</strong>
+                        @Html.TextBoxFor(m => Model.Phone, new { @style = "margin-right:20px; width: 400px", @class = "form-control" })
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-12 form-group text-center">
+                    <div class="center">
+                        <strong> @Html.Label("Biografi")</strong>
+                        @Html.TextAreaFor(m => Model.Biography, new { @style = "margin-right:20px; width: 1000px", @rows = "6", @class = "form-control" })
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-12 form-group text-center">
+                    <div class="center">
+                        <strong>@Html.Label("Kontakta oss")</strong>
+                        @Html.TextAreaFor(m => Model.ContactUs, new { @style = "margin-right:20px; width: 1000px;", @rows = "4", @class = "form-control" })
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+        </table>
+        <div>
+            <input type="submit" value="Spara" class="form-control btn-success float-right" style="width: 130px; margin-right: 100px;" />
+
+        </div>
+    }
+    <br />
+
+    @if (TempData["Message"] != null)
+    {
+        <div class="col-md-12" style="color: red;">
+
+            @Html.Raw(@TempData["Message"])
+        </div>
+    }
+</div>
+
+<script type="text/javascript">
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#profile').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#html_btn").change(function () {
+        readURL(this);
+    });
+</script>
+
+<script>
+    $('.new_Btn').bind("click", function () {
+        $('#html_btn').click();
+    });
+</script>

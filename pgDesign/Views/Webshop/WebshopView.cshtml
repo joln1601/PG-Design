@@ -1,0 +1,90 @@
+﻿@model pgDesign.ViewModels.WebshopVM
+@{
+    ViewBag.Title = "PG Design AB - Webbhandel";
+}
+
+
+<div>
+
+    <div id="Webshopvaravy" class="shadow-lg border border-dark rounded">
+        <div class="pt-3 row col-md-12">
+            <div class="pl-2 col-md-6" style="margin-right: 50px;">
+            <img src="@Model.Picture_Url" id="saleItemImg" class="center img-thumbnail mt-3" style="max-height: 400px; margin-top: 50px;" />
+
+            </div>
+            <div class="text-center col-md-5">
+            <div class="pt-5">
+                <h2>@Model.Name</h2>
+                <h3 class="">Pris: @Model.Price</h3>
+            </div>
+            <p class="center">
+                @Model.Description
+            </p>
+           
+
+            </div>
+        </div>
+
+        <hr />
+        <div class="text-center row">
+            <div id="webshopfooter" class="center col-md-12">
+                <p class="w-75 center text-center mt-3">
+                    <strong class="w-50 mt-4" style="text-decoration: underline">Hur du kan kontakta oss om du är intresserad av varan.</strong>
+                    <br />
+                   
+                </p>
+
+                <ul class="w-75 center text-center list-unstyled">
+                    <li>
+                        <strong> E-post:</strong> <a href="#" data-toggle="modal" data-target="#myModal">Skicka ett mejl</a>
+                    </li>
+                    <li class="mt-3">
+                        <strong>Telefon: </strong> <a href="#">@Model.Cvm.Phone</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="mt-2 text-center mb-3">Kontakta PG-Design</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            @using (Html.BeginForm("SendMail", "Home"))
+            {
+                @Html.AntiForgeryToken()
+                <div class="modal-body">
+                    <div class="Mail-body col-md-12">
+                        <div class="Mail-content">
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email address</label>
+                                @Html.TextBoxFor(model => model.Mail.Email, new { @class = "form-control", @id = "exampleInputEmail1", @placeholder = "Fyll i din e-post" })
+                                <small id="emailHelp" class="form-text text-muted ml-2">Vi delar inte din e-post med någon annan.</small>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="subject">Ämne</label>
+                                @Html.TextBoxFor(model => model.Mail.Subject, new { @class = "form-control", @id = "subject", @placeholder = "Ämne"})
+
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="exampleTextarea">Meddelande</label>
+                                @Html.TextAreaFor(model => model.Mail.Content, new { @class = "form-control", @id = "exampleTextarea", @placeholder = "Meddelande", @rows = "4" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="submit" class="btn btn-success float-right" value="Skicka" />
+                    <input type="button" class="btn btn-danger" data-dismiss="modal" value="Stäng" />
+                </div>
+            }
+        </div>
+    </div>
+</div>
